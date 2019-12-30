@@ -48,7 +48,7 @@ namespace GeneaGedcom
                         }
                     }
 
-                    throw new FormatException(string.Format("invalid value: {0}", value));
+                    throw new FormatException($"invalid value: {value}");
                 }
             }
 

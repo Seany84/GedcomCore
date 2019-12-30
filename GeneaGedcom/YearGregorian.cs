@@ -46,7 +46,7 @@ namespace GeneaGedcom
             {
                 if (HasAlternative)
                 {
-                    return string.Format("{0}/{1:D2}", Year, Alternative);
+                    return $"{Year}/{Alternative:D2}";
                 }
                 else
                 {
@@ -113,12 +113,12 @@ namespace GeneaGedcom
 
         public bool Equals(int Year)
         {
-            var str = string.Format("{0:D4}", this.Year);
+            var str = $"{this.Year:D4}";
             var century = str.Substring(0, 2);
             var rest1 = str.Substring(2, 2);
-            var rest2 = string.Format("{0:D2}", Alternative);
+            var rest2 = $"{Alternative:D2}";
 
-            var str2 = string.Format("{0:D4}", Year);
+            var str2 = $"{Year:D4}";
             var century2 = str2.Substring(0, 2);
             var rest = str2.Substring(2, 2);
 

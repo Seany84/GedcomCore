@@ -137,7 +137,7 @@ namespace GeneaGedcom.Parser
             }
             catch(Exception e)
             {
-                reporting.Error(string.Format("Error while parsing line {0}: \"{1}\": {2}", LineNumber, Line, e.Message));
+                reporting.Error($"Error while parsing line {LineNumber}: \"{Line}\": {e.Message}");
 
                 nextLine = null; //just a dummy; we pop it when processLine() is called next time
             }
@@ -239,7 +239,7 @@ namespace GeneaGedcom.Parser
             if (ctor == null)
             {
                 var t = getCtorArgTypes(Line, reporting);
-                throw new InternalException(string.Format("no appropriate ctor found for type {0}. {1} parameters", Type, t.Length));
+                throw new InternalException($"no appropriate ctor found for type {Type}. {t.Length} parameters");
             }
 
             try
@@ -271,7 +271,8 @@ namespace GeneaGedcom.Parser
 
             if (nextObject == null)
             {
-                throw new InternalException(string.Format("error while creating next next object: class {0} doesn't inherit from GeneaGedcom.GedcomLine", Type));
+                throw new InternalException(
+                    $"error while creating next next object: class {Type} doesn't inherit from GeneaGedcom.GedcomLine");
             }
 
             return nextObject;
@@ -346,12 +347,12 @@ namespace GeneaGedcom.Parser
 
             if (length < minLength)
             {
-                reporting.Warn(string.Format("line \"{0}\" too short. should be min {1} characters", Line.LineValue, minLength));
+                reporting.Warn($"line \"{Line.LineValue}\" too short. should be min {minLength} characters");
             }
 
             if (length > maxLength)
             {
-                reporting.Warn(string.Format("line \"{0}\" too long. should be max {1} characters", Line.LineValue, maxLength));
+                reporting.Warn($"line \"{Line.LineValue}\" too long. should be max {maxLength} characters");
             }
         }
 

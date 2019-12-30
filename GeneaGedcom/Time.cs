@@ -77,7 +77,7 @@ namespace GeneaGedcom
                 }
                 else
                 {
-                    throw new FormatException(string.Format("unsupported time-format: {0}", value));
+                    throw new FormatException($"unsupported time-format: {value}");
                 }
             }
         }

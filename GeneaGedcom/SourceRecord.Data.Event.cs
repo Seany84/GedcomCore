@@ -67,7 +67,7 @@ namespace GeneaGedcom
                             }
                             catch
                             {
-                                Reporting.Error(string.Format("invalid value for EVENTS_RECORDED: {0}; value omitted", str));
+                                Reporting.Error($"invalid value for EVENTS_RECORDED: {str}; value omitted");
                             }
                         }
 

@@ -31,11 +31,11 @@ namespace GeneaGedcom
                     {
                         if (Day != 0)
                         {
-                            return string.Format("{0} {1} {2}", Day, EnumTagUtil.GetFirstTagName(Month), Year);
+                            return $"{Day} {EnumTagUtil.GetFirstTagName(Month)} {Year}";
                         }
                         else
                         {
-                            return string.Format("{0} {1}", EnumTagUtil.GetFirstTagName(Month), Year);
+                            return $"{EnumTagUtil.GetFirstTagName(Month)} {Year}";
                         }
                     }
                     else

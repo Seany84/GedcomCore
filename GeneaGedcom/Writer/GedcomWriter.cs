@@ -55,11 +55,11 @@ namespace GeneaGedcom.Writer
 
                 if (!string.IsNullOrEmpty(Line.XRefId))
                 {
-                    StreamWriter.WriteLine(string.Format("{0} @{1}@ {2} {3}", lineNumber(Line.Level), Line.XRefId, Line.TagName, Line.LineValue));
+                    StreamWriter.WriteLine($"{lineNumber(Line.Level)} @{Line.XRefId}@ {Line.TagName} {Line.LineValue}");
                 }
                 else
                 {
-                    StreamWriter.WriteLine(string.Format("{0} {1} {2}", lineNumber(Line.Level), Line.TagName, Line.LineValue));
+                    StreamWriter.WriteLine($"{lineNumber(Line.Level)} {Line.TagName} {Line.LineValue}");
                 }
             }
         }
@@ -149,7 +149,8 @@ namespace GeneaGedcom.Writer
                 {
                     if (minOccur > 0)
                     {
-                        reporting.Warn(string.Format("object {0} in {1} must occur at least {2} time(s), but was not set", prop.Name, Path, minOccur));
+                        reporting.Warn(
+                            $"object {prop.Name} in {Path} must occur at least {minOccur} time(s), but was not set");
                     }
 
                     continue;
@@ -193,12 +194,14 @@ namespace GeneaGedcom.Writer
 
                 if (occurances < minOccur)
                 {
-                    reporting.Warn(string.Format("object {0} in {1} must occur at least {2} time(s), but occured only {3} time(s)", prop.Name, Path, minOccur, occurances));
+                    reporting.Warn(
+                        $"object {prop.Name} in {Path} must occur at least {minOccur} time(s), but occured only {occurances} time(s)");
                 }
 
                 if (occurances > maxOccur)
                 {
-                    reporting.Warn(string.Format("object {0} in {1} can only occur {2} time(s), but occured {3} time(s)", prop.Name, Path, maxOccur, occurances));
+                    reporting.Warn(
+                        $"object {prop.Name} in {Path} can only occur {maxOccur} time(s), but occured {occurances} time(s)");
                 }
             }
         }

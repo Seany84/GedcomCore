@@ -62,7 +62,7 @@ namespace GeneaGedcom
                 }
                 else
                 {
-                    str = string.Format("{0} {1} {2}", Day, EnumTagUtil.GetFirstTagName(Month), Year);
+                    str = $"{Day} {EnumTagUtil.GetFirstTagName(Month)} {Year}";
                 }
 
                 return str;
