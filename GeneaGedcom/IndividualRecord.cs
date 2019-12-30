@@ -51,74 +51,40 @@ namespace GeneaGedcom
  
     public class IndividualRecord : Record
     {
-        private RestrictionNotice restrictionNotice;
-        private List<PersonalName> names;
-        private Sex sex;
-        private List<IndividualEvent> events;
-        private List<IndividualAttribute> attributes;
-        private List<LdsIndividualOrdiance> individualOrdiances;
-        private List<ChildToFamilyLink> childToFamilyLinks;
-        private List<SpouseToFamilyLink> spouseToFamilyLinks;
-        private List<string> submitterXRefs;
-        private List<Association> associations;
-        private List<string> aliasXRefs;
-        private List<string> ancestorsInterestXRefs;
-        private List<string> descandantsInterestXRefs;
-        private List<SourceCitation> sourceCitations;
-        private List<MultimediaLink> multimedia;
-        private List<NoteStructure> notes;
-        private string permanentRecordFileNumber;
-        private string ancestralFileNumber;
-        private List<UserReference> userReferences;
-        private string automatedRecordId;
-        private ChangeDate changeDate;
-
         public IndividualRecord(string XRef, Reporting Reporting)
             : base(XRef, Reporting)
         {
-            names = new List<PersonalName>();
-            events = new List<IndividualEvent>();
-            attributes = new List<IndividualAttribute>();
-            individualOrdiances = new List<LdsIndividualOrdiance>();
-            childToFamilyLinks = new List<ChildToFamilyLink>();
-            spouseToFamilyLinks = new List<SpouseToFamilyLink>();
-            submitterXRefs = new List<string>();
-            associations = new List<Association>();
-            aliasXRefs = new List<string>();
-            ancestorsInterestXRefs = new List<string>();
-            descandantsInterestXRefs = new List<string>();
-            sourceCitations = new List<SourceCitation>();
-            multimedia = new List<MultimediaLink>();
-            notes = new List<NoteStructure>();
-            userReferences = new List<UserReference>();
+            PersonalNames = new List<PersonalName>();
+            IndividualEvents = new List<IndividualEvent>();
+            Attributes = new List<IndividualAttribute>();
+            IndividualOrdiances = new List<LdsIndividualOrdiance>();
+            ChildToFamilyLinks = new List<ChildToFamilyLink>();
+            SpouseToFamilyLinks = new List<SpouseToFamilyLink>();
+            SubmitterXRefs = new List<string>();
+            Associations = new List<Association>();
+            AliasXRefs = new List<string>();
+            AncestorsInterestXRefs = new List<string>();
+            DescandantsInterestXRefs = new List<string>();
+            SourceCitations = new List<SourceCitation>();
+            Multimedia = new List<MultimediaLink>();
+            Notes = new List<NoteStructure>();
+            UserReferences = new List<UserReference>();
 
-            sex = Sex.Unknown;
-            restrictionNotice = RestrictionNotice.Unknown;
+            Sex = Sex.Unknown;
+            RestrictionNotice = RestrictionNotice.Unknown;
         }
 
         [Tag("RESN", RestrictionNotice.Unknown)]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public RestrictionNotice RestrictionNotice
-        {
-            get => restrictionNotice;
-            set => restrictionNotice = value;
-        }
+        public RestrictionNotice RestrictionNotice { get; set; }
 
         [Tag("NAME", typeof(PersonalName))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<PersonalName> PersonalNames
-        {
-            get => names;
-            set => names = value;
-        }
+        public List<PersonalName> PersonalNames { get; set; }
 
         [Tag("SEX", Sex.Unknown)]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public Sex Sex
-        {
-            get => sex;
-            set => sex = value;
-        }
+        public Sex Sex { get; set; }
 
         [Tag("BIRT", typeof(IndividualEventBirth))]
         [Tag("CHR", typeof(IndividualEventBirth))]
@@ -144,11 +110,7 @@ namespace GeneaGedcom
         [Tag("RETI", typeof(IndividualEvent))]
         [Tag("EVEN", typeof(IndividualEvent))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<IndividualEvent> IndividualEvents
-        {
-            get => events;
-            set => events = value;
-        }
+        public List<IndividualEvent> IndividualEvents { get; set; }
 
 
         [Tag("CAST", typeof(IndividualAttribute))]
@@ -165,157 +127,89 @@ namespace GeneaGedcom
         [Tag("SSN", typeof(IndividualAttribute))]
         [Tag("TITL", typeof(IndividualAttribute))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<IndividualAttribute> Attributes
-        {
-            get => attributes;
-            set => attributes = value;
-        }
+        public List<IndividualAttribute> Attributes { get; set; }
 
         [Tag("BAPL", typeof(LdsIndividualOrdianceBaptism))]
         [Tag("CONL", typeof(LdsIndividualOrdianceBaptism))]
         [Tag("ENDL", typeof(LdsIndividualOrdianceEndowment))]
         [Tag("SLGC", typeof(LdsIndividualOrdianceChildSealing))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<LdsIndividualOrdiance> IndividualOrdiances
-        {
-            get => individualOrdiances;
-            set => individualOrdiances = value;
-        }
+        public List<LdsIndividualOrdiance> IndividualOrdiances { get; set; }
 
         [Tag("FAMC", typeof(ChildToFamilyLink))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<ChildToFamilyLink> ChildToFamilyLinks
-        {
-            get => childToFamilyLinks;
-            set => childToFamilyLinks = value;
-        }
+        public List<ChildToFamilyLink> ChildToFamilyLinks { get; set; }
 
         [Tag("FAMS", typeof(SpouseToFamilyLink))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<SpouseToFamilyLink> SpouseToFamilyLinks
-        {
-            get => spouseToFamilyLinks;
-            set => spouseToFamilyLinks = value;
-        }
+        public List<SpouseToFamilyLink> SpouseToFamilyLinks { get; set; }
 
         [Tag("SUBM", typeof(string))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<string> SubmitterXRefs
-        {
-            get => submitterXRefs;
-            set => submitterXRefs = value;
-        }
+        public List<string> SubmitterXRefs { get; set; }
 
         [Tag("ASSO", typeof(Association))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<Association> Associations
-        {
-            get => associations;
-            set => associations = value;
-        }
+        public List<Association> Associations { get; set; }
 
         /// <summary>
         /// links to different records who may be the same person. 
         /// </summary>
         [Tag("ALIA", typeof(string))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<string> AliasXRefs
-        {
-            get => aliasXRefs;
-            set => aliasXRefs = value;
-        }
+        public List<string> AliasXRefs { get; set; }
 
         /// <summary>
         /// Indicates an interest in additional research for ancestors of this individual.
         /// </summary>
         [Tag("ANCI", typeof(string))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<string> AncestorsInterestXRefs
-        {
-            get => ancestorsInterestXRefs;
-            set => ancestorsInterestXRefs = value;
-        }
+        public List<string> AncestorsInterestXRefs { get; set; }
 
         /// <summary>
         /// Indicates an interest in research to identify additional descendants of this individual.
         /// </summary>
         [Tag("DESI", typeof(string))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<string> DescandantsInterestXRefs
-        {
-            get => descandantsInterestXRefs;
-            set => descandantsInterestXRefs = value;
-        }
+        public List<string> DescandantsInterestXRefs { get; set; }
 
         /// <summary>
         /// The initial or original material from which information was obtained. 
         /// </summary>
         [Tag("SOUR", typeof(SourceCitation))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<SourceCitation> SourceCitations
-        {
-            get => sourceCitations;
-            set => sourceCitations = value;
-        }
+        public List<SourceCitation> SourceCitations { get; set; }
 
         [Tag("OBJE", typeof(MultimediaLink))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<MultimediaLink> Multimedia
-        {
-            get => multimedia;
-            set => multimedia = value;
-        }
+        public List<MultimediaLink> Multimedia { get; set; }
 
         [Tag("NOTE", typeof(NoteStructure))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<NoteStructure> Notes
-        {
-            get => notes;
-            set => notes = value;
-        }
+        public List<NoteStructure> Notes { get; set; }
 
         [Tag("RFN")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1,90)]
-        public string PermanentRecordFileNumber
-        {
-            get => permanentRecordFileNumber;
-            set => permanentRecordFileNumber = value;
-        }
+        public string PermanentRecordFileNumber { get; set; }
 
         [Tag("AFN")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1,12)]
-        public string AncestralFileNumber
-        {
-            get => ancestralFileNumber;
-            set => ancestralFileNumber = value;
-        }
+        public string AncestralFileNumber { get; set; }
 
         [Tag("REFN", typeof(UserReference))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<UserReference> UserReferences
-        {
-            get => userReferences;
-            set => userReferences = value;
-        }
+        public List<UserReference> UserReferences { get; set; }
 
         [Tag("RIN")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1,12)]
-        public string AutomatedRecordId
-        {
-            get => automatedRecordId;
-            set => automatedRecordId = value;
-        }
+        public string AutomatedRecordId { get; set; }
 
         [Tag("CHAN", typeof(ChangeDate))]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public ChangeDate ChangeDate
-        {
-            get => changeDate;
-            set => changeDate = value;
-        }
+        public ChangeDate ChangeDate { get; set; }
 
         public override bool Equals(object obj)
         {

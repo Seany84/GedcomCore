@@ -18,16 +18,11 @@ namespace GeneaGedcom
 
     public class Place : GedcomLine
     {
-        private string placeValue;
-        private string placeHierarchy;
-        private List<SourceCitation> sourceCitations;
-        private List<NoteStructure> notes;
-
         public Place(Reporting Reporting)
             : base(Reporting)
         {
-            sourceCitations = new List<SourceCitation>();
-            notes = new List<NoteStructure>();
+            SourceCitations = new List<SourceCitation>();
+            Notes = new List<NoteStructure>();
 
             Tag = "PLAC";
         }
@@ -35,36 +30,20 @@ namespace GeneaGedcom
         [Tag("")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
         [Length(1,120)]
-        public string Value
-        {
-            get => placeValue;
-            set => placeValue = value;
-        }
+        public string Value { get; set; }
 
         [Tag("FORM")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1, 120)]
-        public string PlaceHierarchy
-        {
-            get => placeHierarchy;
-            set => placeHierarchy = value;
-        }
+        public string PlaceHierarchy { get; set; }
 
         [Tag("SOUR", typeof(SourceCitation))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<SourceCitation> SourceCitations
-        {
-            get => sourceCitations;
-            set => sourceCitations = value;
-        }
+        public List<SourceCitation> SourceCitations { get; set; }
 
         [Tag("NOTE", typeof(NoteStructure))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<NoteStructure> Notes
-        {
-            get => notes;
-            set => notes = value;
-        }
+        public List<NoteStructure> Notes { get; set; }
 
         public override bool Equals(object obj)
         {

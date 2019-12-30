@@ -8,8 +8,6 @@ namespace GeneaGedcom
 {
     public class SealingChild : IndividualRecord
     {
-        private string familyXRef;
-
         public SealingChild(string XRef, Reporting Reporting)
             : base(XRef, Reporting)
         {
@@ -17,11 +15,7 @@ namespace GeneaGedcom
 
         [Tag("FAMC")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
-        public string FamilyXRef
-        {
-            get => familyXRef;
-            set => familyXRef = value;
-        }
+        public string FamilyXRef { get; set; }
 
         public override bool Equals(object obj)
         {

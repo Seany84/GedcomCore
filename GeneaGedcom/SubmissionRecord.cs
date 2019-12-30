@@ -20,81 +20,45 @@ namespace GeneaGedcom
 
     public class SubmissionRecord : Record
     {
-        private string submitterXRef;
-        private string familyFileName;
-        private string templeCode;
-        private int generationsOfAncestors;
-        private int generationsOfDescandants;
-        private OrdinanceProcessFlag ordianceProcessFlag;
-        private string automatedRecordId;
-
         public SubmissionRecord(string XRef, Reporting Reporting)
             : base(XRef, Reporting)
         {
             Tag = "SUBN";
-            ordianceProcessFlag = OrdinanceProcessFlag.Unknown;
-            generationsOfAncestors = -1;
-            generationsOfDescandants = -1;
+            OrdianceProcessFlag = OrdinanceProcessFlag.Unknown;
+            GenerationsOfAncestors = -1;
+            GenerationsOfDescandants = -1;
         }
 
         [Tag("SUBM")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public string SubmitterXRef
-        {
-            get => submitterXRef;
-            set => submitterXRef = value;
-        }
+        public string SubmitterXRef { get; set; }
 
         [Tag("FAMF")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1,120)]
-        public string FamilyFileName
-        {
-            get => familyFileName;
-            set => familyFileName = value;
-        }
+        public string FamilyFileName { get; set; }
 
         [Tag("TEMP")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(4,5)]
-        public string TempleCode
-        {
-            get => templeCode;
-            set => templeCode = value;
-        }
+        public string TempleCode { get; set; }
 
         [Tag("ANCE", -1)]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public int GenerationsOfAncestors
-        {
-            get => generationsOfAncestors;
-            set => generationsOfAncestors = value;
-        }
+        public int GenerationsOfAncestors { get; set; }
 
         [Tag("DESC", -1)]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public int GenerationsOfDescandants
-        {
-            get => generationsOfDescandants;
-            set => generationsOfDescandants = value;
-        }
+        public int GenerationsOfDescandants { get; set; }
 
         [Tag("ORDI", OrdinanceProcessFlag.Unknown)]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public OrdinanceProcessFlag OrdianceProcessFlag
-        {
-            get => ordianceProcessFlag;
-            set => ordianceProcessFlag = value;
-        }
+        public OrdinanceProcessFlag OrdianceProcessFlag { get; set; }
 
         [Tag("RIN")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1,12)]
-        public string AutomatedRecordId
-        {
-            get => automatedRecordId;
-            set => automatedRecordId = value;
-        }
+        public string AutomatedRecordId { get; set; }
 
         public override bool Equals(object obj)
         {

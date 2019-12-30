@@ -48,19 +48,7 @@ namespace GeneaGedcom
  
     public partial class Header : GedcomLine
     {
-        private HeadSource source;
-        private string destination;
-        private DateExactTime transmissionDate;
-        private string submitterXRef;
-        private string submissionXref;
-        private string file;
-        private string copyrightGedcomFile;
-        private GedcomInformation_ gedcomInformation;
-        private CharacterSet_ characterSet;
         //private EnumLine<Language> language;
-        private Language language;
-        private Place_ place;
-        private ContinueableText note;
 
         public Header(Reporting Reporting)
             : base(Reporting)
@@ -70,77 +58,41 @@ namespace GeneaGedcom
 
         [Tag("SOUR")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
-        public HeadSource HeadSource
-        {
-            get => source;
-            set => source = value;
-        }
+        public HeadSource HeadSource { get; set; }
 
         [Tag("DEST")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public string Destination
-        {
-            get => destination;
-            set => destination = value;
-        }
+        public string Destination { get; set; }
 
         [Tag("DATE")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public DateExactTime TransmissionDate
-        {
-            get => transmissionDate;
-            set => transmissionDate = value;
-        }
+        public DateExactTime TransmissionDate { get; set; }
 
         [Tag("SUBM")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
-        public string SubmitterXRef
-        {
-            get => submitterXRef;
-            set => submitterXRef = value;
-        }
+        public string SubmitterXRef { get; set; }
 
         [Tag("SUBN")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public string SubmissionXRef
-        {
-            get => submissionXref;
-            set => submissionXref = value;
-        }
+        public string SubmissionXRef { get; set; }
 
         [Tag("FILE")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1,90)]
-        public string Filename
-        {
-            get => file;
-            set => file = value;
-        }
+        public string Filename { get; set; }
 
         [Tag("COPR")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1,90)]
-        public string CopyrightGedcomFile
-        {
-            get => copyrightGedcomFile;
-            set => copyrightGedcomFile = value;
-        }
+        public string CopyrightGedcomFile { get; set; }
 
         [Tag("GEDC")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
-        public GedcomInformation_ GedcomInformation
-        {
-            get => gedcomInformation;
-            set => gedcomInformation = value;
-        }
+        public GedcomInformation_ GedcomInformation { get; set; }
 
         [Tag("CHAR")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
-        public CharacterSet_ CharacterSet
-        {
-            get => characterSet;
-            set => characterSet = value;
-        }
+        public CharacterSet_ CharacterSet { get; set; }
 
         /*
         [Tag("LANG")]
@@ -160,28 +112,16 @@ namespace GeneaGedcom
 
         [Tag("LANG", Language.Unknown)]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public Language LanguageOfText
-        {
-            get => language;
-            set => language = value;
-        }
+        public Language LanguageOfText { get; set; }
 
 
         [Tag("PLAC")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public Place_ Place
-        {
-            get => place;
-            set => place = value;
-        }
+        public Place_ Place { get; set; }
 
         [Tag("NOTE")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public ContinueableText Note
-        {
-            get => note;
-            set => note = value;
-        }
+        public ContinueableText Note { get; set; }
 
         public override bool Equals(object obj)
         {

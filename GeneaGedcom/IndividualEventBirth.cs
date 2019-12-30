@@ -15,8 +15,6 @@ namespace GeneaGedcom
 
     public class IndividualEventBirth : IndividualEvent
     {
-        private string familyXRef;
-
         public IndividualEventBirth(Reporting Reporting)
             : base(Reporting)
         {
@@ -24,11 +22,7 @@ namespace GeneaGedcom
 
         [Tag("FAMC")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public string FamilyXref
-        {
-            get => familyXRef;
-            set => familyXRef = value;
-        }
+        public string FamilyXref { get; set; }
 
         public override bool Equals(object obj)
         {

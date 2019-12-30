@@ -10,30 +10,19 @@ namespace GeneaGedcom
     {
         public class AdoptionFamily_ : GedcomLine
         {
-            private string familyXRef;
-            private AdoptedByWhichParent adoptedByWhichParent;
-
             public AdoptionFamily_(Reporting Reporting)
                 : base(Reporting)
             {
-                adoptedByWhichParent = AdoptedByWhichParent.Unknown;
+                AdoptedByWhichParent = AdoptedByWhichParent.Unknown;
             }
 
             [Tag("")]
             [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-            public string FamilyXRef
-            {
-                get => familyXRef;
-                set => familyXRef = value;
-            }
+            public string FamilyXRef { get; set; }
 
             [Tag("ADOP", AdoptedByWhichParent.Unknown)]
             [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-            public AdoptedByWhichParent AdoptedByWhichParent
-            {
-                get => adoptedByWhichParent;
-                set => adoptedByWhichParent = value;
-            }
+            public AdoptedByWhichParent AdoptedByWhichParent { get; set; }
 
             public override bool Equals(object obj)
             {

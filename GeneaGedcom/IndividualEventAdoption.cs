@@ -16,8 +16,6 @@ namespace GeneaGedcom
 
     public partial class IndividualEventAdoption : IndividualEvent
     {
-        private AdoptionFamily_ adoptionFamily;
-
         public IndividualEventAdoption(Reporting Reporting)
             : base(Reporting)
         {
@@ -26,11 +24,7 @@ namespace GeneaGedcom
 
         [Tag("FAMC")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public AdoptionFamily_ AdoptionFamily
-        {
-            get => adoptionFamily;
-            set => adoptionFamily = value;
-        }
+        public AdoptionFamily_ AdoptionFamily { get; set; }
 
         public override bool Equals(object obj)
         {

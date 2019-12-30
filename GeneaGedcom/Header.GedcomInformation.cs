@@ -19,7 +19,6 @@ namespace GeneaGedcom
         {
             private static string[] acceptedFormats = { "LINEAGE-LINKED" };
 
-            private string version;
             private string format;
 
             public GedcomInformation_(Reporting Reporting)
@@ -30,11 +29,7 @@ namespace GeneaGedcom
 
             [Tag("VERS")]
             [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
-            public string Version
-            {
-                get => version;
-                set => version = value;
-            }
+            public string Version { get; set; }
 
             [Tag("FORM")]
             [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]

@@ -40,127 +40,66 @@ namespace GeneaGedcom
  
     public partial class SourceRecord : Record
     {
-        private Data_ data;
-        private ContinueableText authority;
-        private ContinueableText title;
-        private string abbreviation;
-        private ContinueableText publicationFacts;
-        private ContinueableText text;
-        private SourceRepositoryCitation sourceRepositoryCitation;
-        private List<MultimediaLink> multimedia;
-        private List<NoteStructure> notes;
-        private List<UserReference> userReferences;
-        private string automatedRecordId;
-        private ChangeDate changeDate;
-
         public SourceRecord(string XRef, Reporting Reporting)
             : base(XRef, Reporting)
         {
-            multimedia = new List<MultimediaLink>();
-            notes = new List<NoteStructure>();
-            userReferences = new List<UserReference>();
+            Multimedia = new List<MultimediaLink>();
+            Notes = new List<NoteStructure>();
+            UserReferences = new List<UserReference>();
 
             Tag = "SOUR";
         }
 
         [Tag("DATA")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public Data_ Data
-        {
-            get => data;
-            set => data = value;
-        }
+        public Data_ Data { get; set; }
 
         [Tag("AUTH")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public ContinueableText Authority
-        {
-            get => authority;
-            set => authority = value;
-        }
+        public ContinueableText Authority { get; set; }
 
         [Tag("TITL")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public ContinueableText Title
-        {
-            get => title;
-            set => title = value;
-        }
+        public ContinueableText Title { get; set; }
 
         [Tag("ABBR")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1,60)]
-        public string Abbreviation
-        {
-            get => abbreviation;
-            set => abbreviation = value;
-        }
+        public string Abbreviation { get; set; }
 
         [Tag("PUBL")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public ContinueableText PublicationFacts
-        {
-            get => publicationFacts;
-            set => publicationFacts = value;
-        }
+        public ContinueableText PublicationFacts { get; set; }
 
         [Tag("TEXT")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public ContinueableText Text
-        {
-            get => text;
-            set => text = value;
-        }
+        public ContinueableText Text { get; set; }
 
         [Tag("REPO")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public SourceRepositoryCitation SourceRepositoryCitation
-        {
-            get => sourceRepositoryCitation;
-            set => sourceRepositoryCitation = value;
-        }
+        public SourceRepositoryCitation SourceRepositoryCitation { get; set; }
 
         [Tag("OBJE", typeof(MultimediaLink))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<MultimediaLink> Multimedia
-        {
-            get => multimedia;
-            set => multimedia = value;
-        }
+        public List<MultimediaLink> Multimedia { get; set; }
 
         [Tag("NOTE", typeof(NoteStructure))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<NoteStructure> Notes
-        {
-            get => notes;
-            set => notes = value;
-        }
+        public List<NoteStructure> Notes { get; set; }
 
         [Tag("REFN", typeof(UserReference))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         [Length(1,20)]
-        public List<UserReference> UserReferences
-        {
-            get => userReferences;
-            set => userReferences = value;
-        }
+        public List<UserReference> UserReferences { get; set; }
 
         [Tag("RIN")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1,12)]
-        public string AutomatedRecordId
-        {
-            get => automatedRecordId;
-            set => automatedRecordId = value;
-        }
+        public string AutomatedRecordId { get; set; }
 
         [Tag("CHAN", typeof(ChangeDate))]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public ChangeDate ChangeDate
-        {
-            get => changeDate;
-            set => changeDate = value;
-        }
+        public ChangeDate ChangeDate { get; set; }
 
         public override bool Equals(object obj)
         {

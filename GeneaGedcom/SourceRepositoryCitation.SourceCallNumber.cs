@@ -16,9 +16,6 @@ namespace GeneaGedcom
 
         public partial class SourceCallNumber_ : GedcomLine
         {
-            private string sourceCallNumber;
-            private SourceMediaType mediaSourceType = SourceMediaType.Unknown;
-
             public SourceCallNumber_(Reporting Reporting)
                 : base(Reporting)
             {
@@ -28,19 +25,11 @@ namespace GeneaGedcom
             [Tag("")]
             [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
             [Length(1, 120)]
-            public string SourceCallNumber
-            {
-                get => sourceCallNumber;
-                set => sourceCallNumber = value;
-            }
+            public string SourceCallNumber { get; set; }
 
             [Tag("MEDI", SourceMediaType.Unknown)]
             [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-            public SourceMediaType MediaSourceType
-            {
-                get => mediaSourceType;
-                set => mediaSourceType = value;
-            }
+            public SourceMediaType MediaSourceType { get; set; } = SourceMediaType.Unknown;
 
             public override bool Equals(object obj)
             {

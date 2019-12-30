@@ -16,32 +16,21 @@ namespace GeneaGedcom
 
     public class SpouseToFamilyLink : GedcomLine
     {
-        private string familyXRef;
-        private List<NoteStructure> notes;
-
         public SpouseToFamilyLink(Reporting Reporting)
             : base(Reporting)
         {
-            notes = new List<NoteStructure>();
+            Notes = new List<NoteStructure>();
 
             Tag = "FAMS";
         }
 
         [Tag("")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
-        public string FamilyXRef
-        {
-            get => familyXRef;
-            set => familyXRef = value;
-        }
-        
+        public string FamilyXRef { get; set; }
+
         [Tag("NOTE", typeof(NoteStructure))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<NoteStructure> Notes
-        {
-            get => notes;
-            set => notes = value;
-        }
+        public List<NoteStructure> Notes { get; set; }
 
         public override bool Equals(object obj)
         {

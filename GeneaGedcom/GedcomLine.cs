@@ -9,21 +9,13 @@ namespace GeneaGedcom
     {
         private List<KeyValuePair<string, GedcomLine>> customTags;
 
-        private string tag;
-
-        private readonly Reporting reporting;
-
         public GedcomLine(Reporting Reporting)
         {
-            reporting = Reporting;
+            this.Reporting = Reporting;
             customTags = new List<KeyValuePair<string, GedcomLine>>();
         }
 
-        public virtual string Tag
-        {
-            get => tag;
-            set => tag = value;
-        }
+        public virtual string Tag { get; set; }
 
         public static bool CompareObjects(object Object1, object Object2)
         {
@@ -56,6 +48,6 @@ namespace GeneaGedcom
             return CompareObjects(Tag, line.Tag);
         }
 
-        protected Reporting Reporting => reporting;
+        protected Reporting Reporting { get; }
     }
 }

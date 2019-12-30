@@ -14,10 +14,6 @@ namespace GeneaGedcom
 
     public class DateHebrew : DateCalendar
     {
-        private int day;
-        private MonthHebrew month;
-        private int year;
-
         public DateHebrew(string DateString, Reporting Reporting)
             : base(Reporting)
         {
@@ -26,23 +22,11 @@ namespace GeneaGedcom
 
         public override Calendars UsedCalendar => Calendars.Hebrew;
 
-        public int Day
-        {
-            get => day;
-            set => day = value;
-        }
+        public int Day { get; set; }
 
-        public MonthHebrew Month
-        {
-            get => month;
-            set => month = value;
-        }
+        public MonthHebrew Month { get; set; }
 
-        public int Year
-        {
-            get => year;
-            set => year = value;
-        }
+        public int Year { get; set; }
 
         public override string DateString
         {
@@ -86,14 +70,14 @@ namespace GeneaGedcom
 
                 if (dayIndex >= 0)
                 {
-                    day = int.Parse(words[dayIndex]);
+                    Day = int.Parse(words[dayIndex]);
                 }
 
                 if (monthIndex >= 0)
                 {
                     try
                     {
-                        month = (MonthHebrew)EnumTagUtil.SelectMember(typeof(MonthHebrew), words[monthIndex], month);
+                        Month = (MonthHebrew)EnumTagUtil.SelectMember(typeof(MonthHebrew), words[monthIndex], Month);
                     }
                     catch
                     {
@@ -103,7 +87,7 @@ namespace GeneaGedcom
 
                 if (yearIndex >= 0)
                 {
-                    year = int.Parse(words[yearIndex]);
+                    Year = int.Parse(words[yearIndex]);
                 }
             }
         }

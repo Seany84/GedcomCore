@@ -17,14 +17,10 @@ namespace GeneaGedcom
     {
         private int year;
 
-        private int alternative;
-
-        private bool hasAlternative;
-
         public YearGregorian(int Year)
         {
             year = Year;
-            hasAlternative = false;
+            HasAlternative = false;
         }
 
         public YearGregorian(string YearString)
@@ -40,17 +36,9 @@ namespace GeneaGedcom
             set => year = value;
         }
 
-        public int Alternative
-        {
-            get => alternative;
-            set => alternative = value;
-        }
+        public int Alternative { get; set; }
 
-        public bool HasAlternative
-        {
-            get => hasAlternative;
-            set => hasAlternative = value;
-        }
+        public bool HasAlternative { get; set; }
 
         public string YearString
         {
@@ -81,7 +69,7 @@ namespace GeneaGedcom
                     if (match.Success)
                     {
                         year = int.Parse(match.Groups[1].Value);
-                        alternative = int.Parse(match.Groups[2].Value);
+                        Alternative = int.Parse(match.Groups[2].Value);
                         HasAlternative = true;
                     }
                     else

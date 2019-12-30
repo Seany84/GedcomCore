@@ -19,9 +19,6 @@ namespace GeneaGedcom
 
         public class FamilyEvent_ : FamilyEvent
         {
-            private PersonAtEvent husband;
-            private PersonAtEvent wife;
-
             public FamilyEvent_(Reporting Reporting)
                 : base(Reporting)
             {
@@ -29,19 +26,11 @@ namespace GeneaGedcom
 
             [Tag("HUSB", typeof(PersonAtEvent))]
             [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-            public PersonAtEvent Husband
-            {
-                get => husband;
-                set => husband = value;
-            }
+            public PersonAtEvent Husband { get; set; }
 
             [Tag("WIFE", typeof(PersonAtEvent))]
             [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-            public PersonAtEvent Wife
-            {
-                get => wife;
-                set => wife = value;
-            }
+            public PersonAtEvent Wife { get; set; }
 
             public override bool Equals(object obj)
             {

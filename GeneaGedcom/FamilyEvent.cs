@@ -27,8 +27,6 @@ namespace GeneaGedcom
 
     public class FamilyEvent : EventDetail
     {
-        private string happened;
-
         public FamilyEvent(Reporting Reporting)
             : base(Reporting)
         {
@@ -37,11 +35,7 @@ namespace GeneaGedcom
         [Tag("")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
         [Length(0,1)]
-        public string Happened
-        {
-            get => happened;
-            set => happened = value;
-        }
+        public string Happened { get; set; }
 
         public override bool Equals(object obj)
         {

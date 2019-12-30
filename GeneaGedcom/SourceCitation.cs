@@ -46,30 +46,20 @@ namespace GeneaGedcom
 
     public partial class SourceCitation : GedcomLine
     {
-        private string sourceXRef;
-        private string page;
-        private Event_ eventTypeCitedFrom;
-        private Data_ data;
-        private int certaintyAssessment;
-        private List<MultimediaLink> multimedia;
-        private List<NoteStructure> notes;
         private string sourceDescription;
-        private List<ContinueableText> textFromSource;
 
         private bool isInline;
-
-        private List<AdditionalLine> tmp;
 
         public SourceCitation(Reporting Reporting)
             : base(Reporting)
         {
-            multimedia = new List<MultimediaLink>();
-            notes = new List<NoteStructure>();
-            textFromSource = new List<ContinueableText>();
+            Multimedia = new List<MultimediaLink>();
+            Notes = new List<NoteStructure>();
+            TextFromSource = new List<ContinueableText>();
 
             Tag = "SOUR";
 
-            certaintyAssessment = -1;
+            CertaintyAssessment = -1;
         }
 
         [Tag("")]
@@ -104,11 +94,7 @@ namespace GeneaGedcom
         }
 
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public string SourceXRef
-        {
-            get => sourceXRef;
-            set => sourceXRef = value;
-        }
+        public string SourceXRef { get; set; }
 
         [Tag("CONT")]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
@@ -127,7 +113,7 @@ namespace GeneaGedcom
         [Tag("CONT", typeof(AdditionalLine))]
         [Tag("CONC", typeof(AdditionalLine))]
         [Length(1, 60)]
-        public List<AdditionalLine> AdditionalLines => tmp;
+        public List<AdditionalLine> AdditionalLines { get; private set; }
 
         [Tag("CONC")]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
@@ -146,51 +132,27 @@ namespace GeneaGedcom
         [Tag("PAGE")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1,248)]
-        public string Page
-        {
-            get => page;
-            set => page = value;
-        }
+        public string Page { get; set; }
 
         [Tag("EVEN")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public Event_ Event
-        {
-            get => eventTypeCitedFrom;
-            set => eventTypeCitedFrom = value;
-        }
+        public Event_ Event { get; set; }
 
         [Tag("DATA")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public Data_ Data
-        {
-            get => data;
-            set => data = value;
-        }
+        public Data_ Data { get; set; }
 
         [Tag("QUAY", -1)]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public int CertaintyAssessment
-        {
-            get => certaintyAssessment;
-            set => certaintyAssessment = value;
-        }
+        public int CertaintyAssessment { get; set; }
 
         [Tag("OBJE", typeof(MultimediaLink))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<MultimediaLink> Multimedia
-        {
-            get => multimedia;
-            set => multimedia = value;
-        }
+        public List<MultimediaLink> Multimedia { get; set; }
 
         [Tag("NOTE", typeof(NoteStructure))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<NoteStructure> Notes
-        {
-            get => notes;
-            set => notes = value;
-        }
+        public List<NoteStructure> Notes { get; set; }
 
         [Tag("SOUR")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
@@ -200,12 +162,12 @@ namespace GeneaGedcom
             {
                 if (sourceDescription == null)
                 {
-                    tmp = new List<AdditionalLine>();
+                    AdditionalLines = new List<AdditionalLine>();
                     return "";
                 }
 
                 var s = sourceDescription.Split(new[] { "\n" }, StringSplitOptions.None);
-                tmp = new List<AdditionalLine>();
+                AdditionalLines = new List<AdditionalLine>();
                 for (var n = 0; n < s.Length - 1; n++)
                 {
                     // a line (including spaces, the tag, etc) must not be longer than 255 characters
@@ -214,13 +176,13 @@ namespace GeneaGedcom
 
                     var contLine = new AdditionalLine(parts[0], Reporting);
                     contLine.Tag = "CONT";
-                    tmp.Add(contLine);
+                    AdditionalLines.Add(contLine);
 
                     for (var m = 1; m < parts.Length; m++)
                     {
                         var concLine = new AdditionalLine(parts[m], Reporting);
                         concLine.Tag = "CONC";
-                        tmp.Add(concLine);
+                        AdditionalLines.Add(concLine);
                     }
                 }
                 return s[0];
@@ -230,11 +192,7 @@ namespace GeneaGedcom
 
         [Tag("TEXT", typeof(ContinueableText))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<ContinueableText> TextFromSource
-        {
-            get => textFromSource;
-            set => textFromSource = value;
-        }
+        public List<ContinueableText> TextFromSource { get; set; }
 
         public override bool Equals(object obj)
         {

@@ -9,7 +9,6 @@ namespace GeneaGedcom
     public class DateExactTime : GedcomLine
     {
         private DateExact date;
-        private Time time;
 
         public DateExactTime(Reporting Reporting)
             : base(Reporting)
@@ -26,11 +25,7 @@ namespace GeneaGedcom
 
         [Tag("TIME")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public Time Time
-        {
-            get => time;
-            set => time = value;
-        }
+        public Time Time { get; set; }
 
         public override bool Equals(object obj)
         {

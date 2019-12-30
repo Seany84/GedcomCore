@@ -15,9 +15,6 @@ namespace GeneaGedcom
 
     public class Date : DateValue
     {
-        private DateCalendar dateCalendar;
-        private Calendars calendar;
-
         public Date(Reporting Reporting)
             : base(Reporting)
         {
@@ -31,7 +28,7 @@ namespace GeneaGedcom
 
         public override string DateString
         {
-            get => EnumTagUtil.GetFirstTagName(calendar) + " " + dateCalendar.DateString;
+            get => EnumTagUtil.GetFirstTagName(Calendar) + " " + DateCalendar.DateString;
             set
             {
                 value = value.Trim();
@@ -42,11 +39,11 @@ namespace GeneaGedcom
                 {
                     var cal = value.Substring(0, value.IndexOf(' '));
 
-                    if (EnumTagUtil.HasMember(typeof(Calendars), cal, calendar))
+                    if (EnumTagUtil.HasMember(typeof(Calendars), cal, Calendar))
                     // if the first part really was a calendar-string
                     {
                         date = value.Substring(value.IndexOf(' ') + 1);
-                        Calendar = (Calendars)EnumTagUtil.SelectMember(typeof(Calendars), cal, calendar);
+                        Calendar = (Calendars)EnumTagUtil.SelectMember(typeof(Calendars), cal, Calendar);
                     }
                     else
                     {
@@ -66,17 +63,9 @@ namespace GeneaGedcom
             }
         }
 
-        public DateCalendar DateCalendar
-        {
-            get => dateCalendar;
-            set => dateCalendar = value;
-        }
+        public DateCalendar DateCalendar { get; set; }
 
-        public Calendars Calendar
-        {
-            get => calendar;
-            set => calendar = value;
-        }
+        public Calendars Calendar { get; set; }
 
         private DateCalendar createDateCalendar(string DateCalendarText)
         {

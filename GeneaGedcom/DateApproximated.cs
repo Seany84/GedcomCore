@@ -22,9 +22,6 @@ namespace GeneaGedcom
 
     public class DateApproximated : DateValue
     {
-        private ApproximationType_ approximation;
-        private Date date;
-
         public DateApproximated(string DateString, Reporting Reporting)
             : base(Reporting)
         {
@@ -40,7 +37,7 @@ namespace GeneaGedcom
 
                 try
                 {
-                    ApproximationType = (ApproximationType_)EnumTagUtil.SelectMember(typeof(ApproximationType_), approx, approximation);
+                    ApproximationType = (ApproximationType_)EnumTagUtil.SelectMember(typeof(ApproximationType_), approx, ApproximationType);
                 }
                 catch
                 {
@@ -51,17 +48,9 @@ namespace GeneaGedcom
             }
         }
 
-        public ApproximationType_ ApproximationType
-        {
-            get => approximation;
-            set => approximation = value;
-        }
+        public ApproximationType_ ApproximationType { get; set; }
 
-        public Date Date
-        {
-            get => date;
-            set => date = value;
-        }
+        public Date Date { get; set; }
 
         public override bool Equals(object obj)
         {

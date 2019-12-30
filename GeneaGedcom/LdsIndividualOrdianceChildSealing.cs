@@ -20,32 +20,21 @@ namespace GeneaGedcom
 
     class LdsIndividualOrdianceChildSealing : LdsIndividualOrdiance
     {
-        private LdsChildSealingDateStatus ldsChildSealingDateStatus;
-        private string familyXRef;
-
         public LdsIndividualOrdianceChildSealing(Reporting Reporting)
             : base(Reporting)
         {
             Tag = "SLGC";
 
-            ldsChildSealingDateStatus = LdsChildSealingDateStatus.Unknown;
+            LdsChildSealingDateStatus = LdsChildSealingDateStatus.Unknown;
         }
 
         [Tag("STAT", LdsChildSealingDateStatus.Unknown)]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public LdsChildSealingDateStatus LdsChildSealingDateStatus
-        {
-            get => ldsChildSealingDateStatus;
-            set => ldsChildSealingDateStatus = value;
-        }
+        public LdsChildSealingDateStatus LdsChildSealingDateStatus { get; set; }
 
         [Tag("FAMC")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
-        public string FamilyXRef
-        {
-            get => familyXRef;
-            set => familyXRef = value;
-        }
+        public string FamilyXRef { get; set; }
 
         public override bool Equals(object obj)
         {

@@ -17,42 +17,26 @@ namespace GeneaGedcom
 
     public class ChildToFamilyLink : GedcomLine
     {
-        private string familyXRef;
-        private List<PedigreeLinkageType> pedigreeLinkageTypes;
-        private List<NoteStructure> notes;
-
         public ChildToFamilyLink(Reporting Reporting)
             : base(Reporting)
         {
-            pedigreeLinkageTypes = new List<PedigreeLinkageType>();
-            notes = new List<NoteStructure>();
+            PedigreeLinkageTypes = new List<PedigreeLinkageType>();
+            Notes = new List<NoteStructure>();
 
             Tag = "FAMC";
         }
 
         [Tag("")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
-        public string FamilyXRef
-        {
-            get => familyXRef;
-            set => familyXRef = value;
-        }
+        public string FamilyXRef { get; set; }
 
         [Tag("PEDI", typeof(PedigreeLinkageType))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<PedigreeLinkageType> PedigreeLinkageTypes
-        {
-            get => pedigreeLinkageTypes;
-            set => pedigreeLinkageTypes = value;
-        }
+        public List<PedigreeLinkageType> PedigreeLinkageTypes { get; set; }
 
         [Tag("NOTE", typeof(NoteStructure))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<NoteStructure> Notes
-        {
-            get => notes;
-            set => notes = value;
-        }
+        public List<NoteStructure> Notes { get; set; }
 
         public override bool Equals(object obj)
         {

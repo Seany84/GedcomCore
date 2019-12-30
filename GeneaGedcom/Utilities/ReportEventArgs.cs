@@ -6,18 +6,14 @@ namespace GeneaGedcom.Utilities
 {
     public class ReportEventArgs : EventArgs
     {
-        private readonly string message;
-
-        private readonly ReportSeverity severity;
-
         public ReportEventArgs(string Message, ReportSeverity Severity)
         {
-            message = Message;
-            severity = Severity;
+            this.Message = Message;
+            this.Severity = Severity;
         }
 
-        public string Message => message;
+        public string Message { get; }
 
-        public ReportSeverity Severity => severity;
+        public ReportSeverity Severity { get; }
     }
 }

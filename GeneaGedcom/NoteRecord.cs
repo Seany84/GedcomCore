@@ -22,18 +22,12 @@ namespace GeneaGedcom
     public class NoteRecord : Record
     {
         private string submitterText;
-        private List<SourceCitation> sourceCitations;
-        private List<UserReference> userReferences;
-        private string automatedRecordId;
-        private ChangeDate changeDate;
-
-        private List<AdditionalLine> tmp;
 
         public NoteRecord(string XRef, Reporting Reporting)
             : base(XRef, Reporting)
         {
-            sourceCitations = new List<SourceCitation>();
-            userReferences = new List<UserReference>();
+            SourceCitations = new List<SourceCitation>();
+            UserReferences = new List<UserReference>();
 
             Tag = "NOTE";
         }
@@ -45,7 +39,7 @@ namespace GeneaGedcom
             get
             {
                 var s = submitterText.Split(new[] { "\n" }, StringSplitOptions.None);
-                tmp = new List<AdditionalLine>();
+                AdditionalLines = new List<AdditionalLine>();
                 for (var n = 0; n < s.Length - 1; n++)
                 {
                     // a line (including spaces, the tag, etc) must not be longer than 255 characters
@@ -54,13 +48,13 @@ namespace GeneaGedcom
 
                     var contLine = new AdditionalLine(parts[0], Reporting);
                     contLine.Tag = "CONT";
-                    tmp.Add(contLine);
+                    AdditionalLines.Add(contLine);
 
                     for (var m = 1; m < parts.Length; m++)
                     {
                         var concLine = new AdditionalLine(parts[m], Reporting);
                         concLine.Tag = "CONC";
-                        tmp.Add(concLine);
+                        AdditionalLines.Add(concLine);
                     }
                 }
                 return s[0];
@@ -71,7 +65,7 @@ namespace GeneaGedcom
         [Tag("CONT", typeof(AdditionalLine))]
         [Tag("CONC", typeof(AdditionalLine))]
         [Length(1, 60)]
-        public List<AdditionalLine> AdditionalLines => tmp;
+        public List<AdditionalLine> AdditionalLines { get; private set; }
 
         [Tag("CONT")]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
@@ -105,36 +99,20 @@ namespace GeneaGedcom
 
         [Tag("SOUR", typeof(SourceCitation))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<SourceCitation> SourceCitations
-        {
-            get => sourceCitations;
-            set => sourceCitations = value;
-        }
+        public List<SourceCitation> SourceCitations { get; set; }
 
         [Tag("REFN", typeof(UserReference))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<UserReference> UserReferences
-        {
-            get => userReferences;
-            set => userReferences = value;
-        }
+        public List<UserReference> UserReferences { get; set; }
 
         [Tag("RIN")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1,12)]
-        public string AutomatedRecordId
-        {
-            get => automatedRecordId;
-            set => automatedRecordId = value;
-        }
+        public string AutomatedRecordId { get; set; }
 
         [Tag("CHAN", typeof(ChangeDate))]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public ChangeDate ChangeDate
-        {
-            get => changeDate;
-            set => changeDate = value;
-        }
+        public ChangeDate ChangeDate { get; set; }
 
         public override bool Equals(object obj)
         {

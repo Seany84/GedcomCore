@@ -20,52 +20,31 @@ namespace GeneaGedcom
 
     public class Association : GedcomLine
     {
-        private string indiXRef;
-        private string relationIsDescriptor;
-        private List<NoteStructure> notes;
-        private List<SourceCitation> sourceCitations;
-
         public Association(Reporting Reporting)
             : base(Reporting)
         {
-            notes = new List<NoteStructure>();
-            sourceCitations = new List<SourceCitation>();
+            Notes = new List<NoteStructure>();
+            SourceCitations = new List<SourceCitation>();
 
             Tag = "ASSO";
         }
 
         [Tag("")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
-        public string IndiXRef
-        {
-            get => indiXRef;
-            set => indiXRef = value;
-        }
+        public string IndiXRef { get; set; }
 
         [Tag("RELA")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
         [Length(1,25)]
-        public string RelationIsDescriptor
-        {
-            get => relationIsDescriptor;
-            set => relationIsDescriptor = value;
-        }
+        public string RelationIsDescriptor { get; set; }
 
         [Tag("NOTE", typeof(NoteStructure))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<NoteStructure> Notes
-        {
-            get => notes;
-            set => notes = value;
-        }
+        public List<NoteStructure> Notes { get; set; }
 
         [Tag("SOUR", typeof(SourceCitation))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<SourceCitation> SourceCitations
-        {
-            get => sourceCitations;
-            set => sourceCitations = value;
-        }
+        public List<SourceCitation> SourceCitations { get; set; }
 
         public override bool Equals(object obj)
         {

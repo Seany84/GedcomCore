@@ -13,8 +13,6 @@ namespace GeneaGedcom
      */
     public class DatePhrase : DateValue
     {
-        private string phrase;
-
         public DatePhrase(string Phrase, Reporting Reporting)
             : base(Reporting)
         {
@@ -24,14 +22,10 @@ namespace GeneaGedcom
         public override string DateString
         {
             get => "";
-            set => phrase = value;
+            set => Phrase = value;
         }
 
-        public string Phrase
-        {
-            get => phrase;
-            set => phrase = value;
-        }
+        public string Phrase { get; set; }
 
         public override bool Equals(object obj)
         {

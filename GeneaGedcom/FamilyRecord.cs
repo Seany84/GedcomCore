@@ -40,35 +40,21 @@ namespace GeneaGedcom
  
     public partial class FamilyRecord : Record
     {
-        private List<FamilyEvent_> familyEvents;
-        private string husbandXRef;
-        private string wifeXRef;
-        private List<string> childrenXRef;
-        private int numberOfChildren;
-        private List<string> submitterXRefs;
-        private List<LdsSpouseSealing> spouseSealings;
-        private List<SourceCitation> sourceCitations;
-        private List<MultimediaLink> multimedia;
-        private List<NoteStructure> notes;
-        private List<UserReference> userReferences;
-        private string automatedRecordId;
-        private ChangeDate changeDate;
-
         public FamilyRecord(string XRef, Reporting Reporting)
             : base(XRef, Reporting)
         {
-            familyEvents = new List<FamilyEvent_>();
-            childrenXRef = new List<string>();
-            submitterXRefs = new List<string>();
-            spouseSealings = new List<LdsSpouseSealing>();
-            sourceCitations = new List<SourceCitation>();
-            multimedia = new List<MultimediaLink>();
-            notes = new List<NoteStructure>();
-            userReferences = new List<UserReference>();
+            FamilyEvents = new List<FamilyEvent_>();
+            Children = new List<string>();
+            SubmitterXRefs = new List<string>();
+            SpouseSealings = new List<LdsSpouseSealing>();
+            SourceCitations = new List<SourceCitation>();
+            Multimedia = new List<MultimediaLink>();
+            Notes = new List<NoteStructure>();
+            UserReferences = new List<UserReference>();
 
             Tag = "FAM";
 
-            numberOfChildren = -1;
+            NumberOfChildren = -1;
         }
 
         [Tag("ANUL", typeof(FamilyEvent_))]
@@ -83,108 +69,56 @@ namespace GeneaGedcom
         [Tag("MARS", typeof(FamilyEvent_))]
         [Tag("EVEN", typeof(FamilyEvent_))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<FamilyEvent_> FamilyEvents
-        {
-            get => familyEvents;
-            set => familyEvents = value;
-        }
+        public List<FamilyEvent_> FamilyEvents { get; set; }
 
         [Tag("HUSB")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public string HusbandXRef
-        {
-            get => husbandXRef;
-            set => husbandXRef = value;
-        }
+        public string HusbandXRef { get; set; }
 
         [Tag("WIFE")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public string WifeXRef
-        {
-            get => wifeXRef;
-            set => wifeXRef = value;
-        }
+        public string WifeXRef { get; set; }
 
         [Tag("CHIL", typeof(string))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<string> Children
-        {
-            get => childrenXRef;
-            set => childrenXRef = value;
-        }
+        public List<string> Children { get; set; }
 
         [Tag("NCHI", -1)]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public int NumberOfChildren
-        {
-            get => numberOfChildren;
-            set => numberOfChildren = value;
-        }
+        public int NumberOfChildren { get; set; }
 
         [Tag("SUBM", typeof(string))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<string> SubmitterXRefs
-        {
-            get => submitterXRefs;
-            set => submitterXRefs = value;
-        }
+        public List<string> SubmitterXRefs { get; set; }
 
         [Tag("SLGS", typeof(LdsSpouseSealing))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<LdsSpouseSealing> SpouseSealings
-        {
-            get => spouseSealings;
-            set => spouseSealings = value;
-        }
+        public List<LdsSpouseSealing> SpouseSealings { get; set; }
 
         [Tag("SOUR", typeof(SourceCitation))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<SourceCitation> SourceCitations
-        {
-            get => sourceCitations;
-            set => sourceCitations = value;
-        }
+        public List<SourceCitation> SourceCitations { get; set; }
 
         [Tag("OBJE", typeof(MultimediaLink))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<MultimediaLink> Multimedia
-        {
-            get => multimedia;
-            set => multimedia = value;
-        }
+        public List<MultimediaLink> Multimedia { get; set; }
 
         [Tag("NOTE", typeof(NoteStructure))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<NoteStructure> Notes
-        {
-            get => notes;
-            set => notes = value;
-        }
+        public List<NoteStructure> Notes { get; set; }
 
         [Tag("REFN", typeof(UserReference))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<UserReference> UserReferences
-        {
-            get => userReferences;
-            set => userReferences = value;
-        }
+        public List<UserReference> UserReferences { get; set; }
 
         [Tag("RIN")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1,12)]
-        public string AutomatedRecordId
-        {
-            get => automatedRecordId;
-            set => automatedRecordId = value;
-        }
+        public string AutomatedRecordId { get; set; }
 
         [Tag("CHAN")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public ChangeDate ChangeDate
-        {
-            get => changeDate;
-            set => changeDate = value;
-        }
+        public ChangeDate ChangeDate { get; set; }
 
         public override bool Equals(object obj)
         {

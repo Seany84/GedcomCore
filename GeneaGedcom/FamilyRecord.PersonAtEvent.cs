@@ -19,8 +19,6 @@ namespace GeneaGedcom
 
         public class PersonAtEvent : GedcomLine
         {
-            private AgeAtEvent ageAtEvent;
-
             public PersonAtEvent(Reporting Reporting)
                 : base(Reporting)
             {
@@ -28,11 +26,7 @@ namespace GeneaGedcom
 
             [Tag("AGE")]
             [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
-            public AgeAtEvent AgeAtEvent
-            {
-                get => ageAtEvent;
-                set => ageAtEvent = value;
-            }
+            public AgeAtEvent AgeAtEvent { get; set; }
 
             public override bool Equals(object obj)
             {

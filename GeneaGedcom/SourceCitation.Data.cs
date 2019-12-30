@@ -18,13 +18,10 @@ namespace GeneaGedcom
 
         public class Data_ : GedcomLine
         {
-            private DateValue entryRecordingDate;
-            private List<ContinueableText> textFromSource;
-
             public Data_(Reporting Reporting)
                 : base(Reporting)
             {
-                textFromSource = new List<ContinueableText>();
+                TextFromSource = new List<ContinueableText>();
 
                 Tag = "DATA";
             }
@@ -33,23 +30,15 @@ namespace GeneaGedcom
             [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
             public string EntryRecordingDateString
             {
-                get => entryRecordingDate == null ? "" : entryRecordingDate.DateString;
-                set => entryRecordingDate = DateValue.CreateDateValue(value, Reporting);
+                get => EntryRecordingDate == null ? "" : EntryRecordingDate.DateString;
+                set => EntryRecordingDate = DateValue.CreateDateValue(value, Reporting);
             }
 
-            public DateValue EntryRecordingDate
-            {
-                get => entryRecordingDate;
-                set => entryRecordingDate = value;
-            }
+            public DateValue EntryRecordingDate { get; set; }
 
             [Tag("TEXT", typeof(ContinueableText))]
             [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-            public List<ContinueableText> TextFromSource
-            {
-                get => textFromSource;
-                set => textFromSource = value;
-            }
+            public List<ContinueableText> TextFromSource { get; set; }
 
             public override bool Equals(object obj)
             {

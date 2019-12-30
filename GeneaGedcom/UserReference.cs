@@ -14,9 +14,6 @@ namespace GeneaGedcom
 
     public class UserReference : GedcomLine
     {
-        private string userReferenceNumber;
-        private string userReferenceType;
-
         public UserReference(Reporting Reporting)
             : base(Reporting)
         {
@@ -26,20 +23,12 @@ namespace GeneaGedcom
         [Tag("")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
         [Length(1, 20)]
-        public string UserReferenceNumber
-        {
-            get => userReferenceNumber;
-            set => userReferenceNumber = value;
-        }
+        public string UserReferenceNumber { get; set; }
 
         [Tag("TYPE")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1, 40)]
-        public string UserReferenceType
-        {
-            get => userReferenceType;
-            set => userReferenceType = value;
-        }
+        public string UserReferenceType { get; set; }
 
         public override bool Equals(object obj)
         {

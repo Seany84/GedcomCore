@@ -14,10 +14,6 @@ namespace GeneaGedcom
 
     public class DateFrench : DateCalendar
     {
-        private int day;
-        private MonthFrench month;
-        private int year;
-
         public DateFrench(string DateString, Reporting Reporting)
             : base(Reporting)
         {
@@ -68,14 +64,14 @@ namespace GeneaGedcom
 
                 if (dayIndex >= 0)
                 {
-                    day = int.Parse(words[dayIndex]);
+                    Day = int.Parse(words[dayIndex]);
                 }
 
                 if (monthIndex >= 0)
                 {
                     try
                     {
-                        month = (MonthFrench)EnumTagUtil.SelectMember(typeof(MonthFrench), words[monthIndex], month);
+                        Month = (MonthFrench)EnumTagUtil.SelectMember(typeof(MonthFrench), words[monthIndex], Month);
                     }
                     catch
                     {
@@ -85,28 +81,16 @@ namespace GeneaGedcom
 
                 if (yearIndex >= 0)
                 {
-                    year = int.Parse(words[yearIndex]);
+                    Year = int.Parse(words[yearIndex]);
                 }
             }
         }
 
-        public int Day
-        {
-            get => day;
-            set => day = value;
-        }
+        public int Day { get; set; }
 
-        public MonthFrench Month
-        {
-            get => month;
-            set => month = value;
-        }
+        public MonthFrench Month { get; set; }
 
-        public int Year
-        {
-            get => year;
-            set => year = value;
-        }
+        public int Year { get; set; }
 
         public override bool Equals(object obj)
         {

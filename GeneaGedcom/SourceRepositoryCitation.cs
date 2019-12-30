@@ -20,42 +20,26 @@ namespace GeneaGedcom
 
     public partial class SourceRepositoryCitation : GedcomLine
     {
-        private string repositoryXRef;
-        private List<NoteStructure> notes;
-        private List<SourceCallNumber_> sourceCallNumber;
-
         public SourceRepositoryCitation(Reporting Reporting)
             : base(Reporting)
         {
-            notes = new List<NoteStructure>();
-            sourceCallNumber = new List<SourceCallNumber_>();
+            Notes = new List<NoteStructure>();
+            SourceCallNumber = new List<SourceCallNumber_>();
 
             Tag = "REPO";
         }
 
         [Tag("")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
-        public string RepositoryXRef
-        {
-            get => repositoryXRef;
-            set => repositoryXRef = value;
-        }
+        public string RepositoryXRef { get; set; }
 
         [Tag("NOTE", typeof(NoteStructure))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<NoteStructure> Notes
-        {
-            get => notes;
-            set => notes = value;
-        }
+        public List<NoteStructure> Notes { get; set; }
 
         [Tag("CALN", typeof(SourceCallNumber_))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<SourceCallNumber_> SourceCallNumber
-        {
-            get => sourceCallNumber;
-            set => sourceCallNumber = value;
-        }
+        public List<SourceCallNumber_> SourceCallNumber { get; set; }
 
         public override bool Equals(object obj)
         {

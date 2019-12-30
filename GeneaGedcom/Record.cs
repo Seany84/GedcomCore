@@ -28,8 +28,6 @@ namespace GeneaGedcom
  
     public abstract class Record : GedcomLine
     {
-        private string xref;
-
         protected Record(string XRef, Reporting Reporting)
             : base(Reporting)
         {
@@ -37,11 +35,7 @@ namespace GeneaGedcom
         }
 
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
-        public string XRef
-        {
-            get => xref;
-            set => xref = value;
-        }
+        public string XRef { get; set; }
 
         public override bool Equals(object obj)
         {

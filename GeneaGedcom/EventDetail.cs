@@ -26,35 +26,19 @@ namespace GeneaGedcom
  
     public class EventDetail : GedcomLine
     {
-        private string type;
-        private DateValue date;
-        private Place place;
-        private Address address;
-        private List<string> phoneNumbers;
-        private AgeAtEvent ageAtEvent;
-        private string responsibleAgency;
-        private string cause;
-        private List<SourceCitation> sourceCitations;
-        private List<MultimediaLink> multimedia;
-        private List<NoteStructure> notes;
-
         protected EventDetail(Reporting Reporting)
             : base(Reporting)
         {
-            phoneNumbers = new List<string>();
-            sourceCitations = new List<SourceCitation>();
-            multimedia = new List<MultimediaLink>();
-            notes = new List<NoteStructure>();
+            PhoneNumbers = new List<string>();
+            SourceCitations = new List<SourceCitation>();
+            Multimedia = new List<MultimediaLink>();
+            Notes = new List<NoteStructure>();
         }
 
         [Tag("TYPE")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1,90)]
-        public string Type
-        {
-            get => type;
-            set => type = value;
-        }
+        public string Type { get; set; }
 
         [Tag("DATE")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
@@ -62,96 +46,56 @@ namespace GeneaGedcom
         {
             get
             {
-                if (date == null)
+                if (Date == null)
                 {
                     return null;
                 }
 
-                return date.DateString;
+                return Date.DateString;
             }
-            set => date = DateValue.CreateDateValue(value, Reporting);
+            set => Date = DateValue.CreateDateValue(value, Reporting);
         }
 
-        public DateValue Date
-        {
-            get => date;
-            set => date = value;
-        }
+        public DateValue Date { get; set; }
 
         [Tag("PLAC")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public Place Place
-        {
-            get => place;
-            set => place = value;
-        }
+        public Place Place { get; set; }
 
         [Tag("ADDR")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public Address Address
-        {
-            get => address;
-            set => address = value;
-        }
+        public Address Address { get; set; }
 
         [Tag("PHON", typeof(string))]
         [Quantity(0, 3)]
         [Length(1, 25)]
-        public List<string> PhoneNumbers
-        {
-            get => phoneNumbers;
-            set => phoneNumbers = value;
-        }
-        
+        public List<string> PhoneNumbers { get; set; }
+
         [Tag("AGE")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public AgeAtEvent AgeAtEvent
-        {
-            get => ageAtEvent;
-            set => ageAtEvent = value;
-        }
+        public AgeAtEvent AgeAtEvent { get; set; }
 
         [Tag("AGNC")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1,120)]
-        public string ResponsibleAgency
-        {
-            get => responsibleAgency;
-            set => responsibleAgency = value;
-        }
+        public string ResponsibleAgency { get; set; }
 
         [Tag("CAUS")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1,90)]
-        public string Cause
-        {
-            get => cause;
-            set => cause = value;
-        }
+        public string Cause { get; set; }
 
         [Tag("SOUR", typeof(SourceCitation))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<SourceCitation> SourceCitations
-        {
-            get => sourceCitations;
-            set => sourceCitations = value;
-        }
+        public List<SourceCitation> SourceCitations { get; set; }
 
         [Tag("OBJE", typeof(MultimediaLink))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<MultimediaLink> Multimedia
-        {
-            get => multimedia;
-            set => multimedia = value;
-        }
+        public List<MultimediaLink> Multimedia { get; set; }
 
         [Tag("NOTE", typeof(NoteStructure))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<NoteStructure> Notes
-        {
-            get => notes;
-            set => notes = value;
-        }
+        public List<NoteStructure> Notes { get; set; }
 
         public override bool Equals(object obj)
         {

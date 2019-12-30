@@ -24,32 +24,19 @@ namespace GeneaGedcom
     /// </summary>
     public class LineageLinkedGedcom : GedcomLine
     {
-        private Header header;
-        private SubmissionRecord submissionRecord;
-        private List<Record> records;
-        private Trailer trailer;
-
         public LineageLinkedGedcom(Reporting Reporting)
             : base(Reporting)
         {
-            records = new List<Record>();
+            Records = new List<Record>();
         }
 
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
         [Tag("HEAD")]
-        public Header Header
-        {
-            get => header;
-            set => header = value;
-        }
+        public Header Header { get; set; }
 
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Tag("SUBN")]
-        public SubmissionRecord SubmissionRecord
-        {
-            get => submissionRecord;
-            set => submissionRecord = value;
-        }
+        public SubmissionRecord SubmissionRecord { get; set; }
 
         [Quantity(QuantityAttribute.PredefinedQuantities.OneUnbounded)]
         [Tag("FAM", typeof(FamilyRecord))]
@@ -59,19 +46,11 @@ namespace GeneaGedcom
         [Tag("REPO", typeof(RepositoryRecord))]
         [Tag("SOUR", typeof(SourceRecord))]
         [Tag("SUBM", typeof(SubmitterRecord))]
-        public List<Record> Records
-        {
-            get => records;
-            set => records = value;
-        }
+        public List<Record> Records { get; set; }
 
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
         [Tag("TRLR")]
-        public Trailer Trailer
-        {
-            get => trailer;
-            set => trailer = value;
-        }
+        public Trailer Trailer { get; set; }
 
         public override bool Equals(object obj)
         {

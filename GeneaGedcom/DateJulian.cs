@@ -13,10 +13,6 @@ namespace GeneaGedcom
 
     public class DateJulian : DateCalendar
     {
-        private int day;
-        private Month month;
-        private int year;
-
         public DateJulian(string DateString, Reporting Reporting)
             : base(Reporting)
         {
@@ -67,14 +63,14 @@ namespace GeneaGedcom
 
                 if (dayIndex >= 0)
                 {
-                    day = int.Parse(words[dayIndex]);
+                    Day = int.Parse(words[dayIndex]);
                 }
 
                 if (monthIndex >= 0)
                 {
                     try
                     {
-                        month = (Month)EnumTagUtil.SelectMember(typeof(Month), words[monthIndex], month);
+                        Month = (Month)EnumTagUtil.SelectMember(typeof(Month), words[monthIndex], Month);
                     }
                     catch
                     {
@@ -84,28 +80,16 @@ namespace GeneaGedcom
 
                 if (yearIndex >= 0)
                 {
-                    year = int.Parse(words[yearIndex]);
+                    Year = int.Parse(words[yearIndex]);
                 }
             }
         }
 
-        public int Day
-        {
-            get => day;
-            set => day = value;
-        }
+        public int Day { get; set; }
 
-        public Month Month
-        {
-            get => month;
-            set => month = value;
-        }
+        public Month Month { get; set; }
 
-        public int Year
-        {
-            get => year;
-            set => year = value;
-        }
+        public int Year { get; set; }
 
         public override bool Equals(object obj)
         {

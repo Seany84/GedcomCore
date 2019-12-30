@@ -28,21 +28,18 @@ namespace GeneaGedcom
     {
         private string noteXRef;
         private string submitterText;
-        private List<SourceCitation> sourceCitations;
         private bool isInlineNote;
-
-        private List<AdditionalLine> tmp;
 
         public NoteStructure(Reporting Reporting)
             : base(Reporting)
         {
-            sourceCitations = new List<SourceCitation>();
+            SourceCitations = new List<SourceCitation>();
         }
 
         public NoteStructure(string LineValue, Reporting Reporting)
             : base(Reporting)
         {
-            sourceCitations = new List<SourceCitation>();
+            SourceCitations = new List<SourceCitation>();
 
             Tag = "NOTE";
 
@@ -98,12 +95,12 @@ namespace GeneaGedcom
             {
                 if (submitterText == null)
                 {
-                    tmp = new List<AdditionalLine>();
+                    AdditionalLines = new List<AdditionalLine>();
                     return "";
                 }
 
                 var s = submitterText.Split(new[] { "\n" }, StringSplitOptions.None);
-                tmp = new List<AdditionalLine>();
+                AdditionalLines = new List<AdditionalLine>();
                 for (var n = 0; n < s.Length - 1; n++)
                 {
                     // a line (including spaces, the tag, etc) must not be longer than 255 characters
@@ -112,13 +109,13 @@ namespace GeneaGedcom
 
                     var contLine = new AdditionalLine(parts[0], Reporting);
                     contLine.Tag = "CONT";
-                    tmp.Add(contLine);
+                    AdditionalLines.Add(contLine);
 
                     for (var m = 1; m < parts.Length; m++)
                     {
                         var concLine = new AdditionalLine(parts[m], Reporting);
                         concLine.Tag = "CONC";
-                        tmp.Add(concLine);
+                        AdditionalLines.Add(concLine);
                     }
                 }
                 return s[0];
@@ -157,7 +154,7 @@ namespace GeneaGedcom
         [Tag("CONT", typeof(AdditionalLine))]
         [Tag("CONC", typeof(AdditionalLine))]
         [Length(1, 60)]
-        public List<AdditionalLine> AdditionalLines => tmp;
+        public List<AdditionalLine> AdditionalLines { get; private set; }
 
         [Tag("CONC")]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
@@ -177,11 +174,7 @@ namespace GeneaGedcom
 
         [Tag("SOUR", typeof(SourceCitation))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<SourceCitation> SourceCitations
-        {
-            get => sourceCitations;
-            set => sourceCitations = value;
-        }
+        public List<SourceCitation> SourceCitations { get; set; }
 
         public override bool Equals(object obj)
         {

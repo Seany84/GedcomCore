@@ -36,14 +36,12 @@ namespace GeneaGedcom
         private string surname;
         private string suffix;
         private List<SourceCitation> sourceCitations;
-        private List<NoteStructure> notes;
-        private bool hasSeperatedNamePieces;
 
         public PersonalName(Reporting Reporting)
             : base(Reporting)
         {
             sourceCitations = new List<SourceCitation>();
-            notes = new List<NoteStructure>();
+            Notes = new List<NoteStructure>();
 
             Tag = "NAME";
         }
@@ -69,7 +67,7 @@ namespace GeneaGedcom
             }
         }
 
-        public bool HasSeperatedNamePieces => hasSeperatedNamePieces;
+        public bool HasSeperatedNamePieces { get; private set; }
 
         [Tag("NPFX")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
@@ -170,49 +168,45 @@ namespace GeneaGedcom
 
         [Tag("NOTE", typeof(NoteStructure))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<NoteStructure> Notes
-        {
-            get => notes;
-            set => notes = value;
-        }
+        public List<NoteStructure> Notes { get; set; }
 
         private void checkForSeperatedNamePieces()
         {
-            hasSeperatedNamePieces = false;
+            HasSeperatedNamePieces = false;
 
             if ((prefix != null) && string.IsNullOrEmpty(prefix))
             {
-                hasSeperatedNamePieces = true;
+                HasSeperatedNamePieces = true;
                 return;
             }
 
             if ((given != null) && string.IsNullOrEmpty(given))
             {
-                hasSeperatedNamePieces = true;
+                HasSeperatedNamePieces = true;
                 return;
             }
 
             if ((nickname != null) && string.IsNullOrEmpty(nickname))
             {
-                hasSeperatedNamePieces = true;
+                HasSeperatedNamePieces = true;
                 return;
             }
 
             if ((surnamePrefix != null) && string.IsNullOrEmpty(surnamePrefix))
             {
-                hasSeperatedNamePieces = true;
+                HasSeperatedNamePieces = true;
                 return;
             }
 
             if ((surname != null) && string.IsNullOrEmpty(surname))
             {
-                hasSeperatedNamePieces = true;
+                HasSeperatedNamePieces = true;
                 return;
             }
 
             if ((suffix != null) && string.IsNullOrEmpty(suffix))
             {
-                hasSeperatedNamePieces = true;
+                HasSeperatedNamePieces = true;
                 return;
             }
         }

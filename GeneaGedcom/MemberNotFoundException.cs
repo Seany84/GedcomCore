@@ -6,14 +6,12 @@ namespace GeneaGedcom
 {
     class MemberNotFoundException : InternalException
     {
-        private readonly string tag;
-
         public MemberNotFoundException(string Message, string Tag)
             : base(Message)
         {
-            this.tag = Tag;
+            this.Tag = Tag;
         }
 
-        public string Tag => tag;
+        public string Tag { get; }
     }
 }

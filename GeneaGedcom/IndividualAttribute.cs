@@ -57,8 +57,6 @@ namespace GeneaGedcom
  
     public class IndividualAttribute : EventDetail
     {
-        private string text;
-
         public IndividualAttribute(Reporting Reporting)
             : base(Reporting)
         {
@@ -67,11 +65,7 @@ namespace GeneaGedcom
         [Tag("")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
         [Length(0,1)]
-        public string Text
-        {
-            get => text;
-            set => text = value;
-        }
+        public string Text { get; set; }
 
         public override bool Equals(object obj)
         {

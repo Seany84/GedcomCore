@@ -19,23 +19,17 @@ namespace GeneaGedcom
 
     class LdsIndividualOrdianceEndowment : LdsIndividualOrdiance
     {
-        private LdsEndowmentDateStatus ldsEndowmentDateStatus;
-
         public LdsIndividualOrdianceEndowment(Reporting Reporting)
             : base(Reporting)
         {
             Tag = "ENDL";
 
-            ldsEndowmentDateStatus = LdsEndowmentDateStatus.Unknown;
+            LdsEndowmentDateStatus = LdsEndowmentDateStatus.Unknown;
         }
 
         [Tag("STAT", LdsEndowmentDateStatus.Unknown)]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public LdsEndowmentDateStatus LdsEndowmentDateStatus
-        {
-            get => ldsEndowmentDateStatus;
-            set => ldsEndowmentDateStatus = value;
-        }
+        public LdsEndowmentDateStatus LdsEndowmentDateStatus { get; set; }
 
         public override bool Equals(object obj)
         {

@@ -20,11 +20,6 @@ namespace GeneaGedcom
 
     public class Time : GedcomLine
     {
-        private int hours;
-        private int minutes;
-        private int seconds;
-        private int secondFractions;
-
         public Time(Reporting Reporting)
             : base(Reporting)
         {
@@ -40,9 +35,9 @@ namespace GeneaGedcom
             {
                 string formatString;
 
-                if (seconds != 0)
+                if (Seconds != 0)
                 {
-                    if (secondFractions != 0)
+                    if (SecondFractions != 0)
                     {
                         formatString = "{0}:{1}:{2}.{3}";
                     }
@@ -87,29 +82,13 @@ namespace GeneaGedcom
             }
         }
 
-        public int Hours
-        {
-            get => hours;
-            set => hours = value;
-        }
+        public int Hours { get; set; }
 
-        public int Minutes
-        {
-            get => minutes;
-            set => minutes = value;
-        }
+        public int Minutes { get; set; }
 
-        public int Seconds
-        {
-            get => seconds;
-            set => seconds = value;
-        }
+        public int Seconds { get; set; }
 
-        public int SecondFractions
-        {
-            get => secondFractions;
-            set => secondFractions = value;
-        }
+        public int SecondFractions { get; set; }
 
         public override bool Equals(object obj)
         {

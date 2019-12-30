@@ -22,20 +22,12 @@ namespace GeneaGedcom
 
     public class RepositoryRecord : Record
     {
-        private string name;
-        private Address address;
-        private List<string> phoneNumbers;
-        private List<NoteStructure> notes;
-        private List<UserReference> userReferences;
-        private string automatedRecordId;
-        private ChangeDate changeDate;
-
         public RepositoryRecord(string XRef, Reporting Reporting)
             : base(XRef, Reporting)
         {
-            phoneNumbers = new List<string>();
-            notes = new List<NoteStructure>();
-            userReferences = new List<UserReference>();
+            PhoneNumbers = new List<string>();
+            Notes = new List<NoteStructure>();
+            UserReferences = new List<UserReference>();
 
             Tag = "REPO";
         }
@@ -43,61 +35,33 @@ namespace GeneaGedcom
         [Tag("NAME")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1,90)]
-        public string Name
-        {
-            get => name;
-            set => name = value;
-        }
+        public string Name { get; set; }
 
         [Tag("ADDR", typeof(Address))]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public Address Address
-        {
-            get => address;
-            set => address = value;
-        }
+        public Address Address { get; set; }
 
         [Tag("PHON", typeof(string))]
         [Quantity(0, 3)]
         [Length(1, 25)]
-        public List<string> PhoneNumbers
-        {
-            get => phoneNumbers;
-            set => phoneNumbers = value;
-        }
+        public List<string> PhoneNumbers { get; set; }
 
         [Tag("NOTE", typeof(NoteStructure))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<NoteStructure> Notes
-        {
-            get => notes;
-            set => notes = value;
-        }
+        public List<NoteStructure> Notes { get; set; }
 
         [Tag("REFN", typeof(UserReference))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<UserReference> UserReferences
-        {
-            get => userReferences;
-            set => userReferences = value;
-        }
+        public List<UserReference> UserReferences { get; set; }
 
         [Tag("RIN")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1,12)]
-        public string AutomatedRecordId
-        {
-            get => automatedRecordId;
-            set => automatedRecordId = value;
-        }
+        public string AutomatedRecordId { get; set; }
 
         [Tag("CHAN", typeof(ChangeDate))]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public ChangeDate ChangeDate
-        {
-            get => changeDate;
-            set => changeDate = value;
-        }
+        public ChangeDate ChangeDate { get; set; }
 
         public override bool Equals(object obj)
         {

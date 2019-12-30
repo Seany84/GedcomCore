@@ -20,12 +20,6 @@ namespace GeneaGedcom
      */
     public partial class HeadSource : GedcomLine
     {
-        private string approvedSystemId;
-        private string versionNumber;
-        private string productName;
-        private Corporation_ corporation;
-        private Data_ data;
-
         public HeadSource(Reporting Reporting)
             : base(Reporting)
         {
@@ -35,45 +29,25 @@ namespace GeneaGedcom
         [Tag("")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
         [Length(1,20)]
-        public string ApprovedSystemId
-        {
-            get => approvedSystemId;
-            set => approvedSystemId = value;
-        }
+        public string ApprovedSystemId { get; set; }
 
         [Tag("VERS")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1,15)]
-        public string VersionNumber
-        {
-            get => versionNumber;
-            set => versionNumber = value;
-        }
+        public string VersionNumber { get; set; }
 
         [Tag("NAME")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1,90)]
-        public string ProductName
-        {
-            get => productName;
-            set => productName = value;
-        }
+        public string ProductName { get; set; }
 
         [Tag("CORP")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public Corporation_ Corporation
-        {
-            get => corporation;
-            set => corporation = value;
-        }
+        public Corporation_ Corporation { get; set; }
 
         [Tag("DATA")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public Data_ SourceData
-        {
-            get => data;
-            set => data = value;
-        }
+        public Data_ SourceData { get; set; }
 
         public override bool Equals(object obj)
         {

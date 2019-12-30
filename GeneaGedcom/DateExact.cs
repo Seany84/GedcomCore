@@ -14,10 +14,6 @@ namespace GeneaGedcom
  
     public class DateExact : GedcomLine
     {
-        private int day;
-        private Month month;
-        private YearGregorian year;
-
         public DateExact(Reporting Reporting)
             : base(Reporting)
         {
@@ -26,9 +22,9 @@ namespace GeneaGedcom
         public DateExact(int Day, Month Month, YearGregorian Year, Reporting Reporting)
             : base(Reporting)
         {
-            day = Day;
-            month = Month;
-            year = Year;
+            this.Day = Day;
+            this.Month = Month;
+            this.Year = Year;
         }
 
         public static DateExact Parse(string DateString, Reporting Reporting)
@@ -38,23 +34,11 @@ namespace GeneaGedcom
             return date;
         }
 
-        public int Day
-        {
-            get => day;
-            set => day = value;
-        }
+        public int Day { get; set; }
 
-        public Month Month
-        {
-            get => month;
-            set => month = value;
-        }
+        public Month Month { get; set; }
 
-        public YearGregorian Year
-        {
-            get => year;
-            set => year = value;
-        }
+        public YearGregorian Year { get; set; }
 
         [Tag("")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
@@ -94,13 +78,13 @@ namespace GeneaGedcom
 
                 if (words.Length == 3)
                 {
-                    day = int.Parse(words[0]);
+                    Day = int.Parse(words[0]);
                 }
                 if (words.Length > 1)
                 {
                     try
                     {
-                        month = (Month)EnumTagUtil.SelectMember(typeof(Month), words[1], month);
+                        Month = (Month)EnumTagUtil.SelectMember(typeof(Month), words[1], Month);
                     }
                     catch
                     {
@@ -109,7 +93,7 @@ namespace GeneaGedcom
                     }
                 }
 
-                year = new YearGregorian(words[2]);
+                Year = new YearGregorian(words[2]);
             }
         }
 

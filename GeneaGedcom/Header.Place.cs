@@ -10,8 +10,6 @@ namespace GeneaGedcom
     {
         public class Place_ : GedcomLine
         {
-            private string placeHierarchy;
-
             public Place_(Reporting Reporting)
                 : base(Reporting)
             {
@@ -20,11 +18,7 @@ namespace GeneaGedcom
             [Tag("FORM")]
             [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
             [Length(1, 120)]
-            public string PlaceHierarchy
-            {
-                get => placeHierarchy;
-                set => placeHierarchy = value;
-            }
+            public string PlaceHierarchy { get; set; }
 
             public override bool Equals(object obj)
             {

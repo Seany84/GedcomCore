@@ -19,10 +19,7 @@ namespace GeneaGedcom
 
             public class Event : GedcomLine
             {
-                private string unfilteredEventRecorded;
                 private DateValue date;
-                private string sourceJurisdictionPlace;
-                private List<EventAttributeType> eventsRecorded;
 
                 public Event(Reporting Reporting)
                     : base(Reporting)
@@ -45,10 +42,10 @@ namespace GeneaGedcom
                 {
                     get
                     {
-                        var typeStrings = new string[eventsRecorded.Count];
+                        var typeStrings = new string[EventsRecorded.Count];
                         var n = 0;
 
-                        foreach (var type in eventsRecorded)
+                        foreach (var type in EventsRecorded)
                         {
                             typeStrings[n++] = type.ToString(); //TODO: really ToString() ?
                         }
@@ -57,7 +54,7 @@ namespace GeneaGedcom
                     }
                     set
                     {
-                        eventsRecorded = new List<EventAttributeType>();
+                        EventsRecorded = new List<EventAttributeType>();
 
                         var parts = value.Split(new[] { " ", ",", ", " }, StringSplitOptions.RemoveEmptyEntries);
 
@@ -66,7 +63,7 @@ namespace GeneaGedcom
                             try
                             {
                                 var type = (EventAttributeType)Enum.Parse(typeof(EventAttributeType), str);
-                                eventsRecorded.Add(type);
+                                EventsRecorded.Add(type);
                             }
                             catch
                             {
@@ -74,27 +71,19 @@ namespace GeneaGedcom
                             }
                         }
 
-                        unfilteredEventRecorded = value;
+                        UnfilteredEventRecordedString = value;
                     }
                 }
 
                 /// <summary>
                 /// Contains all valid events that were set using EventRecordedString
                 /// </summary>
-                public List<EventAttributeType> EventsRecorded
-                {
-                    get => eventsRecorded;
-                    set => eventsRecorded = value;
-                }
+                public List<EventAttributeType> EventsRecorded { get; set; }
 
                 /// <summary>
                 /// Contains the exact string that was passed to EventRecordedString
                 /// </summary>
-                public string UnfilteredEventRecordedString
-                {
-                    get => unfilteredEventRecorded;
-                    set => unfilteredEventRecorded = value;
-                }
+                public string UnfilteredEventRecordedString { get; set; }
 
                 [Tag("DATE")]
                 [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
@@ -114,11 +103,7 @@ namespace GeneaGedcom
 
                 [Tag("PLAC")]
                 [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-                public string SourceJurisdiction
-                {
-                    get => sourceJurisdictionPlace;
-                    set => sourceJurisdictionPlace = value;
-                }
+                public string SourceJurisdiction { get; set; }
 
                 public override bool Equals(object obj)
                 {

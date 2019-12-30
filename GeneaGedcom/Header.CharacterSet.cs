@@ -16,9 +16,6 @@ namespace GeneaGedcom
 
         public partial class CharacterSet_ : GedcomLine
         {
-            private Set_ set;
-            private string version;
-
             public CharacterSet_(Reporting Reporting)
                 : base(Reporting)
             {
@@ -34,19 +31,11 @@ namespace GeneaGedcom
             }
 
             [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
-            public Set_ Set
-            {
-                get => set;
-                set => set = value;
-            }
+            public Set_ Set { get; set; }
 
             [Tag("VERS")]
             [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-            public string Version
-            {
-                get => version;
-                set => version = value;
-            }
+            public string Version { get; set; }
         }
     }
 }

@@ -20,32 +20,21 @@ namespace GeneaGedcom
 
     public class ChangeDate : GedcomLine
     {
-        private DateExactTime date;
-        private List<NoteStructure> notes;
-
         public ChangeDate(Reporting Reporting)
             : base(Reporting)
         {
-            notes = new List<NoteStructure>();
+            Notes = new List<NoteStructure>();
 
             Tag = "CHAN";
         }
 
         [Tag("DATE")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
-        public DateExactTime Date
-        {
-            get => date;
-            set => date = value;
-        }
+        public DateExactTime Date { get; set; }
 
         [Tag("NOTE", typeof(NoteStructure))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<NoteStructure> Notes
-        {
-            get => notes;
-            set => notes = value;
-        }
+        public List<NoteStructure> Notes { get; set; }
 
         public override bool Equals(object obj)
         {

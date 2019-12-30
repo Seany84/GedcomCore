@@ -12,9 +12,6 @@ namespace GeneaGedcom
 
     public class DateInterpreted : DateValue
     {
-        private Date date;
-        private DatePhrase interpretation;
-
         private const string interpret = "INT ";
         private const string parantheseOpen = " (";
         private const string parantheseClose = ")";
@@ -49,17 +46,9 @@ namespace GeneaGedcom
             }
         }
 
-        public Date Date
-        {
-            get => date;
-            set => date = value;
-        }
+        public Date Date { get; set; }
 
-        public DatePhrase Interpretation
-        {
-            get => interpretation;
-            set => interpretation = value;
-        }
+        public DatePhrase Interpretation { get; set; }
 
         public override bool Equals(object obj)
         {

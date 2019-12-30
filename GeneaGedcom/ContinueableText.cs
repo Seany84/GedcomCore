@@ -10,8 +10,6 @@ namespace GeneaGedcom
     {
         private string text;
 
-        private List<AdditionalLine> tmp;
-
         public ContinueableText(Reporting Reporting) 
             : this("", Reporting)
         {
@@ -30,7 +28,7 @@ namespace GeneaGedcom
             get
             {
                 var s = text.Split(new[] { "\n" }, StringSplitOptions.None);
-                tmp = new List<AdditionalLine>();
+                AdditionalLines = new List<AdditionalLine>();
                 for (var n = 0; n < s.Length - 1; n++)
                 {
                     // a line (including spaces, the tag, etc) must not be longer than 255 characters
@@ -39,13 +37,13 @@ namespace GeneaGedcom
 
                     var contLine = new AdditionalLine(parts[0], Reporting);
                     contLine.Tag = "CONT";
-                    tmp.Add(contLine);
+                    AdditionalLines.Add(contLine);
 
                     for(var m=1; m<parts.Length; m++)
                     {
                         var concLine = new AdditionalLine(parts[m], Reporting);
                         concLine.Tag = "CONC";
-                        tmp.Add(concLine);
+                        AdditionalLines.Add(concLine);
                     }
                 }
                 return s[0];
@@ -74,7 +72,7 @@ namespace GeneaGedcom
         [Tag("CONT", typeof(AdditionalLine))]
         [Tag("CONC", typeof(AdditionalLine))]
         [Length(1, 60)]
-        public List<AdditionalLine> AdditionalLines => tmp;
+        public List<AdditionalLine> AdditionalLines { get; private set; }
 
         public IEnumerable<string> AllLines
         {

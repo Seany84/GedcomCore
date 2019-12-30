@@ -17,10 +17,6 @@ namespace GeneaGedcom
 
         public class Data_ : GedcomLine
         {
-            private string nameOfSourceData;
-            private DateExact publicationDate;
-            private string copyright;
-
             public Data_(Reporting Reporting)
                 : base(Reporting)
             {
@@ -30,28 +26,16 @@ namespace GeneaGedcom
             [Tag("")]
             [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
             [Length(1, 90)]
-            public string NameOfSourceData
-            {
-                get => nameOfSourceData;
-                set => nameOfSourceData = value;
-            }
+            public string NameOfSourceData { get; set; }
 
             [Tag("DATE")]
             [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-            public DateExact PublicationDate
-            {
-                get => publicationDate;
-                set => publicationDate = value;
-            }
+            public DateExact PublicationDate { get; set; }
 
             [Tag("COPR")]
             [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
             [Length(1, 90)]
-            public string Copyright
-            {
-                get => copyright;
-                set => copyright = value;
-            }
+            public string Copyright { get; set; }
 
             public override bool Equals(object obj)
             {

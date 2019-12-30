@@ -8,26 +8,20 @@ namespace GeneaGedcom
 {
     public class AdditionalLine : GedcomLine
     {
-        private string str;
-
         public AdditionalLine(Reporting Reporting)
             : base(Reporting)
         {
-            str = "";
+            String = "";
         }
 
         public AdditionalLine(string Str, Reporting Reporting)
             : base(Reporting)
         {
-            str = Str;
+            String = Str;
         }
 
         [Tag("")]
-        public string String
-        {
-            get => str;
-            set => str = value;
-        }
+        public string String { get; set; }
 
         public override bool Equals(object obj)
         {

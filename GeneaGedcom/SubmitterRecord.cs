@@ -25,21 +25,12 @@ namespace GeneaGedcom
 
     public class SubmitterRecord : Record
     {
-        private string name;
-        private Address address;
-        private List<string> phoneNumbers;
-        private List<MultimediaLink> multimedia;
-        private List<Language> languages;
-        private string submitterRegisteredRFN;
-        private string automatedRecordId;
-        private ChangeDate changeDate;
-
         public SubmitterRecord(string XRef, Reporting Reporting)
             : base(XRef, Reporting)
         {
-            phoneNumbers = new List<string>();
-            multimedia = new List<MultimediaLink>();
-            languages = new List<Language>();
+            PhoneNumbers = new List<string>();
+            Multimedia = new List<MultimediaLink>();
+            LanguagePreference = new List<Language>();
 
             Tag = "SUBM";
         }
@@ -47,70 +38,38 @@ namespace GeneaGedcom
         [Tag("NAME")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
         [Length(1,60)]
-        public string Name
-        {
-            get => name;
-            set => name = value;
-        }
+        public string Name { get; set; }
 
         [Tag("ADDR")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public Address Address
-        {
-            get => address;
-            set => address = value;
-        }
+        public Address Address { get; set; }
 
         [Tag("PHON", typeof(string))]
         [Quantity(0, 3)]
         [Length(1, 25)]
-        public List<string> PhoneNumbers
-        {
-            get => phoneNumbers;
-            set => phoneNumbers = value;
-        }
+        public List<string> PhoneNumbers { get; set; }
 
         [Tag("OBJE", typeof(MultimediaLink))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<MultimediaLink> Multimedia
-        {
-            get => multimedia;
-            set => multimedia = value;
-        }
+        public List<MultimediaLink> Multimedia { get; set; }
 
         [Tag("LANG", typeof(Language))]
         [Quantity(0,3)]
-        public List<Language> LanguagePreference
-        {
-            get => languages;
-            set => languages = value;
-        }
+        public List<Language> LanguagePreference { get; set; }
 
         [Tag("RFN")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1,30)]
-        public string SubmitterRegisteredRFN
-        {
-            get => submitterRegisteredRFN;
-            set => submitterRegisteredRFN = value;
-        }
+        public string SubmitterRegisteredRFN { get; set; }
 
         [Tag("RIN")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1,12)]
-        public string AutomatedRecordId
-        {
-            get => automatedRecordId;
-            set => automatedRecordId = value;
-        }
+        public string AutomatedRecordId { get; set; }
 
         [Tag("CHAN")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public ChangeDate ChangeDate
-        {
-            get => changeDate;
-            set => changeDate = value;
-        }
+        public ChangeDate ChangeDate { get; set; }
 
         public override bool Equals(object obj)
         {

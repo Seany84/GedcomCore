@@ -16,14 +16,10 @@ namespace GeneaGedcom
 
         public class Corporation_ : GedcomLine
         {
-            private string name;
-            private Address address;
-            private List<string> phoneNumbers;
-
             public Corporation_(Reporting Reporting)
                 : base(Reporting)
             {
-                phoneNumbers = new List<string>();
+                PhoneNumbers = new List<string>();
 
                 Tag = "CORP";
             }
@@ -31,28 +27,16 @@ namespace GeneaGedcom
             [Tag("")]
             [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
             [Length(1, 90)]
-            public string Name
-            {
-                get => name;
-                set => name = value;
-            }
+            public string Name { get; set; }
 
             [Tag("ADDR")]
             [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-            public Address Address
-            {
-                get => address;
-                set => address = value;
-            }
+            public Address Address { get; set; }
 
             [Tag("PHON", typeof(string))]
             [Quantity(0, 3)]
             [Length(1, 25)]
-            public List<string> PhoneNumbers
-            {
-                get => phoneNumbers;
-                set => phoneNumbers = value;
-            }
+            public List<string> PhoneNumbers { get; set; }
 
             public override bool Equals(object obj)
             {

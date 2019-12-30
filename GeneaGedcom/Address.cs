@@ -29,14 +29,6 @@ namespace GeneaGedcom
     public class Address : GedcomLine
     {
         private string addressLine;
-        private string addressLine1;
-        private string addressLine2;
-        private string city;
-        private string state;
-        private string postalCode;
-        private string country;
-
-        private List<string> tmp;
 
         public Address(Reporting Reporting)
             : base(Reporting)
@@ -59,10 +51,10 @@ namespace GeneaGedcom
             get
             {
                 var s = addressLine.Split(new[] { "\n" }, StringSplitOptions.None);
-                tmp = new List<string>();
+                AdditionalLines = new List<string>();
                 for (var n = 0; n < s.Length - 1; n++)
                 {
-                    tmp.Add(s[n+1]);
+                    AdditionalLines.Add(s[n+1]);
                 }
                 return s[0];
             }
@@ -79,7 +71,7 @@ namespace GeneaGedcom
 
         [Tag("CONT", typeof(string))]
         [Length(1, 60)]
-        public List<string> AdditionalLines => tmp;
+        public List<string> AdditionalLines { get; private set; }
 
         /// <summary>
         /// The first line of the address used for indexing. This corresponds after the
@@ -88,11 +80,7 @@ namespace GeneaGedcom
         [Tag("ADR1")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1, 60)]
-        public string AddressLine1
-        {
-            get => addressLine1;
-            set => addressLine1 = value;
-        }
+        public string AddressLine1 { get; set; }
 
         /// <summary>
         /// The second line of the address used for indexing. This corresponds after the
@@ -102,11 +90,7 @@ namespace GeneaGedcom
         [Tag("ADR2")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1, 60)]
-        public string AddressLine2
-        {
-            get => addressLine2;
-            set => addressLine2 = value;
-        }
+        public string AddressLine2 { get; set; }
 
         /// <summary>
         /// The name of the city used in the address. Isolated for sorting or indexing
@@ -114,11 +98,7 @@ namespace GeneaGedcom
         [Tag("CITY")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1, 60)]
-        public string City
-        {
-            get => city;
-            set => city = value;
-        }
+        public string City { get; set; }
 
         /// <summary>
         /// The name of the state used in the address. Isolated for sorting and indexing.
@@ -126,11 +106,7 @@ namespace GeneaGedcom
         [Tag("STAE")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1, 60)]
-        public string State
-        {
-            get => state;
-            set => state = value;
-        }
+        public string State { get; set; }
 
         /// <summary>
         /// The ZIP or postal code used by the various localities in handling of mail.
@@ -139,11 +115,7 @@ namespace GeneaGedcom
         [Tag("POST")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1, 10)]
-        public string PostalCode
-        {
-            get => postalCode;
-            set => postalCode = value;
-        }
+        public string PostalCode { get; set; }
 
         /// <summary>
         /// The name of the country that pertains after the associated address. Isolated by
@@ -153,11 +125,7 @@ namespace GeneaGedcom
         [Tag("CTRY")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1, 60)]
-        public string Country
-        {
-            get => country;
-            set => country = value;
-        }
+        public string Country { get; set; }
 
         public override bool Equals(object obj)
         {

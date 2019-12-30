@@ -28,9 +28,6 @@ namespace GeneaGedcom
 
     public class DatePeriod : DateValue
     {
-        private Date fromDate;
-        private Date toDate;
-
         private const string from = "FROM ";
         private const string to = "TO ";
 
@@ -78,26 +75,18 @@ namespace GeneaGedcom
 
                 if (toDateString != "")
                 {
-                    toDate = new Date(toDateString, Reporting);
+                    ToDate = new Date(toDateString, Reporting);
                 }
                 if (fromDateString != "")
                 {
-                    fromDate = new Date(fromDateString, Reporting);
+                    FromDate = new Date(fromDateString, Reporting);
                 }
             }
         }
 
-        public Date FromDate
-        {
-            get => fromDate;
-            set => fromDate = value;
-        }
+        public Date FromDate { get; set; }
 
-        public Date ToDate
-        {
-            get => toDate;
-            set => toDate = value;
-        }
+        public Date ToDate { get; set; }
 
         public override bool Equals(object obj)
         {

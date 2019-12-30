@@ -15,10 +15,6 @@ namespace GeneaGedcom
 
     public class DateGregorian : DateCalendar
     {
-        private int day;
-        private Month month;
-        private YearGregorian year;
-
         public DateGregorian(YearGregorian Year, Reporting Reporting)
             : this(Month.Unknown, Year, Reporting)
         {
@@ -32,9 +28,9 @@ namespace GeneaGedcom
         public DateGregorian(int Day, Month Month, YearGregorian Year, Reporting Reporting)
             : base(Reporting)
         {
-            day = Day;
-            month = Month;
-            year = Year;
+            this.Day = Day;
+            this.Month = Month;
+            this.Year = Year;
         }
 
         public DateGregorian(string DateString, Reporting Reporting)
@@ -87,14 +83,14 @@ namespace GeneaGedcom
 
                 if (dayIndex >= 0)
                 {
-                    day = int.Parse(words[dayIndex]);
+                    Day = int.Parse(words[dayIndex]);
                 }
 
                 if (monthIndex >= 0)
                 {
                     try
                     {
-                        month = (Month)EnumTagUtil.SelectMember(typeof(Month), words[monthIndex], month);
+                        Month = (Month)EnumTagUtil.SelectMember(typeof(Month), words[monthIndex], Month);
                     }
                     catch
                     {
@@ -104,28 +100,16 @@ namespace GeneaGedcom
 
                 if (yearIndex >= 0)
                 {
-                    year = new YearGregorian(words[yearIndex]);
+                    Year = new YearGregorian(words[yearIndex]);
                 }
             }
         }
 
-        public int Day
-        {
-            get => day;
-            set => day = value;
-        }
+        public int Day { get; set; }
 
-        public Month Month
-        {
-            get => month;
-            set => month = value;
-        }
+        public Month Month { get; set; }
 
-        public YearGregorian Year
-        {
-            get => year;
-            set => year = value;
-        }
+        public YearGregorian Year { get; set; }
 
         public override bool Equals(object obj)
         {

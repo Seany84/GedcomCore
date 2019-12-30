@@ -16,14 +16,11 @@ namespace GeneaGedcom
 
         public class Event_ : GedcomLine
         {
-            private EventAttributeType eventTypeCitedFrom;
-            private RoleInEvent roleInEvent;
-
             public Event_(Reporting Reporting)
                 : base(Reporting)
             {
                 Tag = "EVEN";
-                eventTypeCitedFrom = EventAttributeType.Unknown;
+                EventTypeCitedFrom = EventAttributeType.Unknown;
             }
 
             [Tag("")]
@@ -45,19 +42,11 @@ namespace GeneaGedcom
             }
 
             [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-            public EventAttributeType EventTypeCitedFrom
-            {
-                get => eventTypeCitedFrom;
-                set => eventTypeCitedFrom = value;
-            }
+            public EventAttributeType EventTypeCitedFrom { get; set; }
 
             [Tag("ROLE")]
             [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-            public RoleInEvent RoleInEvent
-            {
-                get => roleInEvent;
-                set => roleInEvent = value;
-            }
+            public RoleInEvent RoleInEvent { get; set; }
 
             public override bool Equals(object obj)
             {

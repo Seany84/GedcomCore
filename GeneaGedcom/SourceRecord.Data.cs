@@ -20,42 +20,26 @@ namespace GeneaGedcom
 
         public partial class Data_ : GedcomLine
         {
-            private List<Event> events;
-            private string responsibleAgency;
-            private List<NoteStructure> notes;
-
             public Data_(Reporting Reporting)
                 : base(Reporting)
             {
-                events = new List<Event>();
-                notes = new List<NoteStructure>();
+                Events = new List<Event>();
+                Notes = new List<NoteStructure>();
 
                 Tag = "DATA";
             }
 
             [Tag("EVEN", typeof(Event))]
             [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-            public List<Event> Events
-            {
-                get => events;
-                set => events = value;
-            }
+            public List<Event> Events { get; set; }
 
             [Tag("AGNC")]
             [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-            public string ResponsibleAgency
-            {
-                get => responsibleAgency;
-                set => responsibleAgency = value;
-            }
+            public string ResponsibleAgency { get; set; }
 
             [Tag("NOTE", typeof(NoteStructure))]
             [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-            public List<NoteStructure> Notes
-            {
-                get => notes;
-                set => notes = value;
-            }
+            public List<NoteStructure> Notes { get; set; }
 
             public override bool Equals(object obj)
             {

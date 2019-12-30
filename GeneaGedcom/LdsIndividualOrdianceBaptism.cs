@@ -19,12 +19,10 @@ namespace GeneaGedcom
 
     class LdsIndividualOrdianceBaptism : LdsIndividualOrdiance
     {
-        private LdsBaptismDateStatus baptismDateStatus;
-
         public LdsIndividualOrdianceBaptism(Reporting Reporting)
             : base(Reporting)
         {
-            baptismDateStatus = LdsBaptismDateStatus.Unknown;
+            LdsBaptismDateStatus = LdsBaptismDateStatus.Unknown;
         }
 
         /* in TGC551, line 785
@@ -39,11 +37,7 @@ namespace GeneaGedcom
 
         [Tag("STAT", LdsBaptismDateStatus.Unknown)]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public LdsBaptismDateStatus LdsBaptismDateStatus
-        {
-            get => baptismDateStatus;
-            set => baptismDateStatus = value;
-        }
+        public LdsBaptismDateStatus LdsBaptismDateStatus { get; set; }
 
         public override bool Equals(object obj)
         {

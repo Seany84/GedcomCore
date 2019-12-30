@@ -29,91 +29,50 @@ namespace GeneaGedcom
 
     public partial class MultimediaRecord : Record
     {
-        private MultimediaFormat format;
-        private string title;
-        private List<NoteStructure> notes;
-        private Blob_ blob;
-        private string continuedObjectXRef;
-        private List<UserReference> userReferences;
-        private string automatedRecordId;
-        private ChangeDate changeDate;
-
         public MultimediaRecord(string XRef, Reporting Reporting)
             : base(XRef, Reporting)
         {
-            notes = new List<NoteStructure>();
-            userReferences = new List<UserReference>();
+            Notes = new List<NoteStructure>();
+            UserReferences = new List<UserReference>();
 
             Tag = "OBJE";
 
-            format = MultimediaFormat.Unknown;
+            Format = MultimediaFormat.Unknown;
         }
 
         [Tag("FORM", MultimediaFormat.Unknown)]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
-        public MultimediaFormat Format
-        {
-            get => format;
-            set => format = value;
-        }
+        public MultimediaFormat Format { get; set; }
 
         [Tag("TITL")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
         [Length(1,248)]
-        public string Title
-        {
-            get => title;
-            set => title = value;
-        }
+        public string Title { get; set; }
 
         [Tag("NOTE", typeof(NoteStructure))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<NoteStructure> Notes
-        {
-            get => notes;
-            set => notes = value;
-        }
+        public List<NoteStructure> Notes { get; set; }
 
         [Tag("BLOB")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
-        public Blob_ Blob
-        {
-            get => blob;
-            set => blob = value;
-        }
+        public Blob_ Blob { get; set; }
 
         [Tag("OBJE")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public string ContinuedObjectXRef
-        {
-            get => continuedObjectXRef;
-            set => continuedObjectXRef = value;
-        }
+        public string ContinuedObjectXRef { get; set; }
 
         [Tag("REFN", typeof(UserReference))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
-        public List<UserReference> UserReferences
-        {
-            get => userReferences;
-            set => userReferences = value;
-        }
+        public List<UserReference> UserReferences { get; set; }
 
         [Tag("RIN")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1,12)]
-        public string AutomatedRecordId
-        {
-            get => automatedRecordId;
-            set => automatedRecordId = value;
-        }
+        public string AutomatedRecordId { get; set; }
 
         [Tag("CHAN")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
-        public ChangeDate ChangeDate
-        {
-            get => changeDate;
-            set => changeDate = value;
-        }
+        public ChangeDate ChangeDate { get; set; }
 
         public override bool Equals(object obj)
         {

@@ -64,7 +64,6 @@ namespace GeneaGedcom
  
     public class IndividualEvent : EventDetail
     {
-        private string happened;
         private EventTypeIndividual type;
 
         public IndividualEvent(Reporting Reporting)
@@ -76,11 +75,7 @@ namespace GeneaGedcom
         [Tag("")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
         [Length(0,1)]
-        public string Happened
-        {
-            get => happened;
-            set => happened = value;
-        }
+        public string Happened { get; set; }
 
         public EventTypeIndividual TypeEnum
         {

@@ -34,11 +34,6 @@ namespace GeneaGedcom
  
     public class DateRange : DateValue
     {
-        private Date beforeDate;
-        private Date afterDate;
-        private Date betweenDate1;
-        private Date betweenDate2;
-
         private const string before = "BEF ";
         private const string after = "AFT ";
         private const string between = "BET ";
@@ -87,34 +82,18 @@ namespace GeneaGedcom
                     var str1 = value.Substring(betweenIndex + before.Length, andIndex - (betweenIndex + before.Length));
                     var str2 = value.Substring(andIndex + and.Length);
                     BetweenDate1 = new Date(str1, Reporting);
-                    betweenDate2 = new Date(str2, Reporting);
+                    BetweenDate2 = new Date(str2, Reporting);
                 }
             }
         }
 
-        public Date BeforeDate
-        {
-            get => beforeDate;
-            set => beforeDate = value;
-        }
+        public Date BeforeDate { get; set; }
 
-        public Date AfterDate
-        {
-            get => afterDate;
-            set => afterDate = value;
-        }
+        public Date AfterDate { get; set; }
 
-        public Date BetweenDate1
-        {
-            get => betweenDate1;
-            set => betweenDate1 = value;
-        }
+        public Date BetweenDate1 { get; set; }
 
-        public Date BetweenDate2
-        {
-            get => betweenDate2;
-            set => betweenDate2 = value;
-        }
+        public Date BetweenDate2 { get; set; }
 
         public override bool Equals(object obj)
         {
