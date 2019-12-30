@@ -71,7 +71,7 @@ namespace GeneaGedcom.Utilities
         {
             foreach(var attrib in ((Property.GetCustomAttributes(typeof(TagAttribute), true)) as TagAttribute[]))
             {
-                if (string.Compare(attrib.TagName, TagName, true) == 0)
+                if (String.Compare(attrib.TagName, TagName, StringComparison.OrdinalIgnoreCase) == 0)
                 {
                     if (attrib.Type != null)
                     {

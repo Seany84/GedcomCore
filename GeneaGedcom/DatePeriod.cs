@@ -37,15 +37,15 @@ namespace GeneaGedcom
             this.DateString = DateString;
         }
 
-        public override string DateString
+        public sealed override string DateString
         {
             get => "";
             set
             {
                 value = value.Trim();
 
-                var fromIndex = value.IndexOf(from);
-                var toIndex = value.IndexOf(to);
+                var fromIndex = value.IndexOf(from, StringComparison.Ordinal);
+                var toIndex = value.IndexOf(to, StringComparison.Ordinal);
 
                 if ((fromIndex == -1) && (toIndex == -1))
                 {

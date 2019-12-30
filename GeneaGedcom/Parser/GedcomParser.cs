@@ -61,30 +61,32 @@ namespace GeneaGedcom.Parser
             var lineNumber = 0;
             objects = new Stack<object>();
             tags = new Stack<string>();
-            var streamReader = new StreamReader(Stream);
 
             var gedcom = new LineageLinkedGedcom(reporting);
 
             objects.Push(gedcom);
             lastLevel = -1;
 
-            string str;
-            while ((str = streamReader.ReadLine()) != null)
-                try
-                {
-                    ProcessLine(str, ++lineNumber);
-                }
-                catch (NullReferenceException)
-                {
-                    throw;
-                }
-                catch (TargetInvocationException)
-                {
-                }
-                catch (Exception e)
-                {
-                    reporting.Error(e.Message);
-                }
+            using (var streamReader = new StreamReader(Stream))
+            {
+                string str;
+                while ((str = streamReader.ReadLine()) != null)
+                    try
+                    {
+                        ProcessLine(str, ++lineNumber);
+                    }
+                    catch (NullReferenceException)
+                    {
+                        throw;
+                    }
+                    catch (TargetInvocationException)
+                    {
+                    }
+                    catch (Exception e)
+                    {
+                        reporting.Error(e.Message);
+                    }
+            }
 
             return gedcom;
         }
@@ -117,7 +119,7 @@ namespace GeneaGedcom.Parser
             var currentObject = objects.Peek();
 
             if (currentObject == null)
-                //dummy-object pushed in the last call of processLine(); we can't proceed
+            //dummy-object pushed in the last call of processLine(); we can't proceed
             {
                 return;
             }
@@ -135,7 +137,7 @@ namespace GeneaGedcom.Parser
                     throw new InternalException("nextLine mustn't be null");
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 reporting.Error($"Error while parsing line {LineNumber}: \"{Line}\": {e.Message}");
 
@@ -176,12 +178,12 @@ namespace GeneaGedcom.Parser
         private PropertyInfo GetPropertyInfo(Line Line, object CurrentObject)
         {
             try
-                //try to get the property the regular way
+            //try to get the property the regular way
             {
                 return TagUtil.GetMember(CurrentObject, Line.TagName, false, true);
             }
             catch (MemberNotFoundException memberException)
-                //try to find a custom tag or throw a exception if none is found
+            //try to find a custom tag or throw a exception if none is found
             {
                 var customTagPath = GetCurrentPath() + "/" + memberException.Tag;
                 if (!customTagProperties.ContainsKey(customTagPath))
@@ -227,7 +229,7 @@ namespace GeneaGedcom.Parser
             {
                 nextObject = CreateNextGedcomLine(Line, Property, type, reporting);
             }
-            
+
             return nextObject;
         }
 
@@ -312,7 +314,7 @@ namespace GeneaGedcom.Parser
             }
 
             types.Add(Reporting.GetType());
-            
+
             return types.ToArray();
         }
 

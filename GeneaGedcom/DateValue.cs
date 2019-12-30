@@ -61,7 +61,10 @@ namespace GeneaGedcom
             //TODO: optimize method; use at least a bit of heuristic ; )
             try
             {
-                new Date(DateString, Reporting);
+                //This date class is the only one that doesn't validate itself on initialisation.
+                //Other date classes below will throw exception if the input format is not valid.
+                if (new Date(DateString, Reporting).Calendar == Calendars.Unknown)
+                    throw new Exception("Not a date calendar.");
                 return typeof(Date);
             }catch{}
 
