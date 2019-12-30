@@ -70,7 +70,7 @@ namespace GeneaGedcom
             {
                 if (isEmbedded)
                 {
-                    throw new InvalidOperationException("FORM is not valid for embedded multimedia links");
+                    //throw new InvalidOperationException("FORM is not valid for embedded multimedia links");
                 }
 
                 format = value;
@@ -87,7 +87,7 @@ namespace GeneaGedcom
             {
                 if (isEmbedded)
                 {
-                    throw new InvalidOperationException("TITL is not valid for embedded multimedia links");
+                    //throw new InvalidOperationException("TITL is not valid for embedded multimedia links");
                 }
 
                 title = value;
@@ -104,7 +104,7 @@ namespace GeneaGedcom
             {
                 if (isEmbedded)
                 {
-                    throw new InvalidOperationException("FILE is not valid for embedded multimedia links");
+                    //throw new InvalidOperationException("FILE is not valid for embedded multimedia links");
                 }
 
                 fileReference = value;
@@ -120,7 +120,7 @@ namespace GeneaGedcom
             {
                 if (isEmbedded)
                 {
-                    throw new InvalidOperationException("NOTE is not valid for embedded multimedia links");
+                    //throw new InvalidOperationException("NOTE is not valid for embedded multimedia links");
                 }
 
                 notes = value;

@@ -92,18 +92,17 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            var year = obj as YearGregorian;
-            if (year == null)
+            if (!(obj is YearGregorian yr))
             {
                 return false;
             }
 
-            if (!Year.Equals(year.Year))
+            if (!Year.Equals(yr.Year))
             {
                 return false;
             }
 
-            if (!Alternative.Equals(year.Alternative))
+            if (!Alternative.Equals(yr.Alternative))
             {
                 return false;
             }
@@ -135,9 +134,6 @@ namespace GeneaGedcom
             return false;
         }
 
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
+        public override int GetHashCode() => base.GetHashCode();
     }
 }

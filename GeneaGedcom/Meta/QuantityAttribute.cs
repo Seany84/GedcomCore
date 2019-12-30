@@ -10,20 +10,20 @@ namespace GeneaGedcom.Meta
     class QuantityAttribute : Attribute
     {
         /// <summary>
-        /// the minimal number of occurances
+        /// the minimal number of occurrences
         /// </summary>
         private readonly int minimum;
 
         /// <summary>
-        /// the maximal number of occurances
+        /// the maximal number of occurrences
         /// </summary>
         private readonly int maximum;
 
         /// <summary>
         /// creates a new QuantityAttribute
         /// </summary>
-        /// <param name="Minimum">the minimal number of occurances</param>
-        /// <param name="Maximum">the maximal number of occurances</param>
+        /// <param name="Minimum">the minimal number of occurrences</param>
+        /// <param name="Maximum">the maximal number of occurrences</param>
         public QuantityAttribute(int Minimum, int Maximum)
         {
             minimum = Minimum;
@@ -66,12 +66,12 @@ namespace GeneaGedcom.Meta
         public override object TypeId => "Quantity";
 
         /// <summary>
-        /// returns the minimal number of occurances
+        /// returns the minimal number of occurrences
         /// </summary>
         public int Minimum => minimum;
 
         /// <summary>
-        /// returns the maximal number of occurances
+        /// returns the maximal number of occurrences
         /// </summary>
         public int Maximum => maximum;
 

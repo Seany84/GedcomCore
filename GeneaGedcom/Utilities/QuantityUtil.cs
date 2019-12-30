@@ -12,20 +12,20 @@ namespace GeneaGedcom.Utilities
     public class QuantityUtil
     {
         /// <summary>
-        /// the default maximum number of occurances
+        /// the default maximum number of occurrences
         /// </summary>
         private static readonly int defaultMaximum = 1;
 
         /// <summary>
-        /// the default minimum number of occurances
+        /// the default minimum number of occurrences
         /// </summary>
         private static readonly int defaultMinimum = 1;
 
         /// <summary>
-        /// returns the maximum number of occurances of the given property
+        /// returns the maximum number of occurrences of the given property
         /// </summary>
         /// <param name="Property">a property</param>
-        /// <returns>the maximum number of occurances of the given property</returns>
+        /// <returns>the maximum number of occurrences of the given property</returns>
         public static int GetMaximum(PropertyInfo Property)
         {
             var attributes = Property.GetCustomAttributes(typeof(QuantityAttribute), true) as QuantityAttribute[];
@@ -44,10 +44,10 @@ namespace GeneaGedcom.Utilities
         }
 
         /// <summary>
-        /// returns the minimum number of occurances of the given property
+        /// returns the minimum number of occurrences of the given property
         /// </summary>
         /// <param name="Property">a property</param>
-        /// <returns>the minimum number of occurances of the given property</returns>
+        /// <returns>the minimum number of occurrences of the given property</returns>
         public static int GetMinimum(PropertyInfo Property)
         {
             var attributes = Property.GetCustomAttributes(typeof(QuantityAttribute), true) as QuantityAttribute[];

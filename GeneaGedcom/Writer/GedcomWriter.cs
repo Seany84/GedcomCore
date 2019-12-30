@@ -158,11 +158,11 @@ namespace GeneaGedcom.Writer
 
                 // use a loop, event its just a single object to avoid redundant code
                 var tmpList = implementsIList(prop.PropertyType) ? obj as IList : new[] { obj };
-                var occurances = 0;
+                var occurrences = 0;
 
                 foreach (var o in tmpList)
                 {
-                    occurances++;
+                    occurrences++;
 
                     string tag;
                     if (o is GedcomLine)
@@ -192,16 +192,16 @@ namespace GeneaGedcom.Writer
                     }
                 }
 
-                if (occurances < minOccur)
+                if (occurrences < minOccur)
                 {
                     reporting.Warn(
-                        $"object {prop.Name} in {Path} must occur at least {minOccur} time(s), but occured only {occurances} time(s)");
+                        $"object {prop.Name} in {Path} must occur at least {minOccur} time(s), but occured only {occurrences} time(s)");
                 }
 
-                if (occurances > maxOccur)
+                if (occurrences > maxOccur)
                 {
                     reporting.Warn(
-                        $"object {prop.Name} in {Path} can only occur {maxOccur} time(s), but occured {occurances} time(s)");
+                        $"object {prop.Name} in {Path} can only occur {maxOccur} time(s), but occured {occurrences} time(s)");
                 }
             }
         }
