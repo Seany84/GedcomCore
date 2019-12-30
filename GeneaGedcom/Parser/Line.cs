@@ -11,11 +11,6 @@ namespace GeneaGedcom.Parser
     class Line
     {
         /// <summary>
-        /// level of the line
-        /// </summary>
-        private int level;
-
-        /// <summary>
         /// XRef-Id of the line. Linked XRef-Ids are part of the LineValue
         /// </summary>
         private string xrefId;
@@ -63,11 +58,7 @@ namespace GeneaGedcom.Parser
         /// <summary>
         /// The level of the line
         /// </summary>
-        public int Level
-        {
-            get => level;
-            set => level = value;
-        }
+        public int Level { get; set; }
 
         /// <summary>
         /// the XRef-Id of the line.

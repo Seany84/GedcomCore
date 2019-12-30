@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using GeneaGedcom.Meta;
 using System.Reflection;
@@ -61,12 +62,12 @@ namespace GeneaGedcom.Utilities
             {
                 var attributes = field.GetCustomAttributes(typeof(UnknownEnumAttribute), true) as UnknownEnumAttribute[];
 
-                if (attributes.Length > 1)
+                if (attributes != null && attributes.Length > 1)
                 {
                     throw new InvalidOperationException("attribute appield multiple times");
                 }
 
-                if (attributes.Length == 1)
+                if (attributes != null && attributes.Length == 1)
                 {
                     return field.GetValue(Object) as ValueType;
                 }
@@ -88,16 +89,8 @@ namespace GeneaGedcom.Utilities
             {
                 throw new ArgumentException("the given type must be an enum");
             }
-            
-            foreach (var member in GetMembers(EnumType))
-            {
-                if (string.Compare(Tag, member.Key, true) == 0)
-                {
-                    return true;
-                }
-            }
 
-            return false;
+            return GetMembers(EnumType).Any(member => string.Compare(Tag, member.Key, StringComparison.OrdinalIgnoreCase) == 0);
         }
 
         /// <summary>
@@ -120,7 +113,7 @@ namespace GeneaGedcom.Utilities
 
             foreach (var member in GetMembers(EnumType))
             {
-                if (string.Compare(Tag, member.Key, true) == 0)
+                if (string.Compare(Tag, member.Key, StringComparison.OrdinalIgnoreCase) == 0)
                 {
                     return member.Value.GetValue(Object) as ValueType;
                 }
