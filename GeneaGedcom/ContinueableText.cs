@@ -29,7 +29,7 @@ namespace GeneaGedcom
         {
             get
             {
-                var s = text.Split(new string[] { "\n" }, StringSplitOptions.None);
+                var s = text.Split(new[] { "\n" }, StringSplitOptions.None);
                 tmp = new List<AdditionalLine>();
                 for (var n = 0; n < s.Length - 1; n++)
                 {

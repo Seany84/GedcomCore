@@ -65,7 +65,7 @@ namespace GeneaGedcom
         {
             string month;
 
-            var words = DateCalendarText.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+            var words = DateCalendarText.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
 
             if (words.Length == 3)
             {

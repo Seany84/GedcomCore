@@ -252,7 +252,7 @@ namespace GeneaGedcom
                     return "";
                 }
 
-                var s = sourceDescription.Split(new string[] { "\n" }, StringSplitOptions.None);
+                var s = sourceDescription.Split(new[] { "\n" }, StringSplitOptions.None);
                 tmp = new List<AdditionalLine>();
                 for (var n = 0; n < s.Length - 1; n++)
                 {

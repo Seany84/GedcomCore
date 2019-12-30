@@ -56,7 +56,7 @@ namespace GeneaGedcom
         {
             var t = DateTypeSelector(DateString, Reporting);
 
-            var ctorTypes = new Type[] { DateString.GetType(), Reporting.GetType() };
+            var ctorTypes = new[] { DateString.GetType(), Reporting.GetType() };
             var ctorValues = new object[] { DateString, Reporting };
 
             return t.GetConstructor(ctorTypes).Invoke(ctorValues) as DateValue;

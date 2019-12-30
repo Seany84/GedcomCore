@@ -156,7 +156,7 @@ namespace GeneaGedcom.Writer
                 }
 
                 // use a loop, event its just a single object to avoid redundant code
-                var tmpList = implementsIList(prop.PropertyType) ? obj as IList : new object[] { obj };
+                var tmpList = implementsIList(prop.PropertyType) ? obj as IList : new[] { obj };
                 var occurances = 0;
 
                 foreach (var o in tmpList)

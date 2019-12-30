@@ -58,7 +58,7 @@ namespace GeneaGedcom
         {
             get
             {
-                var s = addressLine.Split(new string[] { "\n" }, StringSplitOptions.None);
+                var s = addressLine.Split(new[] { "\n" }, StringSplitOptions.None);
                 tmp = new List<string>();
                 for (var n = 0; n < s.Length - 1; n++)
                 {

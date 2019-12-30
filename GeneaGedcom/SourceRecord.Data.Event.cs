@@ -59,7 +59,7 @@ namespace GeneaGedcom
                     {
                         eventsRecorded = new List<EventAttributeType>();
 
-                        var parts = value.Split(new string[] { " ", ",", ", " }, StringSplitOptions.RemoveEmptyEntries);
+                        var parts = value.Split(new[] { " ", ",", ", " }, StringSplitOptions.RemoveEmptyEntries);
 
                         foreach (var str in parts)
                         {
