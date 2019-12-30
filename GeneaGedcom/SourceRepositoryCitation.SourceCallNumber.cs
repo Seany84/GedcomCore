@@ -61,7 +61,7 @@ namespace GeneaGedcom
                     throw new ArgumentNullException();
                 }
 
-                SourceCallNumber_ scn = obj as SourceCallNumber_;
+                var scn = obj as SourceCallNumber_;
                 if (scn == null)
                 {
                     return false;

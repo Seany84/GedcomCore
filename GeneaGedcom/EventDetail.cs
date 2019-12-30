@@ -229,7 +229,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            EventDetail d = obj as EventDetail;
+            var d = obj as EventDetail;
             if (d == null)
             {
                 return false;

@@ -23,18 +23,18 @@ namespace GeneaGedcom.Utilities
                 throw new ArgumentException("the given type must be an enum");
             }
 
-            Dictionary<string, FieldInfo> members = new Dictionary<string,FieldInfo>();
+            var members = new Dictionary<string,FieldInfo>();
 
-            foreach (FieldInfo field in EnumType.GetFields())
+            foreach (var field in EnumType.GetFields())
             {
-                EnumTagAttribute[] tags = (EnumTagAttribute[])(field.GetCustomAttributes(typeof(EnumTagAttribute), false));
+                var tags = (EnumTagAttribute[])(field.GetCustomAttributes(typeof(EnumTagAttribute), false));
 
                 if (tags.Length == 0)
                 {
                     continue;
                 }
 
-                EnumTagAttribute tag = tags[0];
+                var tag = tags[0];
 
                 members.Add(tag.TagName, field);
             }
@@ -57,9 +57,9 @@ namespace GeneaGedcom.Utilities
                 throw new ArgumentException("the given type must be an enum");
             }
 
-            foreach (FieldInfo field in EnumType.GetFields())
+            foreach (var field in EnumType.GetFields())
             {
-                UnknownEnumAttribute[] attributes = field.GetCustomAttributes(typeof(UnknownEnumAttribute), true) as UnknownEnumAttribute[];
+                var attributes = field.GetCustomAttributes(typeof(UnknownEnumAttribute), true) as UnknownEnumAttribute[];
 
                 if (attributes.Length > 1)
                 {
@@ -89,7 +89,7 @@ namespace GeneaGedcom.Utilities
                 throw new ArgumentException("the given type must be an enum");
             }
             
-            foreach (KeyValuePair<string, FieldInfo> member in GetMembers(EnumType))
+            foreach (var member in GetMembers(EnumType))
             {
                 if (string.Compare(Tag, member.Key, true) == 0)
                 {
@@ -118,7 +118,7 @@ namespace GeneaGedcom.Utilities
                 throw new ArgumentException("the given type must be an enum");
             }
 
-            foreach (KeyValuePair<string, FieldInfo> member in GetMembers(EnumType))
+            foreach (var member in GetMembers(EnumType))
             {
                 if (string.Compare(Tag, member.Key, true) == 0)
                 {
@@ -161,7 +161,7 @@ namespace GeneaGedcom.Utilities
         /// <returns>the first tag name or an empty string, if it has no tags</returns>
         public static string GetFirstTagName(ValueType Member)
         {
-            foreach(KeyValuePair<string, FieldInfo> member in GetMembers(Member.GetType()))
+            foreach(var member in GetMembers(Member.GetType()))
             {
                 if (member.Value.GetValue(Member).Equals(Member))
                 {

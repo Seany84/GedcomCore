@@ -33,7 +33,7 @@ namespace GeneaGedcom
 
         public static DateExact Parse(string DateString, Reporting Reporting)
         {
-            DateExact date = new DateExact(Reporting);
+            var date = new DateExact(Reporting);
             date.DateString = DateString;
             return date;
         }
@@ -104,7 +104,7 @@ namespace GeneaGedcom
             set
             {
                 char[] splitChars = { ' ', '\t' };
-                string[] words = value.Split(splitChars, StringSplitOptions.RemoveEmptyEntries);
+                var words = value.Split(splitChars, StringSplitOptions.RemoveEmptyEntries);
                 if (words.Length != 3)
                 {
                     Reporting.Warn("exact date doesn't have proper format: " + value);
@@ -138,7 +138,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            DateExact de = obj as DateExact;
+            var de = obj as DateExact;
             if (de == null)
             {
                 return false;

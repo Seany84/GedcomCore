@@ -76,7 +76,7 @@ namespace GeneaGedcom
                     throw new ArgumentNullException();
                 }
 
-                Data_ data = obj as Data_;
+                var data = obj as Data_;
                 if (data == null)
                 {
                     return false;

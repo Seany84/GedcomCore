@@ -50,7 +50,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            LdsIndividualOrdianceEndowment lds = obj as LdsIndividualOrdianceEndowment;
+            var lds = obj as LdsIndividualOrdianceEndowment;
             if (lds == null)
             {
                 return false;

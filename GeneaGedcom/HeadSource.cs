@@ -112,7 +112,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            HeadSource hs = obj as HeadSource;
+            var hs = obj as HeadSource;
             if (hs == null)
             {
                 return false;

@@ -271,7 +271,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            FamilyRecord fam = obj as FamilyRecord;
+            var fam = obj as FamilyRecord;
             if (fam == null)
             {
                 return false;

@@ -19,12 +19,12 @@ namespace GeneaGedcom.Test
                 return;
             }
 
-            GedcomParser parser = new GedcomParser();
-            FileInfo file = new FileInfo(args[0]);
-            LineageLinkedGedcom gedcom = parser.Parse(file.OpenRead());
+            var parser = new GedcomParser();
+            var file = new FileInfo(args[0]);
+            var gedcom = parser.Parse(file.OpenRead());
 
-            FileInfo outFile = new FileInfo("text-out.txt");
-            GedcomWriter writer = new GedcomWriter();
+            var outFile = new FileInfo("text-out.txt");
+            var writer = new GedcomWriter();
 
             Stream s = outFile.OpenWrite();
 

@@ -56,7 +56,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            Record rec = obj as Record;
+            var rec = obj as Record;
             if (rec == null)
             {
                 return false;

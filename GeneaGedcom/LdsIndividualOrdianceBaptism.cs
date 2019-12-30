@@ -58,7 +58,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            LdsIndividualOrdianceBaptism baptism = obj as LdsIndividualOrdianceBaptism;
+            var baptism = obj as LdsIndividualOrdianceBaptism;
             if (baptism == null)
             {
                 return false;

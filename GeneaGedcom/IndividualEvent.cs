@@ -121,7 +121,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            IndividualEvent e = obj as IndividualEvent;
+            var e = obj as IndividualEvent;
             if (e == null)
             {
                 return false;

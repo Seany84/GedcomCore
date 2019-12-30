@@ -25,7 +25,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            Trailer trailer = obj as Trailer;
+            var trailer = obj as Trailer;
             if (trailer == null)
             {
                 return false;

@@ -144,7 +144,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            LdsSpouseSealing lds = obj as LdsSpouseSealing;
+            var lds = obj as LdsSpouseSealing;
             if (lds == null)
             {
                 return false;

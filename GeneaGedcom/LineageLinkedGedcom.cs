@@ -104,7 +104,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            LineageLinkedGedcom gedcom = obj as LineageLinkedGedcom;
+            var gedcom = obj as LineageLinkedGedcom;
             if (gedcom == null)
             {
                 return false;

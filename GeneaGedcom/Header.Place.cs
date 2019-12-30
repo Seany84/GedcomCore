@@ -39,7 +39,7 @@ namespace GeneaGedcom
                     throw new ArgumentNullException();
                 }
 
-                Place_ place = obj as Place_;
+                var place = obj as Place_;
                 if (place == null)
                 {
                     return false;

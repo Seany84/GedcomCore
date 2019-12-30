@@ -52,7 +52,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            DatePhrase dp = obj as DatePhrase;
+            var dp = obj as DatePhrase;
             if (dp == null)
             {
                 return false;

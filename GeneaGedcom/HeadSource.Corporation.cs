@@ -79,7 +79,7 @@ namespace GeneaGedcom
                     throw new ArgumentNullException();
                 }
 
-                Corporation_ corp = obj as Corporation_;
+                var corp = obj as Corporation_;
                 if (corp == null)
                 {
                     return false;

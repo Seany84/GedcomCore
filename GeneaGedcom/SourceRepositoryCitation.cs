@@ -82,7 +82,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            SourceRepositoryCitation src = obj as SourceRepositoryCitation;
+            var src = obj as SourceRepositoryCitation;
             if (src == null)
             {
                 return false;

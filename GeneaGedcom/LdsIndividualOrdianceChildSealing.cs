@@ -66,7 +66,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            LdsIndividualOrdianceChildSealing lds = obj as LdsIndividualOrdianceChildSealing;
+            var lds = obj as LdsIndividualOrdianceChildSealing;
             if (lds == null)
             {
                 return false;

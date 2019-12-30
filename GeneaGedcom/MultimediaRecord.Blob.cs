@@ -100,7 +100,7 @@ namespace GeneaGedcom
 
                 decodingTable = new Dictionary<char, byte>();
 
-                foreach (KeyValuePair<byte, char> pair in encodingTable)
+                foreach (var pair in encodingTable)
                 {
                     decodingTable.Add(pair.Value, pair.Key);
                 }
@@ -139,7 +139,7 @@ namespace GeneaGedcom
                         createEncodedText();
                     }
 
-                    string tmp = encodedText.Text;
+                    var tmp = encodedText.Text;
 
                     return encodedText.AdditionalLines;
                 }
@@ -147,12 +147,12 @@ namespace GeneaGedcom
 
             private void createEncodedText()
             {
-                string str = "";
+                var str = "";
                 encodedText = new ContinueableText(Reporting);
 
-                for (int n = 0; n < binaryData.Length; n += 3)
+                for (var n = 0; n < binaryData.Length; n += 3)
                 {
-                    byte b1 = binaryData[n];
+                    var b1 = binaryData[n];
 
                     byte? b2;
                     byte? b3;
@@ -186,7 +186,7 @@ namespace GeneaGedcom
                     // 000000 00|0000 1111|11 000000 p3
                     // 000000 00|0000 0000|00 111111 p4
 
-                    byte  p1 = (byte)((b1 & 0xFC) >> 2);
+                    var  p1 = (byte)((b1 & 0xFC) >> 2);
                     byte? p2 = (byte)((b1 & 0x3) << 4);
                     byte? p3 = null;
                     byte? p4 = null;
@@ -202,7 +202,7 @@ namespace GeneaGedcom
                         }
                     }
 
-                    string tmp = encodingTable[p1].ToString();
+                    var tmp = encodingTable[p1].ToString();
 
                     tmp += encodingTable[p2.Value].ToString();
 
@@ -234,11 +234,11 @@ namespace GeneaGedcom
 
             private void createBinaryData()
             {
-                List<byte> bytes = new List<byte>();
+                var bytes = new List<byte>();
 
-                foreach (string line in encodedText.AllLines)
+                foreach (var line in encodedText.AllLines)
                 {
-                    for (int n = 0; n < line.Length; n += 4)
+                    for (var n = 0; n < line.Length; n += 4)
                     {
                         string part;
                         byte b1;
@@ -300,7 +300,7 @@ namespace GeneaGedcom
                         byte? p2;
                         byte? p3;
 
-                        byte p1 = (byte)(((b1 & 0x3F) << 2) | ((b2 & 0x30) >> 4));
+                        var p1 = (byte)(((b1 & 0x3F) << 2) | ((b2 & 0x30) >> 4));
 
                         if (b3.HasValue)
                         {
@@ -365,7 +365,7 @@ namespace GeneaGedcom
                     throw new ArgumentNullException();
                 }
 
-                Blob_ blob = obj as Blob_;
+                var blob = obj as Blob_;
                 if (blob == null)
                 {
                     return false;

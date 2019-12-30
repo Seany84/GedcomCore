@@ -54,10 +54,10 @@ namespace GeneaGedcom
 
         public static DateValue CreateDateValue(string DateString, Reporting Reporting)
         {
-            Type t = DateTypeSelector(DateString, Reporting);
+            var t = DateTypeSelector(DateString, Reporting);
 
-            Type[] ctorTypes = new Type[] { DateString.GetType(), Reporting.GetType() };
-            object[] ctorValues = new object[] { DateString, Reporting };
+            var ctorTypes = new Type[] { DateString.GetType(), Reporting.GetType() };
+            var ctorValues = new object[] { DateString, Reporting };
 
             return t.GetConstructor(ctorTypes).Invoke(ctorValues) as DateValue;
         }

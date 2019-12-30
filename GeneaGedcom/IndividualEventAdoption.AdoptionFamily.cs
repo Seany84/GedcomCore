@@ -54,7 +54,7 @@ namespace GeneaGedcom
                     throw new ArgumentNullException();
                 }
 
-                AdoptionFamily_ fam = obj as AdoptionFamily_;
+                var fam = obj as AdoptionFamily_;
                 if (fam == null)
                 {
                     return false;

@@ -98,7 +98,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            Association assoc = obj as Association;
+            var assoc = obj as Association;
             if (assoc == null)
             {
                 return false;

@@ -67,7 +67,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            RoleInEvent role = obj as RoleInEvent;
+            var role = obj as RoleInEvent;
             if (role == null)
             {
                 return false;

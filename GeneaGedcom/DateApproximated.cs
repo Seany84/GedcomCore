@@ -39,7 +39,7 @@ namespace GeneaGedcom
             }
             set
             {
-                string approx = value.Substring(0, DateString.IndexOf(' '));
+                var approx = value.Substring(0, DateString.IndexOf(' '));
 
                 try
                 {
@@ -85,7 +85,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            DateApproximated da = obj as DateApproximated;
+            var da = obj as DateApproximated;
             if (da == null)
             {
                 return false;

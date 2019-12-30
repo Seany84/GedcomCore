@@ -43,7 +43,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            IndividualEventBirth birth = obj as IndividualEventBirth;
+            var birth = obj as IndividualEventBirth;
             if (birth == null)
             {
                 return false;

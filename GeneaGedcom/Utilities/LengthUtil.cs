@@ -28,7 +28,7 @@ namespace GeneaGedcom.Utilities
         /// <returns>the maximum length of the gedcom data</returns>
         public static int GetMaximumLength(PropertyInfo Property)
         {
-            LengthAttribute[] attributes = Property.GetCustomAttributes(typeof(LengthAttribute), true) as LengthAttribute[];
+            var attributes = Property.GetCustomAttributes(typeof(LengthAttribute), true) as LengthAttribute[];
             if (attributes.Length == 0)
             {
                 return defaultMaximumLength;
@@ -50,7 +50,7 @@ namespace GeneaGedcom.Utilities
         /// <returns>the mimimum length of the gedcom data</returns>
         public static int GetMinimumLength(PropertyInfo Property)
         {
-            LengthAttribute[] attributes = Property.GetCustomAttributes(typeof(LengthAttribute), true) as LengthAttribute[];
+            var attributes = Property.GetCustomAttributes(typeof(LengthAttribute), true) as LengthAttribute[];
             if (attributes.Length == 0)
             {
                 return defaultMinimumLength;

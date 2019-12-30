@@ -144,7 +144,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            LdsIndividualOrdiance lds = obj as LdsIndividualOrdiance;
+            var lds = obj as LdsIndividualOrdiance;
             if (lds == null)
             {
                 return false;

@@ -60,14 +60,14 @@ namespace GeneaGedcom
             {
                 value = value.Trim();
 
-                int beforeIndex = value.IndexOf(before);
-                int afterIndex = value.IndexOf(after);
-                int betweenIndex = value.IndexOf(between);
-                int andIndex = value.IndexOf(and);
+                var beforeIndex = value.IndexOf(before);
+                var afterIndex = value.IndexOf(after);
+                var betweenIndex = value.IndexOf(between);
+                var andIndex = value.IndexOf(and);
 
-                bool isBefore = beforeIndex != -1;
-                bool isAfter = afterIndex != -1;
-                bool isBetween = (betweenIndex != -1) && (andIndex != -1);
+                var isBefore = beforeIndex != -1;
+                var isAfter = afterIndex != -1;
+                var isBetween = (betweenIndex != -1) && (andIndex != -1);
 
                 if (!isBefore && !isAfter && !isBetween)
                 {
@@ -77,18 +77,18 @@ namespace GeneaGedcom
 
                 if (isBefore)
                 {
-                    string str = value.Substring(beforeIndex + before.Length);
+                    var str = value.Substring(beforeIndex + before.Length);
                     BeforeDate = new Date(str, Reporting);
                 }
                 else if (isAfter)
                 {
-                    string str = value.Substring(afterIndex + after.Length);
+                    var str = value.Substring(afterIndex + after.Length);
                     AfterDate = new Date(str, Reporting);
                 }
                 else if (isBetween)
                 {
-                    string str1 = value.Substring(betweenIndex + before.Length, andIndex - (betweenIndex + before.Length));
-                    string str2 = value.Substring(andIndex + and.Length);
+                    var str1 = value.Substring(betweenIndex + before.Length, andIndex - (betweenIndex + before.Length));
+                    var str2 = value.Substring(andIndex + and.Length);
                     BetweenDate1 = new Date(str1, Reporting);
                     betweenDate2 = new Date(str2, Reporting);
                 }
@@ -150,7 +150,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            DateRange dr = obj as DateRange;
+            var dr = obj as DateRange;
             if (dr == null)
             {
                 return false;

@@ -28,7 +28,7 @@ namespace GeneaGedcom.Utilities
         /// <returns>the maximum number of occurances of the given property</returns>
         public static int GetMaximum(PropertyInfo Property)
         {
-            QuantityAttribute[] attributes = Property.GetCustomAttributes(typeof(QuantityAttribute), true) as QuantityAttribute[];
+            var attributes = Property.GetCustomAttributes(typeof(QuantityAttribute), true) as QuantityAttribute[];
             if (attributes.Length == 0)
             {
                 return defaultMaximum;
@@ -50,7 +50,7 @@ namespace GeneaGedcom.Utilities
         /// <returns>the minimum number of occurances of the given property</returns>
         public static int GetMinimum(PropertyInfo Property)
         {
-            QuantityAttribute[] attributes = Property.GetCustomAttributes(typeof(QuantityAttribute), true) as QuantityAttribute[];
+            var attributes = Property.GetCustomAttributes(typeof(QuantityAttribute), true) as QuantityAttribute[];
             if (attributes.Length == 0)
             {
                 return defaultMinimum;

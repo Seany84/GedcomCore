@@ -241,7 +241,7 @@ namespace GeneaGedcom
                 throw new NullReferenceException();
             }
 
-            SourceRecord sr = obj as SourceRecord;
+            var sr = obj as SourceRecord;
             if (sr == null)
             {
                 return false;

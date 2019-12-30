@@ -57,12 +57,12 @@ namespace GeneaGedcom.Parser
         /// <returns>a LineageLinkedGedcom object, that contains the read information</returns>
         public LineageLinkedGedcom Parse(Stream Stream)
         {
-            int lineNumber = 0;
+            var lineNumber = 0;
             objects = new Stack<object>();
             tags = new Stack<string>();
-            StreamReader streamReader = new StreamReader(Stream);
+            var streamReader = new StreamReader(Stream);
 
-            LineageLinkedGedcom gedcom = new LineageLinkedGedcom(reporting);
+            var gedcom = new LineageLinkedGedcom(reporting);
 
             objects.Push(gedcom);
             lastLevel = -1;
@@ -100,7 +100,7 @@ namespace GeneaGedcom.Parser
             PropertyInfo property = null;
             Type propType = null;
 
-            Line line = new Line(Line);
+            var line = new Line(Line);
 
             if (line.TagName.StartsWith("_"))
             {
@@ -108,13 +108,13 @@ namespace GeneaGedcom.Parser
                 return;
             }
 
-            int popCount = lastLevel - line.Level;
-            for (int n = 0; n <= popCount; n++)
+            var popCount = lastLevel - line.Level;
+            for (var n = 0; n <= popCount; n++)
             {
                 objects.Pop();
             }
 
-            object currentObject = objects.Peek();
+            var currentObject = objects.Peek();
 
             if (currentObject == null)
                 //dummy-object pushed in the last call of processLine(); we can't proceed
@@ -154,7 +154,7 @@ namespace GeneaGedcom.Parser
                     {
                         if (nextLine != null)
                         {
-                            IList col = property.GetValue(currentObject, null) as IList;
+                            var col = property.GetValue(currentObject, null) as IList;
                             col.Add(nextLine);
                         }
                     }
@@ -183,7 +183,7 @@ namespace GeneaGedcom.Parser
             catch (MemberNotFoundException memberException)
                 //try to find a custom tag or throw a exception if none is found
             {
-                string customTagPath = getCurrentPath() + "/" + memberException.Tag;
+                var customTagPath = getCurrentPath() + "/" + memberException.Tag;
                 if (!customTagProperties.ContainsKey(customTagPath))
                 {
                     throw memberException;
@@ -203,7 +203,7 @@ namespace GeneaGedcom.Parser
         {
             checkLength(Line, Property);
 
-            Type type = TagUtil.GetLineType(Property, Line.TagName);
+            var type = TagUtil.GetLineType(Property, Line.TagName);
 
             object nextObject;
 
@@ -233,12 +233,12 @@ namespace GeneaGedcom.Parser
 
         private GedcomLine createNextGedcomLine(Line Line, PropertyInfo Property, Type Type, Reporting Reporting)
         {
-            ConstructorInfo ctor = Type.GetConstructor(getCtorArgTypes(Line, Reporting));
+            var ctor = Type.GetConstructor(getCtorArgTypes(Line, Reporting));
             GedcomLine nextObject;
 
             if (ctor == null)
             {
-                Type[] t = getCtorArgTypes(Line, reporting);
+                var t = getCtorArgTypes(Line, reporting);
                 throw new InternalException(string.Format("no appropriate ctor found for type {0}. {1} parameters", Type, t.Length));
             }
 
@@ -260,7 +260,7 @@ namespace GeneaGedcom.Parser
             {
                 try
                 {
-                    PropertyInfo prop = TagUtil.GetMember(nextObject, "", false, true);
+                    var prop = TagUtil.GetMember(nextObject, "", false, true);
                     prop.SetValue(nextObject, Line.LineValue, null);
                 }
                 catch (MemberNotFoundException)
@@ -284,7 +284,7 @@ namespace GeneaGedcom.Parser
         /// <returns>an array with the ctor-args</returns>
         private object[] getCtorArgs(Line Line, Reporting Reporting)
         {
-            List<object> args = new List<object>();
+            var args = new List<object>();
 
             if (Line.XRefId != "")
             {
@@ -303,7 +303,7 @@ namespace GeneaGedcom.Parser
         /// <returns>an array with the types of the ctor-args</returns>
         private Type[] getCtorArgTypes(Line Line, Reporting Reporting)
         {
-            List<Type> types = new List<Type>();
+            var types = new List<Type>();
 
             if (Line.XRefId != "")
             {
@@ -322,7 +322,7 @@ namespace GeneaGedcom.Parser
         /// <returns>true, if the Type implements IList, otherwise false</returns>
         private bool implementsIList(Type Type)
         {
-            foreach (Type iface in Type.GetInterfaces())
+            foreach (var iface in Type.GetInterfaces())
             {
                 if (iface.Equals(typeof(IList)))
                 {
@@ -340,9 +340,9 @@ namespace GeneaGedcom.Parser
         /// <param name="Property">property which the value will be assigned to</param>
         private void checkLength(Line Line, PropertyInfo Property)
         {
-            int length = Line.LineValue.Length;
-            int minLength = LengthUtil.GetMinimumLength(Property);
-            int maxLength = LengthUtil.GetMaximumLength(Property);
+            var length = Line.LineValue.Length;
+            var minLength = LengthUtil.GetMinimumLength(Property);
+            var maxLength = LengthUtil.GetMaximumLength(Property);
 
             if (length < minLength)
             {
@@ -367,8 +367,8 @@ namespace GeneaGedcom.Parser
                 throw new ArgumentException("CustomTagType must inherit from GeneaGedcom.GedcomLine");
             }
 
-            Regex regex = new Regex(@"/\w+(/\w+/)");
-            Match match = regex.Match(PathToTag);
+            var regex = new Regex(@"/\w+(/\w+/)");
+            var match = regex.Match(PathToTag);
             if (!match.Success)
             {
                 throw new FormatException("PathToTag " + PathToTag + " didn't match expected format");
@@ -383,8 +383,8 @@ namespace GeneaGedcom.Parser
         /// <returns>returns the path for the currently processed object</returns>
         private string getCurrentPath()
         {
-            string path = "";
-            foreach (string tag in tags)
+            var path = "";
+            foreach (var tag in tags)
             {
                 path += "/" + tag;
             }

@@ -170,7 +170,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            MultimediaRecord mr = obj as MultimediaRecord;
+            var mr = obj as MultimediaRecord;
             if (mr == null)
             {
                 return false;

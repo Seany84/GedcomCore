@@ -98,15 +98,15 @@ namespace GeneaGedcom
             set
             {
                 char[] splitChars = { ' ', '\t' };
-                string[] words = value.Split(splitChars, StringSplitOptions.RemoveEmptyEntries);
+                var words = value.Split(splitChars, StringSplitOptions.RemoveEmptyEntries);
                 if (words.Length != 3)
                 {
                     Reporting.Warn("hebrew date doesn't have proper format: " + value);
                 }
 
-                int dayIndex = words.Length - 3;
-                int monthIndex = words.Length - 2;
-                int yearIndex = words.Length - 1;
+                var dayIndex = words.Length - 3;
+                var monthIndex = words.Length - 2;
+                var yearIndex = words.Length - 1;
 
                 if (dayIndex >= 0)
                 {
@@ -139,7 +139,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            DateHebrew dh = obj as DateHebrew;
+            var dh = obj as DateHebrew;
             if (dh == null)
             {
                 return false;

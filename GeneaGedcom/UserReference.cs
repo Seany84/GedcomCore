@@ -60,7 +60,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            UserReference ur = obj as UserReference;
+            var ur = obj as UserReference;
             if (ur == null)
             {
                 return false;

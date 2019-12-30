@@ -262,7 +262,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            Header header = obj as Header;
+            var header = obj as Header;
             if (header == null)
             {
                 return false;

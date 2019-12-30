@@ -149,7 +149,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            MultimediaLink ml = obj as MultimediaLink;
+            var ml = obj as MultimediaLink;
             if (ml == null)
             {
                 return false;

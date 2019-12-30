@@ -50,16 +50,16 @@ namespace GeneaGedcom
             {
                 value = value.Trim();
 
-                int fromIndex = value.IndexOf(from);
-                int toIndex = value.IndexOf(to);
+                var fromIndex = value.IndexOf(from);
+                var toIndex = value.IndexOf(to);
 
                 if ((fromIndex == -1) && (toIndex == -1))
                 {
                     throw new FormatException("no dateperiod: " + DateString);
                 }
 
-                string fromDateString = "";
-                string toDateString = "";
+                var fromDateString = "";
+                var toDateString = "";
 
                 if (fromIndex != -1)
                 {
@@ -121,7 +121,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            DatePeriod dp = obj as DatePeriod;
+            var dp = obj as DatePeriod;
             if (dp == null)
             {
                 return false;

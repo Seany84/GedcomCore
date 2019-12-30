@@ -45,9 +45,9 @@ namespace GeneaGedcom.Parser
         {
             Line = Line.Trim();
 
-            Regex regex = new Regex(@"^(\d+)\s+(@(\w+)@\s+)?(\w+)(\s+.+)?$", RegexOptions.None);
+            var regex = new Regex(@"^(\d+)\s+(@(\w+)@\s+)?(\w+)(\s+.+)?$", RegexOptions.None);
 
-            Match match = regex.Match(Line);
+            var match = regex.Match(Line);
 
             if (!match.Success)
             {

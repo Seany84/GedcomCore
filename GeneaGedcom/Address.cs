@@ -58,9 +58,9 @@ namespace GeneaGedcom
         {
             get
             {
-                string[] s = addressLine.Split(new string[] { "\n" }, StringSplitOptions.None);
+                var s = addressLine.Split(new string[] { "\n" }, StringSplitOptions.None);
                 tmp = new List<string>();
-                for (int n = 0; n < s.Length - 1; n++)
+                for (var n = 0; n < s.Length - 1; n++)
                 {
                     tmp.Add(s[n+1]);
                 }
@@ -214,7 +214,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            Address addr = obj as Address;
+            var addr = obj as Address;
             if (addr == null)
             {
                 return false;

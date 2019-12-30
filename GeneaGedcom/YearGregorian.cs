@@ -98,9 +98,9 @@ namespace GeneaGedcom
                 }
                 else
                 {
-                    Regex regex = new Regex(@"^(\d+)/(\d\d)$");
+                    var regex = new Regex(@"^(\d+)/(\d\d)$");
 
-                    Match match = regex.Match(value);
+                    var match = regex.Match(value);
 
                     if (match.Success)
                     {
@@ -128,7 +128,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            YearGregorian year = obj as YearGregorian;
+            var year = obj as YearGregorian;
             if (year == null)
             {
                 return false;
@@ -149,14 +149,14 @@ namespace GeneaGedcom
 
         public bool Equals(int Year)
         {
-            string str = string.Format("{0:D4}", this.Year);
-            string century = str.Substring(0, 2);
-            string rest1 = str.Substring(2, 2);
-            string rest2 = string.Format("{0:D2}", Alternative);
+            var str = string.Format("{0:D4}", this.Year);
+            var century = str.Substring(0, 2);
+            var rest1 = str.Substring(2, 2);
+            var rest2 = string.Format("{0:D2}", Alternative);
 
-            string str2 = string.Format("{0:D4}", Year);
-            string century2 = str2.Substring(0, 2);
-            string rest = str2.Substring(2, 2);
+            var str2 = string.Format("{0:D4}", Year);
+            var century2 = str2.Substring(0, 2);
+            var rest = str2.Substring(2, 2);
 
             if (!century.Equals(century2))
             {

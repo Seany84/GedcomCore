@@ -36,7 +36,7 @@ namespace GeneaGedcom.Writer
         /// <param name="Stream">the stream that the gedcom object should be written to</param>
         public void Write(LineageLinkedGedcom Gedcom, Stream Stream)
         {
-            StreamWriter streamWriter = new StreamWriter(Stream);
+            var streamWriter = new StreamWriter(Stream);
             streamWriter.AutoFlush = true;
 
             writeObject(Gedcom, "", streamWriter, -1, "");
@@ -77,7 +77,7 @@ namespace GeneaGedcom.Writer
         /// <param name="Path">the path for the current object</param>
         private void writeObject(object Line, string Tag, StreamWriter StreamWriter, int Level, string Path)
         {
-            Line lineV = new Line();
+            var lineV = new Line();
             lineV.Level = Level;
             lineV.TagName = Tag;
 
@@ -85,9 +85,9 @@ namespace GeneaGedcom.Writer
             {
                 try
                 {
-                    PropertyInfo lineValueProperty = TagUtil.GetMember(Line, "", true, false);
+                    var lineValueProperty = TagUtil.GetMember(Line, "", true, false);
 
-                    object obj = lineValueProperty.GetValue(Line, null);
+                    var obj = lineValueProperty.GetValue(Line, null);
 
                     if (obj == null)
                     {
@@ -130,20 +130,20 @@ namespace GeneaGedcom.Writer
 
             writeLine(lineV, StreamWriter);
 
-            foreach (KeyValuePair<PropertyInfo, IDictionary<Type, string>> type in TagUtil.GetTags(Line.GetType()))
+            foreach (var type in TagUtil.GetTags(Line.GetType()))
             {
-                PropertyInfo prop = type.Key;
-                string defaultTag = TagUtil.GetTagName(prop);
+                var prop = type.Key;
+                var defaultTag = TagUtil.GetTagName(prop);
 
                 if (!prop.CanRead)
                 {
                     continue;
                 }
 
-                int minOccur = QuantityUtil.GetMinimum(prop);
-                int maxOccur = QuantityUtil.GetMaximum(prop);
+                var minOccur = QuantityUtil.GetMinimum(prop);
+                var maxOccur = QuantityUtil.GetMaximum(prop);
 
-                object obj = prop.GetValue(Line, null);
+                var obj = prop.GetValue(Line, null);
 
                 if (TagUtil.IsDefaultValue(prop, obj))
                 {
@@ -156,17 +156,17 @@ namespace GeneaGedcom.Writer
                 }
 
                 // use a loop, event its just a single object to avoid redundant code
-                IList tmpList = implementsIList(prop.PropertyType) ? obj as IList : new object[] { obj };
-                int occurances = 0;
+                var tmpList = implementsIList(prop.PropertyType) ? obj as IList : new object[] { obj };
+                var occurances = 0;
 
-                foreach (object o in tmpList)
+                foreach (var o in tmpList)
                 {
                     occurances++;
 
                     string tag;
                     if (o is GedcomLine)
                     {
-                        GedcomLine line = o as GedcomLine;
+                        var line = o as GedcomLine;
                         line.Tag = getTag(type.Value, line);
 
                         tag = line.Tag;
@@ -213,13 +213,13 @@ namespace GeneaGedcom.Writer
         {
             /* one property might have multiple types, each with multiple tags.
              * now we search for the correct type */
-            foreach (KeyValuePair<Type, string> t in tags)
+            foreach (var t in tags)
             {
                 if (t.Key.Equals(obj.GetType()))
                 {
                     /* t.Value == null indicates, that there are multiple tag with the same type
                      * so we take the correct Tag from the object's Tag-property */
-                    string tag = t.Value == null ? obj.Tag : t.Value;
+                    var tag = t.Value == null ? obj.Tag : t.Value;
 
                     if (tag == "")
                     {
@@ -240,10 +240,10 @@ namespace GeneaGedcom.Writer
         /// <returns>the line number including indentation, if its turned on</returns>
         private string lineNumber(int Number)
         {
-            string indent = "";
+            var indent = "";
             if (IndentLines)
             {
-                for (int n = 0; n < Number; n++)
+                for (var n = 0; n < Number; n++)
                 {
                     indent += " ";
                 }
@@ -274,7 +274,7 @@ namespace GeneaGedcom.Writer
         /// <returns>true, if the Type implements IList, otherwise false</returns>
         private bool implementsIList(Type Type)
         {
-            foreach (Type iface in Type.GetInterfaces())
+            foreach (var iface in Type.GetInterfaces())
             {
                 if (iface.Equals(typeof(IList)))
                 {

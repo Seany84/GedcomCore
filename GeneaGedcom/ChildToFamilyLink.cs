@@ -79,7 +79,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            ChildToFamilyLink link = obj as ChildToFamilyLink;
+            var link = obj as ChildToFamilyLink;
             if (link == null)
             {
                 return false;

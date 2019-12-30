@@ -97,7 +97,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            Place place = obj as Place;
+            var place = obj as Place;
             if (place == null)
             {
                 return false;

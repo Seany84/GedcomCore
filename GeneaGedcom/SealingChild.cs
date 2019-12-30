@@ -36,7 +36,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            SealingChild sc = obj as SealingChild;
+            var sc = obj as SealingChild;
             if (sc == null)
             {
                 return false;

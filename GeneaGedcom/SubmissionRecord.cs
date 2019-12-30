@@ -145,7 +145,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            SubmissionRecord subm = obj as SubmissionRecord;
+            var subm = obj as SubmissionRecord;
             if (subm == null)
             {
                 return false;

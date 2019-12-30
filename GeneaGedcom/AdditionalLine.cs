@@ -42,7 +42,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            AdditionalLine s = obj as AdditionalLine;
+            var s = obj as AdditionalLine;
             if (s == null)
             {
                 return false;

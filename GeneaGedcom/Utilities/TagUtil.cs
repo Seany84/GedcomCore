@@ -26,11 +26,11 @@ namespace GeneaGedcom.Utilities
         /// <returns>one of Object's proerties that matches the given criteria</returns>
         public static PropertyInfo GetMember(object Object, string TagName, bool MustBeReadable, bool MustBeWriteable)
         {
-            List<PropertyInfo> members = new List<PropertyInfo>();
+            var members = new List<PropertyInfo>();
 
-            foreach (PropertyInfo member in Object.GetType().GetProperties())
+            foreach (var member in Object.GetType().GetProperties())
             {
-                foreach (TagAttribute attrib in ((member.GetCustomAttributes(typeof(TagAttribute), false)) as TagAttribute[]))
+                foreach (var attrib in ((member.GetCustomAttributes(typeof(TagAttribute), false)) as TagAttribute[]))
                 {
                     if (attrib.TagName == TagName)
                     {
@@ -69,7 +69,7 @@ namespace GeneaGedcom.Utilities
         /// <returns>the type for the given property and tag name</returns>
         public static Type GetLineType(PropertyInfo Property, string TagName)
         {
-            foreach(TagAttribute attrib in ((Property.GetCustomAttributes(typeof(TagAttribute), true)) as TagAttribute[]))
+            foreach(var attrib in ((Property.GetCustomAttributes(typeof(TagAttribute), true)) as TagAttribute[]))
             {
                 if (string.Compare(attrib.TagName, TagName, true) == 0)
                 {
@@ -90,13 +90,13 @@ namespace GeneaGedcom.Utilities
         /// <returns>all tagged properties of the given type with their type-tag combinations</returns>
         public static IEnumerable<KeyValuePair<PropertyInfo, IDictionary<Type, string>>> GetTags(Type Type)
         {
-            foreach(PropertyInfo prop in Type.GetProperties())
+            foreach(var prop in Type.GetProperties())
             {
-                Dictionary<Type, string> types = new Dictionary<Type, string>();
+                var types = new Dictionary<Type, string>();
 
-                foreach (TagAttribute attrib in (prop.GetCustomAttributes(typeof(TagAttribute), true)) as TagAttribute[])
+                foreach (var attrib in (prop.GetCustomAttributes(typeof(TagAttribute), true)) as TagAttribute[])
                 {
-                    Type t = attrib.Type == null ? prop.PropertyType : attrib.Type;
+                    var t = attrib.Type == null ? prop.PropertyType : attrib.Type;
                     if (types.ContainsKey(t))
                     {
                         types[t] = null;
@@ -116,7 +116,7 @@ namespace GeneaGedcom.Utilities
 
         public static string GetTagName(PropertyInfo Property)
         {
-            foreach (TagAttribute attrib in (Property.GetCustomAttributes(typeof(TagAttribute), true)) as TagAttribute[])
+            foreach (var attrib in (Property.GetCustomAttributes(typeof(TagAttribute), true)) as TagAttribute[])
             {
                 return attrib.TagName;
             }
@@ -126,7 +126,7 @@ namespace GeneaGedcom.Utilities
 
         public static bool IsDefaultValue(PropertyInfo Property, object Object)
         {
-            foreach (TagAttribute attrib in (Property.GetCustomAttributes(typeof(TagAttribute), true)) as TagAttribute[])
+            foreach (var attrib in (Property.GetCustomAttributes(typeof(TagAttribute), true)) as TagAttribute[])
             {
                 if ((attrib.Type == null) || (Object == null) || attrib.Type.Equals(Object.GetType()))
                 {

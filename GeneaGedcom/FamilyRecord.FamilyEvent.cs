@@ -62,7 +62,7 @@ namespace GeneaGedcom
                     throw new NullReferenceException();
                 }
 
-                FamilyEvent_ fe = obj as FamilyEvent_;
+                var fe = obj as FamilyEvent_;
                 if (fe == null)
                 {
                     return false;

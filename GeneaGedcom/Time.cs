@@ -61,9 +61,9 @@ namespace GeneaGedcom
             }
             set
             {
-                Regex regex = new Regex(@"\s*(\d\d?):(\d\d?)(:(\d\d?)(\.(\d\d?))?)?");
+                var regex = new Regex(@"\s*(\d\d?):(\d\d?)(:(\d\d?)(\.(\d\d?))?)?");
 
-                Match match = regex.Match(value);
+                var match = regex.Match(value);
 
                 if (match.Success)
                 {
@@ -142,7 +142,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            Time time = obj as Time;
+            var time = obj as Time;
             if (time == null)
             {
                 return false;

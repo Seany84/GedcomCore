@@ -45,7 +45,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            IndividualEventAdoption adoption = obj as IndividualEventAdoption;
+            var adoption = obj as IndividualEventAdoption;
             if (adoption == null)
             {
                 return false;

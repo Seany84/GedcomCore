@@ -38,9 +38,9 @@ namespace GeneaGedcom
 
         public static DateCalendar GuessCalendarType(string DateCalendarText, Reporting Reporting)
         {
-            MonthFrench mf = MonthFrench.Brumaire;
-            Month m = Month.April;
-            MonthHebrew mh = MonthHebrew.Adar;
+            var mf = MonthFrench.Brumaire;
+            var m = Month.April;
+            var mh = MonthHebrew.Adar;
 
             if (guessMonth(DateCalendarText, typeof(MonthFrench), mf))
             {
@@ -65,7 +65,7 @@ namespace GeneaGedcom
         {
             string month;
 
-            string[] words = DateCalendarText.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+            var words = DateCalendarText.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
 
             if (words.Length == 3)
             {

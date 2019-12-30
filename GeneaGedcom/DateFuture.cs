@@ -19,7 +19,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            DateFuture date = obj as DateFuture;
+            var date = obj as DateFuture;
             if (date == null)
             {
                 return false;

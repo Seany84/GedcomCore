@@ -260,7 +260,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            PersonalName name = obj as PersonalName;
+            var name = obj as PersonalName;
             if (name == null)
             {
                 return false;

@@ -47,7 +47,7 @@ namespace GeneaGedcom
                     throw new NullReferenceException();
                 }
 
-                PersonAtEvent pe = obj as PersonAtEvent;
+                var pe = obj as PersonAtEvent;
                 if (pe == null)
                 {
                     return false;

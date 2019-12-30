@@ -51,7 +51,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            DateExactTime de = obj as DateExactTime;
+            var de = obj as DateExactTime;
             if (de == null)
             {
                 return false;

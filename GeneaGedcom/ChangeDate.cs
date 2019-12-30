@@ -66,7 +66,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            ChangeDate cd = obj as ChangeDate;
+            var cd = obj as ChangeDate;
             if (cd == null)
             {
                 return false;

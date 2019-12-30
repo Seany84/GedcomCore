@@ -45,10 +45,10 @@ namespace GeneaGedcom
                 {
                     get
                     {
-                        string[] typeStrings = new string[eventsRecorded.Count];
-                        int n = 0;
+                        var typeStrings = new string[eventsRecorded.Count];
+                        var n = 0;
 
-                        foreach (EventAttributeType type in eventsRecorded)
+                        foreach (var type in eventsRecorded)
                         {
                             typeStrings[n++] = type.ToString(); //TODO: really ToString() ?
                         }
@@ -59,13 +59,13 @@ namespace GeneaGedcom
                     {
                         eventsRecorded = new List<EventAttributeType>();
 
-                        string[] parts = value.Split(new string[] { " ", ",", ", " }, StringSplitOptions.RemoveEmptyEntries);
+                        var parts = value.Split(new string[] { " ", ",", ", " }, StringSplitOptions.RemoveEmptyEntries);
 
-                        foreach (string str in parts)
+                        foreach (var str in parts)
                         {
                             try
                             {
-                                EventAttributeType type = (EventAttributeType)Enum.Parse(typeof(EventAttributeType), str);
+                                var type = (EventAttributeType)Enum.Parse(typeof(EventAttributeType), str);
                                 eventsRecorded.Add(type);
                             }
                             catch
@@ -148,7 +148,7 @@ namespace GeneaGedcom
                         throw new ArgumentNullException();
                     }
 
-                    Event e = obj as Event;
+                    var e = obj as Event;
                     if (e == null)
                     {
                         return false;

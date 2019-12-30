@@ -450,7 +450,7 @@ namespace GeneaGedcom
                 throw new NullReferenceException();
             }
 
-            IndividualRecord indi = obj as IndividualRecord;
+            var indi = obj as IndividualRecord;
             if (indi == null)
             {
                 return false;

@@ -252,21 +252,21 @@ namespace GeneaGedcom
                     return "";
                 }
 
-                string[] s = sourceDescription.Split(new string[] { "\n" }, StringSplitOptions.None);
+                var s = sourceDescription.Split(new string[] { "\n" }, StringSplitOptions.None);
                 tmp = new List<AdditionalLine>();
-                for (int n = 0; n < s.Length - 1; n++)
+                for (var n = 0; n < s.Length - 1; n++)
                 {
                     // a line (including spaces, the tag, etc) must not be longer than 255 characters
                     // it shoule be safe to assume that a content-part of 240 is ok
-                    string[] parts = ContinueableText.MakeParts(s[n + 1], 240);
+                    var parts = ContinueableText.MakeParts(s[n + 1], 240);
 
-                    AdditionalLine contLine = new AdditionalLine(parts[0], Reporting);
+                    var contLine = new AdditionalLine(parts[0], Reporting);
                     contLine.Tag = "CONT";
                     tmp.Add(contLine);
 
-                    for (int m = 1; m < parts.Length; m++)
+                    for (var m = 1; m < parts.Length; m++)
                     {
-                        AdditionalLine concLine = new AdditionalLine(parts[m], Reporting);
+                        var concLine = new AdditionalLine(parts[m], Reporting);
                         concLine.Tag = "CONC";
                         tmp.Add(concLine);
                     }
@@ -300,7 +300,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            SourceCitation sc = obj as SourceCitation;
+            var sc = obj as SourceCitation;
             if (sc == null)
             {
                 return false;

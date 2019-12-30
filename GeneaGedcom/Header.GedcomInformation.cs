@@ -52,7 +52,7 @@ namespace GeneaGedcom
                 }
                 set
                 {
-                    foreach (string f in acceptedFormats)
+                    foreach (var f in acceptedFormats)
                     {
                         if (value.Equals(f))
                         {
@@ -73,7 +73,7 @@ namespace GeneaGedcom
                     throw new ArgumentNullException();
                 }
 
-                GedcomInformation_ info = obj as GedcomInformation_;
+                var info = obj as GedcomInformation_;
                 if (info == null)
                 {
                     return false;

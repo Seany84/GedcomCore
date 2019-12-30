@@ -62,7 +62,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            SpouseToFamilyLink link = obj as SpouseToFamilyLink;
+            var link = obj as SpouseToFamilyLink;
             if (link == null)
             {
                 return false;

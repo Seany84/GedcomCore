@@ -148,7 +148,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            RepositoryRecord rr = obj as RepositoryRecord;
+            var rr = obj as RepositoryRecord;
             if (rr == null)
             {
                 return false;

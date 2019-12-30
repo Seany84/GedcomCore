@@ -67,7 +67,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            AgeAtEvent age = obj as AgeAtEvent;
+            var age = obj as AgeAtEvent;
             if (age == null)
             {
                 return false;

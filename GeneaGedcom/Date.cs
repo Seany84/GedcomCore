@@ -39,11 +39,11 @@ namespace GeneaGedcom
             {
                 value = value.Trim();
 
-                string date = "";
+                var date = "";
 
                 try
                 {
-                    string cal = value.Substring(0, value.IndexOf(' '));
+                    var cal = value.Substring(0, value.IndexOf(' '));
 
                     if (EnumTagUtil.HasMember(typeof(Calendars), cal, calendar))
                     // if the first part really was a calendar-string
@@ -126,7 +126,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            DateCalendar dc = obj as DateCalendar;
+            var dc = obj as DateCalendar;
             if (dc == null)
             {
                 return false;

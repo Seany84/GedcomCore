@@ -81,7 +81,7 @@ namespace GeneaGedcom
                     throw new ArgumentNullException();
                 }
 
-                Event_ e = obj as Event_;
+                var e = obj as Event_;
                 if (e == null)
                 {
                     return false;

@@ -83,7 +83,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            DateInterpreted di = obj as DateInterpreted;
+            var di = obj as DateInterpreted;
             if (di == null)
             {
                 return false;

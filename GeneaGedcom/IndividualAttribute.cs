@@ -86,7 +86,7 @@ namespace GeneaGedcom
                 throw new NullReferenceException();
             }
 
-            IndividualAttribute attrib = obj as IndividualAttribute;
+            var attrib = obj as IndividualAttribute;
             if (attrib == null)
             {
                 return false;

@@ -56,7 +56,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            FamilyEvent e = obj as FamilyEvent;
+            var e = obj as FamilyEvent;
             if (e == null)
             {
                 return false;

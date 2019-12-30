@@ -53,7 +53,7 @@ namespace GeneaGedcom
                 throw new ArgumentNullException();
             }
 
-            GedcomLine line = obj as GedcomLine;
+            var line = obj as GedcomLine;
             if (line == null)
             {
                 return false;
