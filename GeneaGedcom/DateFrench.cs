@@ -24,13 +24,7 @@ namespace GeneaGedcom
             this.DateString = DateString;
         }
 
-        public override Calendars UsedCalendar
-        {
-            get
-            {
-                return Calendars.French;
-            }
-        }
+        public override Calendars UsedCalendar => Calendars.French;
 
         public override string DateString
         {
@@ -98,38 +92,20 @@ namespace GeneaGedcom
 
         public int Day
         {
-            get
-            {
-                return day;
-            }
-            set
-            {
-                day = value;
-            }
+            get => day;
+            set => day = value;
         }
 
         public MonthFrench Month
         {
-            get
-            {
-                return month;
-            }
-            set
-            {
-                month = value;
-            }
+            get => month;
+            set => month = value;
         }
 
         public int Year
         {
-            get
-            {
-                return year;
-            }
-            set
-            {
-                year = value;
-            }
+            get => year;
+            set => year = value;
         }
 
         public override bool Equals(object obj)

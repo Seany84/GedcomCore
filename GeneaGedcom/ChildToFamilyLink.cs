@@ -34,42 +34,24 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
         public string FamilyXRef
         {
-            get
-            {
-                return familyXRef;
-            }
-            set
-            {
-                familyXRef = value;
-            }
+            get => familyXRef;
+            set => familyXRef = value;
         }
 
         [Tag("PEDI", typeof(PedigreeLinkageType))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<PedigreeLinkageType> PedigreeLinkageTypes
         {
-            get
-            {
-                return pedigreeLinkageTypes;
-            }
-            set
-            {
-                pedigreeLinkageTypes = value;
-            }
+            get => pedigreeLinkageTypes;
+            set => pedigreeLinkageTypes = value;
         }
 
         [Tag("NOTE", typeof(NoteStructure))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<NoteStructure> Notes
         {
-            get
-            {
-                return notes;
-            }
-            set
-            {
-                notes = value;
-            }
+            get => notes;
+            set => notes = value;
         }
 
         public override bool Equals(object obj)

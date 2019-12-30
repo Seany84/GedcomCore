@@ -30,14 +30,8 @@ namespace GeneaGedcom
             [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
             public AgeAtEvent AgeAtEvent
             {
-                get
-                {
-                    return ageAtEvent;
-                }
-                set
-                {
-                    ageAtEvent = value;
-                }
+                get => ageAtEvent;
+                set => ageAtEvent = value;
             }
 
             public override bool Equals(object obj)

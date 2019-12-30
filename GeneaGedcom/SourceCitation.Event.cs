@@ -29,10 +29,7 @@ namespace GeneaGedcom
             [Tag("")]
             public string LineValue
             {
-                get
-                {
-                    return EnumTagUtil.GetFirstTagName(EventTypeCitedFrom);
-                }
+                get => EnumTagUtil.GetFirstTagName(EventTypeCitedFrom);
                 set
                 {
                     try
@@ -50,28 +47,16 @@ namespace GeneaGedcom
             [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
             public EventAttributeType EventTypeCitedFrom
             {
-                get
-                {
-                    return eventTypeCitedFrom;
-                }
-                set
-                {
-                    eventTypeCitedFrom = value;
-                }
+                get => eventTypeCitedFrom;
+                set => eventTypeCitedFrom = value;
             }
 
             [Tag("ROLE")]
             [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
             public RoleInEvent RoleInEvent
             {
-                get
-                {
-                    return roleInEvent;
-                }
-                set
-                {
-                    roleInEvent = value;
-                }
+                get => roleInEvent;
+                set => roleInEvent = value;
             }
 
             public override bool Equals(object obj)

@@ -28,14 +28,8 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public AdoptionFamily_ AdoptionFamily
         {
-            get
-            {
-                return adoptionFamily;
-            }
-            set
-            {
-                adoptionFamily = value;
-            }
+            get => adoptionFamily;
+            set => adoptionFamily = value;
         }
 
         public override bool Equals(object obj)

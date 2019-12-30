@@ -16,20 +16,8 @@ namespace GeneaGedcom.Utilities
             severity = Severity;
         }
 
-        public string Message
-        {
-            get
-            {
-                return message;
-            }
-        }
+        public string Message => message;
 
-        public ReportSeverity Severity
-        {
-            get
-            {
-                return severity;
-            }
-        }
+        public ReportSeverity Severity => severity;
     }
 }

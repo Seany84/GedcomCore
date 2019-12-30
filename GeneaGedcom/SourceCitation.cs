@@ -106,14 +106,8 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public string SourceXRef
         {
-            get
-            {
-                return sourceXRef;
-            }
-            set
-            {
-                sourceXRef = value;
-            }
+            get => sourceXRef;
+            set => sourceXRef = value;
         }
 
         [Tag("CONT")]
@@ -133,13 +127,7 @@ namespace GeneaGedcom
         [Tag("CONT", typeof(AdditionalLine))]
         [Tag("CONC", typeof(AdditionalLine))]
         [Length(1, 60)]
-        public List<AdditionalLine> AdditionalLines
-        {
-            get
-            {
-                return tmp;
-            }
-        }
+        public List<AdditionalLine> AdditionalLines => tmp;
 
         [Tag("CONC")]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
@@ -160,84 +148,48 @@ namespace GeneaGedcom
         [Length(1,248)]
         public string Page
         {
-            get
-            {
-                return page;
-            }
-            set
-            {
-                page = value;
-            }
+            get => page;
+            set => page = value;
         }
 
         [Tag("EVEN")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public Event_ Event
         {
-            get
-            {
-                return eventTypeCitedFrom;
-            }
-            set
-            {
-                eventTypeCitedFrom = value;
-            }
+            get => eventTypeCitedFrom;
+            set => eventTypeCitedFrom = value;
         }
 
         [Tag("DATA")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public Data_ Data
         {
-            get
-            {
-                return data;
-            }
-            set
-            {
-                data = value;
-            }
+            get => data;
+            set => data = value;
         }
 
         [Tag("QUAY", -1)]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public int CertaintyAssessment
         {
-            get
-            {
-                return certaintyAssessment;
-            }
-            set
-            {
-                certaintyAssessment = value;
-            }
+            get => certaintyAssessment;
+            set => certaintyAssessment = value;
         }
 
         [Tag("OBJE", typeof(MultimediaLink))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<MultimediaLink> Multimedia
         {
-            get
-            {
-                return multimedia;
-            }
-            set
-            {
-                multimedia = value;
-            }
+            get => multimedia;
+            set => multimedia = value;
         }
 
         [Tag("NOTE", typeof(NoteStructure))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<NoteStructure> Notes
         {
-            get
-            {
-                return notes;
-            }
-            set
-            {
-                notes = value;
-            }
+            get => notes;
+            set => notes = value;
         }
 
         [Tag("SOUR")]
@@ -273,24 +225,15 @@ namespace GeneaGedcom
                 }
                 return s[0];
             }
-            set
-            {
-                sourceDescription = value;
-            }
+            set => sourceDescription = value;
         }
 
         [Tag("TEXT", typeof(ContinueableText))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<ContinueableText> TextFromSource
         {
-            get
-            {
-                return textFromSource;
-            }
-            set
-            {
-                textFromSource = value;
-            }
+            get => textFromSource;
+            set => textFromSource = value;
         }
 
         public override bool Equals(object obj)

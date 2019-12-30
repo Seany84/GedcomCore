@@ -27,23 +27,11 @@ namespace GeneaGedcom.Meta
         /// <summary>
         /// TypeId
         /// </summary>
-        public override object TypeId
-        {
-            get
-            {
-                return "EnumTag";
-            }
-        }
+        public override object TypeId => "EnumTag";
 
         /// <summary>
         /// returns the tag name
         /// </summary>
-        public string TagName
-        {
-            get
-            {
-                return tagName;
-            }
-        }    
+        public string TagName => tagName;
     }
 }

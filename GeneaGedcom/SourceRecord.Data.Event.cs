@@ -83,14 +83,8 @@ namespace GeneaGedcom
                 /// </summary>
                 public List<EventAttributeType> EventsRecorded
                 {
-                    get
-                    {
-                        return eventsRecorded;
-                    }
-                    set
-                    {
-                        eventsRecorded = value;
-                    }
+                    get => eventsRecorded;
+                    set => eventsRecorded = value;
                 }
 
                 /// <summary>
@@ -98,24 +92,15 @@ namespace GeneaGedcom
                 /// </summary>
                 public string UnfilteredEventRecordedString
                 {
-                    get
-                    {
-                        return unfilteredEventRecorded;
-                    }
-                    set
-                    {
-                        unfilteredEventRecorded = value;
-                    }
+                    get => unfilteredEventRecorded;
+                    set => unfilteredEventRecorded = value;
                 }
 
                 [Tag("DATE")]
                 [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
                 public string DateString
                 {
-                    get
-                    {
-                        return date.DateString;
-                    }
+                    get => date.DateString;
                     set
                     {
                         date = DateValue.CreateDateValue(value, Reporting);
@@ -131,14 +116,8 @@ namespace GeneaGedcom
                 [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
                 public string SourceJurisdiction
                 {
-                    get
-                    {
-                        return sourceJurisdictionPlace;
-                    }
-                    set
-                    {
-                        sourceJurisdictionPlace = value;
-                    }
+                    get => sourceJurisdictionPlace;
+                    set => sourceJurisdictionPlace = value;
                 }
 
                 public override bool Equals(object obj)

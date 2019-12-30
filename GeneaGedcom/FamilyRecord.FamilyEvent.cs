@@ -31,28 +31,16 @@ namespace GeneaGedcom
             [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
             public PersonAtEvent Husband
             {
-                get
-                {
-                    return husband;
-                }
-                set
-                {
-                    husband = value;
-                }
+                get => husband;
+                set => husband = value;
             }
 
             [Tag("WIFE", typeof(PersonAtEvent))]
             [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
             public PersonAtEvent Wife
             {
-                get
-                {
-                    return wife;
-                }
-                set
-                {
-                    wife = value;
-                }
+                get => wife;
+                set => wife = value;
             }
 
             public override bool Equals(object obj)

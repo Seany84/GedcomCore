@@ -33,40 +33,22 @@ namespace GeneaGedcom
             [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
             public string EntryRecordingDateString
             {
-                get
-                {
-                    return entryRecordingDate == null ? "" : entryRecordingDate.DateString;
-                }
-                set
-                {
-                    entryRecordingDate = DateValue.CreateDateValue(value, Reporting);
-                }
+                get => entryRecordingDate == null ? "" : entryRecordingDate.DateString;
+                set => entryRecordingDate = DateValue.CreateDateValue(value, Reporting);
             }
 
             public DateValue EntryRecordingDate
             {
-                get
-                {
-                    return entryRecordingDate;
-                }
-                set
-                {
-                    entryRecordingDate = value;
-                }
+                get => entryRecordingDate;
+                set => entryRecordingDate = value;
             }
 
             [Tag("TEXT", typeof(ContinueableText))]
             [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
             public List<ContinueableText> TextFromSource
             {
-                get
-                {
-                    return textFromSource;
-                }
-                set
-                {
-                    textFromSource = value;
-                }
+                get => textFromSource;
+                set => textFromSource = value;
             }
 
             public override bool Equals(object obj)

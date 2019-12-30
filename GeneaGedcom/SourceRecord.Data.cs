@@ -37,42 +37,24 @@ namespace GeneaGedcom
             [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
             public List<Event> Events
             {
-                get
-                {
-                    return events;
-                }
-                set
-                {
-                    events = value;
-                }
+                get => events;
+                set => events = value;
             }
 
             [Tag("AGNC")]
             [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
             public string ResponsibleAgency
             {
-                get
-                {
-                    return responsibleAgency;
-                }
-                set
-                {
-                    responsibleAgency = value;
-                }
+                get => responsibleAgency;
+                set => responsibleAgency = value;
             }
 
             [Tag("NOTE", typeof(NoteStructure))]
             [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
             public List<NoteStructure> Notes
             {
-                get
-                {
-                    return notes;
-                }
-                set
-                {
-                    notes = value;
-                }
+                get => notes;
+                set => notes = value;
             }
 
             public override bool Equals(object obj)

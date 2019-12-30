@@ -37,14 +37,8 @@ namespace GeneaGedcom
         [Length(1,120)]
         public string Value
         {
-            get
-            {
-                return placeValue;
-            }
-            set
-            {
-                placeValue = value;
-            }
+            get => placeValue;
+            set => placeValue = value;
         }
 
         [Tag("FORM")]
@@ -52,42 +46,24 @@ namespace GeneaGedcom
         [Length(1, 120)]
         public string PlaceHierarchy
         {
-            get
-            {
-                return placeHierarchy;
-            }
-            set
-            {
-                placeHierarchy = value;
-            }
+            get => placeHierarchy;
+            set => placeHierarchy = value;
         }
 
         [Tag("SOUR", typeof(SourceCitation))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<SourceCitation> SourceCitations
         {
-            get
-            {
-                return sourceCitations;
-            }
-            set
-            {
-                sourceCitations = value;
-            }
+            get => sourceCitations;
+            set => sourceCitations = value;
         }
 
         [Tag("NOTE", typeof(NoteStructure))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<NoteStructure> Notes
         {
-            get
-            {
-                return notes;
-            }
-            set
-            {
-                notes = value;
-            }
+            get => notes;
+            set => notes = value;
         }
 
         public override bool Equals(object obj)

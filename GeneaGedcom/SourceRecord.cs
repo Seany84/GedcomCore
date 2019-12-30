@@ -67,42 +67,24 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public Data_ Data
         {
-            get
-            {
-                return data;
-            }
-            set
-            {
-                data = value;
-            }
+            get => data;
+            set => data = value;
         }
 
         [Tag("AUTH")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public ContinueableText Authority
         {
-            get
-            {
-                return authority; 
-            }
-            set
-            {
-                authority = value; 
-            }
+            get => authority;
+            set => authority = value;
         }
 
         [Tag("TITL")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public ContinueableText Title
         {
-            get
-            {
-                return title;
-            }
-            set
-            {
-                title = value;
-            }
+            get => title;
+            set => title = value;
         }
 
         [Tag("ABBR")]
@@ -110,84 +92,48 @@ namespace GeneaGedcom
         [Length(1,60)]
         public string Abbreviation
         {
-            get
-            {
-                return abbreviation;
-            }
-            set
-            {
-                abbreviation = value;
-            }
+            get => abbreviation;
+            set => abbreviation = value;
         }
 
         [Tag("PUBL")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public ContinueableText PublicationFacts
         {
-            get
-            {
-                return publicationFacts;
-            }
-            set
-            {
-                publicationFacts = value;
-            }
+            get => publicationFacts;
+            set => publicationFacts = value;
         }
 
         [Tag("TEXT")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public ContinueableText Text
         {
-            get
-            {
-                return text;
-            }
-            set
-            {
-                text = value;
-            }
+            get => text;
+            set => text = value;
         }
 
         [Tag("REPO")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public SourceRepositoryCitation SourceRepositoryCitation
         {
-            get
-            {
-                return sourceRepositoryCitation;
-            }
-            set
-            {
-                sourceRepositoryCitation = value;
-            }
+            get => sourceRepositoryCitation;
+            set => sourceRepositoryCitation = value;
         }
 
         [Tag("OBJE", typeof(MultimediaLink))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<MultimediaLink> Multimedia
         {
-            get
-            {
-                return multimedia;
-            }
-            set
-            {
-                multimedia = value;
-            }
+            get => multimedia;
+            set => multimedia = value;
         }
 
         [Tag("NOTE", typeof(NoteStructure))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<NoteStructure> Notes
         {
-            get
-            {
-                return notes;
-            }
-            set
-            {
-                notes = value;
-            }
+            get => notes;
+            set => notes = value;
         }
 
         [Tag("REFN", typeof(UserReference))]
@@ -195,14 +141,8 @@ namespace GeneaGedcom
         [Length(1,20)]
         public List<UserReference> UserReferences
         {
-            get
-            {
-                return userReferences;
-            }
-            set
-            {
-                userReferences = value;
-            }
+            get => userReferences;
+            set => userReferences = value;
         }
 
         [Tag("RIN")]
@@ -210,28 +150,16 @@ namespace GeneaGedcom
         [Length(1,12)]
         public string AutomatedRecordId
         {
-            get
-            {
-                return automatedRecordId;
-            }
-            set
-            {
-                automatedRecordId = value;
-            }
+            get => automatedRecordId;
+            set => automatedRecordId = value;
         }
 
         [Tag("CHAN", typeof(ChangeDate))]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public ChangeDate ChangeDate
         {
-            get
-            {
-                return changeDate;
-            }
-            set
-            {
-                changeDate = value;
-            }
+            get => changeDate;
+            set => changeDate = value;
         }
 
         public override bool Equals(object obj)

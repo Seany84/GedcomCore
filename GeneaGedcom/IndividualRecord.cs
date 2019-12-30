@@ -100,42 +100,24 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public RestrictionNotice RestrictionNotice
         {
-            get
-            {
-                return restrictionNotice;
-            }
-            set
-            {
-                restrictionNotice = value;
-            }
+            get => restrictionNotice;
+            set => restrictionNotice = value;
         }
 
         [Tag("NAME", typeof(PersonalName))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<PersonalName> PersonalNames
         {
-            get
-            {
-                return names;
-            }
-            set
-            {
-                names = value;
-            }
+            get => names;
+            set => names = value;
         }
 
         [Tag("SEX", Sex.Unknown)]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public Sex Sex
         {
-            get
-            {
-                return sex;
-            }
-            set
-            {
-                sex = value;
-            }
+            get => sex;
+            set => sex = value;
         }
 
         [Tag("BIRT", typeof(IndividualEventBirth))]
@@ -164,14 +146,8 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<IndividualEvent> IndividualEvents
         {
-            get
-            {
-                return events;
-            }
-            set
-            {
-                events = value;
-            }
+            get => events;
+            set => events = value;
         }
 
 
@@ -191,14 +167,8 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<IndividualAttribute> Attributes
         {
-            get
-            {
-                return attributes;
-            }
-            set
-            {
-                attributes = value;
-            }
+            get => attributes;
+            set => attributes = value;
         }
 
         [Tag("BAPL", typeof(LdsIndividualOrdianceBaptism))]
@@ -208,70 +178,40 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<LdsIndividualOrdiance> IndividualOrdiances
         {
-            get
-            {
-                return individualOrdiances;
-            }
-            set
-            {
-                individualOrdiances = value;
-            }
+            get => individualOrdiances;
+            set => individualOrdiances = value;
         }
 
         [Tag("FAMC", typeof(ChildToFamilyLink))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<ChildToFamilyLink> ChildToFamilyLinks
         {
-            get
-            {
-                return childToFamilyLinks;
-            }
-            set
-            {
-                childToFamilyLinks = value;
-            }
+            get => childToFamilyLinks;
+            set => childToFamilyLinks = value;
         }
 
         [Tag("FAMS", typeof(SpouseToFamilyLink))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<SpouseToFamilyLink> SpouseToFamilyLinks
         {
-            get
-            {
-                return spouseToFamilyLinks;
-            }
-            set
-            {
-                spouseToFamilyLinks = value;
-            }
+            get => spouseToFamilyLinks;
+            set => spouseToFamilyLinks = value;
         }
 
         [Tag("SUBM", typeof(string))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<string> SubmitterXRefs
         {
-            get
-            {
-                return submitterXRefs;
-            }
-            set
-            {
-                submitterXRefs = value;
-            }
+            get => submitterXRefs;
+            set => submitterXRefs = value;
         }
 
         [Tag("ASSO", typeof(Association))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<Association> Associations
         {
-            get
-            {
-                return associations;
-            }
-            set
-            {
-                associations = value;
-            }
+            get => associations;
+            set => associations = value;
         }
 
         /// <summary>
@@ -281,14 +221,8 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<string> AliasXRefs
         {
-            get
-            {
-                return aliasXRefs;
-            }
-            set
-            {
-                aliasXRefs = value;
-            }
+            get => aliasXRefs;
+            set => aliasXRefs = value;
         }
 
         /// <summary>
@@ -298,14 +232,8 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<string> AncestorsInterestXRefs
         {
-            get
-            {
-                return ancestorsInterestXRefs;
-            }
-            set
-            {
-                ancestorsInterestXRefs = value;
-            }
+            get => ancestorsInterestXRefs;
+            set => ancestorsInterestXRefs = value;
         }
 
         /// <summary>
@@ -315,14 +243,8 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<string> DescandantsInterestXRefs
         {
-            get
-            {
-                return descandantsInterestXRefs;
-            }
-            set
-            {
-                descandantsInterestXRefs = value;
-            }
+            get => descandantsInterestXRefs;
+            set => descandantsInterestXRefs = value;
         }
 
         /// <summary>
@@ -332,42 +254,24 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<SourceCitation> SourceCitations
         {
-            get
-            {
-                return sourceCitations;
-            }
-            set
-            {
-                sourceCitations = value;
-            }
+            get => sourceCitations;
+            set => sourceCitations = value;
         }
 
         [Tag("OBJE", typeof(MultimediaLink))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<MultimediaLink> Multimedia
         {
-            get
-            {
-                return multimedia;
-            }
-            set
-            {
-                multimedia = value;
-            }
+            get => multimedia;
+            set => multimedia = value;
         }
 
         [Tag("NOTE", typeof(NoteStructure))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<NoteStructure> Notes
         {
-            get
-            {
-                return notes;
-            }
-            set
-            {
-                notes = value;
-            }
+            get => notes;
+            set => notes = value;
         }
 
         [Tag("RFN")]
@@ -375,14 +279,8 @@ namespace GeneaGedcom
         [Length(1,90)]
         public string PermanentRecordFileNumber
         {
-            get
-            {
-                return permanentRecordFileNumber;
-            }
-            set
-            {
-                permanentRecordFileNumber = value;
-            }
+            get => permanentRecordFileNumber;
+            set => permanentRecordFileNumber = value;
         }
 
         [Tag("AFN")]
@@ -390,28 +288,16 @@ namespace GeneaGedcom
         [Length(1,12)]
         public string AncestralFileNumber
         {
-            get
-            {
-                return ancestralFileNumber;
-            }
-            set
-            {
-                ancestralFileNumber = value;
-            }
+            get => ancestralFileNumber;
+            set => ancestralFileNumber = value;
         }
 
         [Tag("REFN", typeof(UserReference))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<UserReference> UserReferences
         {
-            get
-            {
-                return userReferences;
-            }
-            set
-            {
-                userReferences = value;
-            }
+            get => userReferences;
+            set => userReferences = value;
         }
 
         [Tag("RIN")]
@@ -419,28 +305,16 @@ namespace GeneaGedcom
         [Length(1,12)]
         public string AutomatedRecordId
         {
-            get
-            {
-                return automatedRecordId;
-            }
-            set
-            {
-                automatedRecordId = value;
-            }
+            get => automatedRecordId;
+            set => automatedRecordId = value;
         }
 
         [Tag("CHAN", typeof(ChangeDate))]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public ChangeDate ChangeDate
         {
-            get
-            {
-                return changeDate;
-            }
-            set
-            {
-                changeDate = value;
-            }
+            get => changeDate;
+            set => changeDate = value;
         }
 
         public override bool Equals(object obj)

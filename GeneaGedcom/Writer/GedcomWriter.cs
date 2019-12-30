@@ -257,14 +257,8 @@ namespace GeneaGedcom.Writer
         /// </summary>
         public bool IndentLines
         {
-            get
-            {
-                return indentLines;
-            }
-            set
-            {
-                indentLines = value;
-            }
+            get => indentLines;
+            set => indentLines = value;
         }
 
         /// <summary>

@@ -52,10 +52,7 @@ namespace GeneaGedcom
 
         public override string DateString
         {
-            get
-            {
-                return "";
-            }
+            get => "";
             set
             {
                 value = value.Trim();
@@ -97,50 +94,26 @@ namespace GeneaGedcom
 
         public Date BeforeDate
         {
-            get
-            {
-                return beforeDate;
-            }
-            set
-            {
-                beforeDate = value;
-            }
+            get => beforeDate;
+            set => beforeDate = value;
         }
 
         public Date AfterDate
         {
-            get
-            {
-                return afterDate;
-            }
-            set
-            {
-                afterDate = value;
-            }
+            get => afterDate;
+            set => afterDate = value;
         }
 
         public Date BetweenDate1
         {
-            get
-            {
-                return betweenDate1;
-            }
-            set
-            {
-                betweenDate1 = value;
-            }
+            get => betweenDate1;
+            set => betweenDate1 = value;
         }
 
         public Date BetweenDate2
         {
-            get
-            {
-                return betweenDate2;
-            }
-            set
-            {
-                betweenDate2 = value;
-            }
+            get => betweenDate2;
+            set => betweenDate2 = value;
         }
 
         public override bool Equals(object obj)

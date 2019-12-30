@@ -84,24 +84,12 @@ namespace GeneaGedcom.Meta
         /// <summary>
         /// TypeId
         /// </summary>
-        public override object TypeId
-        {
-            get
-            {
-                return "Tag";
-            }
-        }
+        public override object TypeId => "Tag";
 
         /// <summary>
         /// return the tag name
         /// </summary>
-        public string TagName
-        {
-            get
-            {
-                return tagName;
-            }
-        }
+        public string TagName => tagName;
 
         /// <summary>
         /// the type of the gedcom data.
@@ -110,13 +98,7 @@ namespace GeneaGedcom.Meta
         /// * the property is a container containing objects of the giventype
         /// * a property has multiple tags, each referencing to another type which is derived from the property's type
         /// </summary>
-        public Type Type
-        {
-            get
-            {
-                return type;
-            }
-        }
+        public Type Type => type;
 
         /// <summary>
         /// indicates the default value, that should 
@@ -125,12 +107,6 @@ namespace GeneaGedcom.Meta
         /// 
         /// This is especially important for ValueType fields, as they can not have a null value
         /// </summary>
-        public object DefaultValue
-        {
-            get
-            {
-                return defaultValue;
-            }
-        }
+        public object DefaultValue => defaultValue;
     }
 }

@@ -39,14 +39,8 @@ namespace GeneaGedcom
         [Length(0,1)]
         public string Happened
         {
-            get
-            {
-                return happened;
-            }
-            set
-            {
-                happened = value;
-            }
+            get => happened;
+            set => happened = value;
         }
 
         public override bool Equals(object obj)

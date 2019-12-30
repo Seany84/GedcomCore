@@ -32,28 +32,16 @@ namespace GeneaGedcom
             [Length(1, 90)]
             public string NameOfSourceData
             {
-                get
-                {
-                    return nameOfSourceData;
-                }
-                set
-                {
-                    nameOfSourceData = value;
-                }
+                get => nameOfSourceData;
+                set => nameOfSourceData = value;
             }
 
             [Tag("DATE")]
             [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
             public DateExact PublicationDate
             {
-                get
-                {
-                    return publicationDate;
-                }
-                set
-                {
-                    publicationDate = value;
-                }
+                get => publicationDate;
+                set => publicationDate = value;
             }
 
             [Tag("COPR")]
@@ -61,14 +49,8 @@ namespace GeneaGedcom
             [Length(1, 90)]
             public string Copyright
             {
-                get
-                {
-                    return copyright;
-                }
-                set
-                {
-                    copyright = value;
-                }
+                get => copyright;
+                set => copyright = value;
             }
 
             public override bool Equals(object obj)

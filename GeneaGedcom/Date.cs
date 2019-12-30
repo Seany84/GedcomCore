@@ -31,10 +31,7 @@ namespace GeneaGedcom
 
         public override string DateString
         {
-            get
-            {
-                return EnumTagUtil.GetFirstTagName(calendar) + " " + dateCalendar.DateString;
-            }
+            get => EnumTagUtil.GetFirstTagName(calendar) + " " + dateCalendar.DateString;
             set
             {
                 value = value.Trim();
@@ -71,26 +68,14 @@ namespace GeneaGedcom
 
         public DateCalendar DateCalendar
         {
-            get
-            {
-                return dateCalendar;
-            }
-            set
-            {
-                dateCalendar = value;
-            }
+            get => dateCalendar;
+            set => dateCalendar = value;
         }
 
         public Calendars Calendar
         {
-            get
-            {
-                return calendar;
-            }
-            set
-            {
-                calendar = value;
-            }
+            get => calendar;
+            set => calendar = value;
         }
 
         private DateCalendar createDateCalendar(string DateCalendarText)

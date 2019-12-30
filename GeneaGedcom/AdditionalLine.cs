@@ -25,14 +25,8 @@ namespace GeneaGedcom
         [Tag("")]
         public string String
         {
-            get
-            {
-                return str;
-            }
-            set
-            {
-                str = value;
-            }
+            get => str;
+            set => str = value;
         }
 
         public override bool Equals(object obj)

@@ -32,24 +32,15 @@ namespace GeneaGedcom
             [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
             public string Version
             {
-                get
-                {
-                    return version;
-                }
-                set
-                {
-                    version = value;
-                }
+                get => version;
+                set => version = value;
             }
 
             [Tag("FORM")]
             [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
             public string Format
             {
-                get
-                {
-                    return format;
-                }
+                get => format;
                 set
                 {
                     foreach (var f in acceptedFormats)

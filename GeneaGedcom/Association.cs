@@ -38,14 +38,8 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
         public string IndiXRef
         {
-            get
-            {
-                return indiXRef;
-            }
-            set
-            {
-                indiXRef = value;
-            }
+            get => indiXRef;
+            set => indiXRef = value;
         }
 
         [Tag("RELA")]
@@ -53,42 +47,24 @@ namespace GeneaGedcom
         [Length(1,25)]
         public string RelationIsDescriptor
         {
-            get
-            {
-                return relationIsDescriptor;
-            }
-            set
-            {
-                relationIsDescriptor = value;
-            }
+            get => relationIsDescriptor;
+            set => relationIsDescriptor = value;
         }
 
         [Tag("NOTE", typeof(NoteStructure))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<NoteStructure> Notes
         {
-            get
-            {
-                return notes;
-            }
-            set
-            {
-                notes = value;
-            }
+            get => notes;
+            set => notes = value;
         }
 
         [Tag("SOUR", typeof(SourceCitation))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<SourceCitation> SourceCitations
         {
-            get
-            {
-                return sourceCitations;
-            }
-            set
-            {
-                sourceCitations = value;
-            }
+            get => sourceCitations;
+            set => sourceCitations = value;
         }
 
         public override bool Equals(object obj)

@@ -23,26 +23,14 @@ namespace GeneaGedcom
 
         public override string DateString
         {
-            get
-            {
-                return "";
-            }
-            set
-            {
-                phrase = value;
-            }
+            get => "";
+            set => phrase = value;
         }
 
         public string Phrase
         {
-            get
-            {
-                return phrase;
-            }
-            set
-            {
-                phrase = value;
-            }
+            get => phrase;
+            set => phrase = value;
         }
 
         public override bool Equals(object obj)

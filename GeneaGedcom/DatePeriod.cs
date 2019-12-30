@@ -42,10 +42,7 @@ namespace GeneaGedcom
 
         public override string DateString
         {
-            get
-            {
-                return "";
-            }
+            get => "";
             set
             {
                 value = value.Trim();
@@ -92,26 +89,14 @@ namespace GeneaGedcom
 
         public Date FromDate
         {
-            get
-            {
-                return fromDate;
-            }
-            set
-            {
-                fromDate = value;
-            }
+            get => fromDate;
+            set => fromDate = value;
         }
 
         public Date ToDate
         {
-            get
-            {
-                return toDate;
-            }
-            set
-            {
-                toDate = value;
-            }
+            get => toDate;
+            set => toDate = value;
         }
 
         public override bool Equals(object obj)

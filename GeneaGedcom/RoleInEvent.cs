@@ -28,10 +28,7 @@ namespace GeneaGedcom
         [Length(1,15)]
         public string Text
         {
-            get
-            {
-                return text;
-            }
+            get => text;
             set
             {
                 text = value;
@@ -42,10 +39,7 @@ namespace GeneaGedcom
 
         public PredefinedRoles PredefinedRole
         {
-            get
-            {
-                return predefinedRole;
-            }
+            get => predefinedRole;
             set
             {
                 if (predefinedRole != value)

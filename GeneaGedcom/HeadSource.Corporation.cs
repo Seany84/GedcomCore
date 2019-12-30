@@ -33,28 +33,16 @@ namespace GeneaGedcom
             [Length(1, 90)]
             public string Name
             {
-                get
-                {
-                    return name;
-                }
-                set
-                {
-                    name = value;
-                }
+                get => name;
+                set => name = value;
             }
 
             [Tag("ADDR")]
             [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
             public Address Address
             {
-                get
-                {
-                    return address;
-                }
-                set
-                {
-                    address = value;
-                }
+                get => address;
+                set => address = value;
             }
 
             [Tag("PHON", typeof(string))]
@@ -62,14 +50,8 @@ namespace GeneaGedcom
             [Length(1, 25)]
             public List<string> PhoneNumbers
             {
-                get
-                {
-                    return phoneNumbers;
-                }
-                set
-                {
-                    phoneNumbers = value;
-                }
+                get => phoneNumbers;
+                set => phoneNumbers = value;
             }
 
             public override bool Equals(object obj)

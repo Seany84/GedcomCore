@@ -21,14 +21,8 @@ namespace GeneaGedcom
 
         public virtual string Tag
         {
-            get
-            {
-                return tag;
-            }
-            set
-            {
-                tag = value;
-            }
+            get => tag;
+            set => tag = value;
         }
 
         public static bool CompareObjects(object Object1, object Object2)
@@ -62,12 +56,6 @@ namespace GeneaGedcom
             return CompareObjects(Tag, line.Tag);
         }
 
-        protected Reporting Reporting
-        {
-            get
-            {
-                return reporting;
-            }
-        }
+        protected Reporting Reporting => reporting;
     }
 }

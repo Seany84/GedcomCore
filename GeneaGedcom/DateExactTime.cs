@@ -20,28 +20,16 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
         public string DateString
         {
-            get
-            {
-                return date.DateString;
-            }
-            set
-            {
-                date = DateExact.Parse(value, Reporting);
-            }
+            get => date.DateString;
+            set => date = DateExact.Parse(value, Reporting);
         }
 
         [Tag("TIME")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public Time Time
         {
-            get
-            {
-                return time;
-            }
-            set
-            {
-                time = value;
-            }
+            get => time;
+            set => time = value;
         }
 
         public override bool Equals(object obj)

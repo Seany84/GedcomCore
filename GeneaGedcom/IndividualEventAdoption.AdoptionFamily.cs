@@ -23,28 +23,16 @@ namespace GeneaGedcom
             [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
             public string FamilyXRef
             {
-                get
-                {
-                    return familyXRef;
-                }
-                set
-                {
-                    familyXRef = value;
-                }
+                get => familyXRef;
+                set => familyXRef = value;
             }
 
             [Tag("ADOP", AdoptedByWhichParent.Unknown)]
             [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
             public AdoptedByWhichParent AdoptedByWhichParent
             {
-                get
-                {
-                    return adoptedByWhichParent;
-                }
-                set
-                {
-                    adoptedByWhichParent = value;
-                }
+                get => adoptedByWhichParent;
+                set => adoptedByWhichParent = value;
             }
 
             public override bool Equals(object obj)

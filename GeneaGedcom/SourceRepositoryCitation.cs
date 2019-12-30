@@ -37,42 +37,24 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
         public string RepositoryXRef
         {
-            get
-            {
-                return repositoryXRef;
-            }
-            set
-            {
-                repositoryXRef = value;
-            }
+            get => repositoryXRef;
+            set => repositoryXRef = value;
         }
 
         [Tag("NOTE", typeof(NoteStructure))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<NoteStructure> Notes
         {
-            get
-            {
-                return notes;
-            }
-            set
-            {
-                notes = value;
-            }
+            get => notes;
+            set => notes = value;
         }
 
         [Tag("CALN", typeof(SourceCallNumber_))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<SourceCallNumber_> SourceCallNumber
         {
-            get
-            {
-                return sourceCallNumber;
-            }
-            set
-            {
-                sourceCallNumber = value;
-            }
+            get => sourceCallNumber;
+            set => sourceCallNumber = value;
         }
 
         public override bool Equals(object obj)

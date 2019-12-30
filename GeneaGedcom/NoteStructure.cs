@@ -82,10 +82,7 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public string NoteXRef
         {
-            get
-            {
-                return isInlineNote ? null : noteXRef;
-            }
+            get => isInlineNote ? null : noteXRef;
             set
             {
                 isInlineNote = value != null;
@@ -160,13 +157,7 @@ namespace GeneaGedcom
         [Tag("CONT", typeof(AdditionalLine))]
         [Tag("CONC", typeof(AdditionalLine))]
         [Length(1, 60)]
-        public List<AdditionalLine> AdditionalLines
-        {
-            get
-            {
-                return tmp;
-            }
-        }
+        public List<AdditionalLine> AdditionalLines => tmp;
 
         [Tag("CONC")]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
@@ -188,14 +179,8 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<SourceCitation> SourceCitations
         {
-            get
-            {
-                return sourceCitations;
-            }
-            set
-            {
-                sourceCitations = value;
-            }
+            get => sourceCitations;
+            set => sourceCitations = value;
         }
 
         public override bool Equals(object obj)

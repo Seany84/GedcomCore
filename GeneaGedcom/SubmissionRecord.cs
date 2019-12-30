@@ -41,14 +41,8 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public string SubmitterXRef
         {
-            get
-            {
-                return submitterXRef;
-            }
-            set
-            {
-                submitterXRef = value;
-            }
+            get => submitterXRef;
+            set => submitterXRef = value;
         }
 
         [Tag("FAMF")]
@@ -56,14 +50,8 @@ namespace GeneaGedcom
         [Length(1,120)]
         public string FamilyFileName
         {
-            get
-            {
-                return familyFileName;
-            }
-            set
-            {
-                familyFileName = value;
-            }
+            get => familyFileName;
+            set => familyFileName = value;
         }
 
         [Tag("TEMP")]
@@ -71,56 +59,32 @@ namespace GeneaGedcom
         [Length(4,5)]
         public string TempleCode
         {
-            get
-            {
-                return templeCode;
-            }
-            set
-            {
-                templeCode = value;
-            }
+            get => templeCode;
+            set => templeCode = value;
         }
 
         [Tag("ANCE", -1)]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public int GenerationsOfAncestors
         {
-            get
-            {
-                return generationsOfAncestors;
-            }
-            set
-            {
-                generationsOfAncestors = value;
-            }
+            get => generationsOfAncestors;
+            set => generationsOfAncestors = value;
         }
 
         [Tag("DESC", -1)]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public int GenerationsOfDescandants
         {
-            get
-            {
-                return generationsOfDescandants;
-            }
-            set
-            {
-                generationsOfDescandants = value;
-            }
+            get => generationsOfDescandants;
+            set => generationsOfDescandants = value;
         }
 
         [Tag("ORDI", OrdinanceProcessFlag.Unknown)]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public OrdinanceProcessFlag OrdianceProcessFlag
         {
-            get
-            {
-                return ordianceProcessFlag;
-            }
-            set
-            {
-                ordianceProcessFlag = value;
-            }
+            get => ordianceProcessFlag;
+            set => ordianceProcessFlag = value;
         }
 
         [Tag("RIN")]
@@ -128,14 +92,8 @@ namespace GeneaGedcom
         [Length(1,12)]
         public string AutomatedRecordId
         {
-            get
-            {
-                return automatedRecordId; 
-            }
-            set
-            {
-                automatedRecordId = value;
-            }
+            get => automatedRecordId;
+            set => automatedRecordId = value;
         }
 
         public override bool Equals(object obj)

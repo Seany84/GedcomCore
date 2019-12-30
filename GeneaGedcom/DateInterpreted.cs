@@ -32,10 +32,7 @@ namespace GeneaGedcom
 
         public override string DateString
         {
-            get
-            {
-                return "";
-            }
+            get => "";
             set
             {
                 interpretIndex = value.IndexOf(interpret);
@@ -54,26 +51,14 @@ namespace GeneaGedcom
 
         public Date Date
         {
-            get
-            {
-                return date;
-            }
-            set
-            {
-                date = value;
-            }
+            get => date;
+            set => date = value;
         }
 
         public DatePhrase Interpretation
         {
-            get
-            {
-                return interpretation;
-            }
-            set
-            {
-                interpretation = value;
-            }
+            get => interpretation;
+            set => interpretation = value;
         }
 
         public override bool Equals(object obj)

@@ -60,10 +60,7 @@ namespace GeneaGedcom
         [Length(1,120)]
         public string Name
         {
-            get
-            {
-                return name;
-            }
+            get => name;
             set
             {
                 name = value;
@@ -72,23 +69,14 @@ namespace GeneaGedcom
             }
         }
 
-        public bool HasSeperatedNamePieces
-        {
-            get
-            {
-                return hasSeperatedNamePieces;
-            }
-        }
-        
+        public bool HasSeperatedNamePieces => hasSeperatedNamePieces;
+
         [Tag("NPFX")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1,30)]
         public string NamePiecePrefix
         {
-            get
-            {
-                return prefix;
-            }
+            get => prefix;
             set
             {
                 prefix = value;
@@ -102,10 +90,7 @@ namespace GeneaGedcom
         [Length(1,120)]
         public string NamePieceGiven
         {
-            get
-            {
-                return given;
-            }
+            get => given;
             set
             {
                 given = value;
@@ -119,10 +104,7 @@ namespace GeneaGedcom
         [Length(1,30)]
         public string NamePieceNickname
         {
-            get
-            {
-                return nickname;
-            }
+            get => nickname;
             set
             {
                 nickname = value;
@@ -136,10 +118,7 @@ namespace GeneaGedcom
         [Length(1, 30)]
         public string NamePieceSurnamePrefix
         {
-            get
-            {
-                return surnamePrefix;
-            }
+            get => surnamePrefix;
             set
             {
                 surnamePrefix = value;
@@ -153,10 +132,7 @@ namespace GeneaGedcom
         [Length(1, 120)]
         public string NamePieceSurname
         {
-            get
-            {
-                return surname;
-            }
+            get => surname;
             set
             {
                 surname = value;
@@ -170,10 +146,7 @@ namespace GeneaGedcom
         [Length(1,30)]
         public string NamePieceSuffix
         {
-            get
-            {
-                return suffix;
-            }
+            get => suffix;
             set
             {
                 suffix = value;
@@ -186,10 +159,7 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<SourceCitation> SourceCitations
         {
-            get
-            {
-                return sourceCitations;
-            }
+            get => sourceCitations;
             set
             {
                 sourceCitations = value;
@@ -202,14 +172,8 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<NoteStructure> Notes
         {
-            get
-            {
-                return notes;
-            }
-            set
-            {
-                notes = value;
-            }
+            get => notes;
+            set => notes = value;
         }
 
         private void checkForSeperatedNamePieces()

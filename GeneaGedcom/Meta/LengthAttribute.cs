@@ -33,34 +33,16 @@ namespace GeneaGedcom.Meta
         /// <summary>
         /// TypeId
         /// </summary>
-        public override object TypeId
-        {
-            get
-            {
-                return "Length";
-            }
-        }
+        public override object TypeId => "Length";
 
         /// <summary>
         /// returns the maximum length of the gedcom data
         /// </summary>
-        public int Maximum
-        {
-            get
-            {
-                return maximum;
-            }
-        }
+        public int Maximum => maximum;
 
         /// <summary>
         /// return the minimum length of the gedcom data
         /// </summary>
-        public int Minimum
-        {
-            get
-            {
-                return minimum;
-            }
-        }
+        public int Minimum => minimum;
     }
 }

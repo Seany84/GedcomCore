@@ -39,28 +39,16 @@ namespace GeneaGedcom
         [Tag("HEAD")]
         public Header Header
         {
-            get
-            {
-                return header;
-            }
-            set
-            {
-                header = value;
-            }
+            get => header;
+            set => header = value;
         }
 
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Tag("SUBN")]
         public SubmissionRecord SubmissionRecord
         {
-            get
-            {
-                return submissionRecord;
-            }
-            set
-            {
-                submissionRecord = value;
-            }
+            get => submissionRecord;
+            set => submissionRecord = value;
         }
 
         [Quantity(QuantityAttribute.PredefinedQuantities.OneUnbounded)]
@@ -73,28 +61,16 @@ namespace GeneaGedcom
         [Tag("SUBM", typeof(SubmitterRecord))]
         public List<Record> Records
         {
-            get
-            {
-                return records;
-            }
-            set
-            {
-                records = value;
-            }
+            get => records;
+            set => records = value;
         }
 
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
         [Tag("TRLR")]
         public Trailer Trailer
         {
-            get
-            {
-                return trailer;
-            }
-            set
-            {
-                trailer = value;
-            }
+            get => trailer;
+            set => trailer = value;
         }
 
         public override bool Equals(object obj)

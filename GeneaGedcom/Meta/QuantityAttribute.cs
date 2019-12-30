@@ -63,35 +63,17 @@ namespace GeneaGedcom.Meta
         /// <summary>
         /// TypeId
         /// </summary>
-        public override object TypeId
-        {
-            get
-            {
-                return "Quantity";
-            }
-        }
+        public override object TypeId => "Quantity";
 
         /// <summary>
         /// returns the minimal number of occurances
         /// </summary>
-        public int Minimum
-        {
-            get
-            {
-                return minimum;
-            }
-        }
+        public int Minimum => minimum;
 
         /// <summary>
         /// returns the maximal number of occurances
         /// </summary>
-        public int Maximum
-        {
-            get
-            {
-                return maximum;
-            }
-        }
+        public int Maximum => maximum;
 
         /// <summary>
         /// predefined quantities

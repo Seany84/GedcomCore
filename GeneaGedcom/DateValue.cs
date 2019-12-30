@@ -42,14 +42,8 @@ namespace GeneaGedcom
         [Tag("")]
         public string Datestring
         {
-            get
-            {
-                return DateString;
-            }
-            set
-            {
-                DateString = value;
-            }
+            get => DateString;
+            set => DateString = value;
         }
 
         public static DateValue CreateDateValue(string DateString, Reporting Reporting)

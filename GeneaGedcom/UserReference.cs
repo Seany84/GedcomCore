@@ -28,14 +28,8 @@ namespace GeneaGedcom
         [Length(1, 20)]
         public string UserReferenceNumber
         {
-            get
-            {
-                return userReferenceNumber;
-            }
-            set
-            {
-                userReferenceNumber = value;
-            }
+            get => userReferenceNumber;
+            set => userReferenceNumber = value;
         }
 
         [Tag("TYPE")]
@@ -43,14 +37,8 @@ namespace GeneaGedcom
         [Length(1, 40)]
         public string UserReferenceType
         {
-            get
-            {
-                return userReferenceType;
-            }
-            set
-            {
-                userReferenceType = value;
-            }
+            get => userReferenceType;
+            set => userReferenceType = value;
         }
 
         public override bool Equals(object obj)

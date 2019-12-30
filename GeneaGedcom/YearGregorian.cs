@@ -32,48 +32,24 @@ namespace GeneaGedcom
             this.YearString = YearString;
         }
 
-        public bool IsUnknown
-        {
-            get
-            {
-                return (Year == 0) && !HasAlternative;
-            }
-        }
+        public bool IsUnknown => (Year == 0) && !HasAlternative;
 
         public int Year
         {
-            get
-            {
-                return year;
-            }
-            set
-            {
-                year = value;
-            }
+            get => year;
+            set => year = value;
         }
 
         public int Alternative
         {
-            get
-            {
-                return alternative;
-            }
-            set
-            {
-                alternative = value;
-            }
+            get => alternative;
+            set => alternative = value;
         }
 
         public bool HasAlternative
         {
-            get
-            {
-                return hasAlternative;
-            }
-            set
-            {
-                hasAlternative = value;
-            }
+            get => hasAlternative;
+            set => hasAlternative = value;
         }
 
         public string YearString

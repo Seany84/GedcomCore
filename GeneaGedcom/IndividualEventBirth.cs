@@ -26,14 +26,8 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public string FamilyXref
         {
-            get
-            {
-                return familyXRef;
-            }
-            set
-            {
-                familyXRef = value;
-            }
+            get => familyXRef;
+            set => familyXRef = value;
         }
 
         public override bool Equals(object obj)

@@ -78,34 +78,19 @@ namespace GeneaGedcom
         [Length(0,1)]
         public string Happened
         {
-            get
-            {
-                return happened;
-            }
-            set
-            {
-                happened = value;
-            }
+            get => happened;
+            set => happened = value;
         }
 
         public EventTypeIndividual TypeEnum
         {
-            get
-            {
-                return type;
-            }
-            set
-            {
-                Tag = EnumTagUtil.GetFirstTagName(type);
-            }
+            get => type;
+            set => Tag = EnumTagUtil.GetFirstTagName(type);
         }
 
         public override string Tag
         {
-            get
-            {
-                return base.Tag;
-            }
+            get => base.Tag;
             set
             {
                 base.Tag = value;

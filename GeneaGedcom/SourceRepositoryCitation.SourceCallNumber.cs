@@ -30,28 +30,16 @@ namespace GeneaGedcom
             [Length(1, 120)]
             public string SourceCallNumber
             {
-                get
-                {
-                    return sourceCallNumber;
-                }
-                set
-                {
-                    sourceCallNumber = value;
-                }
+                get => sourceCallNumber;
+                set => sourceCallNumber = value;
             }
 
             [Tag("MEDI", SourceMediaType.Unknown)]
             [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
             public SourceMediaType MediaSourceType
             {
-                get
-                {
-                    return mediaSourceType;
-                }
-                set
-                {
-                    mediaSourceType = value;
-                }
+                get => mediaSourceType;
+                set => mediaSourceType = value;
             }
 
             public override bool Equals(object obj)

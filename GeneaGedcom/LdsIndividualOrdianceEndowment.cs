@@ -33,14 +33,8 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public LdsEndowmentDateStatus LdsEndowmentDateStatus
         {
-            get
-            {
-                return ldsEndowmentDateStatus;
-            }
-            set
-            {
-                ldsEndowmentDateStatus = value;
-            }
+            get => ldsEndowmentDateStatus;
+            set => ldsEndowmentDateStatus = value;
         }
 
         public override bool Equals(object obj)

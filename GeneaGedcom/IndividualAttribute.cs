@@ -69,14 +69,8 @@ namespace GeneaGedcom
         [Length(0,1)]
         public string Text
         {
-            get
-            {
-                return text;
-            }
-            set
-            {
-                text = value;
-            }
+            get => text;
+            set => text = value;
         }
 
         public override bool Equals(object obj)

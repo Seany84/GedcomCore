@@ -49,28 +49,16 @@ namespace GeneaGedcom
         [Length(1,60)]
         public string Name
         {
-            get
-            {
-                return name;
-            }
-            set
-            {
-                name = value;
-            }
+            get => name;
+            set => name = value;
         }
 
         [Tag("ADDR")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public Address Address
         {
-            get
-            {
-                return address;
-            }
-            set
-            {
-                address = value;
-            }
+            get => address;
+            set => address = value;
         }
 
         [Tag("PHON", typeof(string))]
@@ -78,42 +66,24 @@ namespace GeneaGedcom
         [Length(1, 25)]
         public List<string> PhoneNumbers
         {
-            get
-            {
-                return phoneNumbers;
-            }
-            set
-            {
-                phoneNumbers = value;
-            }
+            get => phoneNumbers;
+            set => phoneNumbers = value;
         }
 
         [Tag("OBJE", typeof(MultimediaLink))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<MultimediaLink> Multimedia
         {
-            get
-            {
-                return multimedia;
-            }
-            set
-            {
-                multimedia = value;
-            }
+            get => multimedia;
+            set => multimedia = value;
         }
 
         [Tag("LANG", typeof(Language))]
         [Quantity(0,3)]
         public List<Language> LanguagePreference
         {
-            get
-            {
-                return languages;
-            }
-            set
-            {
-                languages = value;
-            }
+            get => languages;
+            set => languages = value;
         }
 
         [Tag("RFN")]
@@ -121,14 +91,8 @@ namespace GeneaGedcom
         [Length(1,30)]
         public string SubmitterRegisteredRFN
         {
-            get
-            {
-                return submitterRegisteredRFN;
-            }
-            set
-            {
-                submitterRegisteredRFN = value;
-            }
+            get => submitterRegisteredRFN;
+            set => submitterRegisteredRFN = value;
         }
 
         [Tag("RIN")]
@@ -136,28 +100,16 @@ namespace GeneaGedcom
         [Length(1,12)]
         public string AutomatedRecordId
         {
-            get
-            {
-                return automatedRecordId;
-            }
-            set
-            {
-                automatedRecordId = value;
-            }
+            get => automatedRecordId;
+            set => automatedRecordId = value;
         }
 
         [Tag("CHAN")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public ChangeDate ChangeDate
         {
-            get
-            {
-                return changeDate;
-            }
-            set
-            {
-                changeDate = value;
-            }
+            get => changeDate;
+            set => changeDate = value;
         }
 
         public override bool Equals(object obj)

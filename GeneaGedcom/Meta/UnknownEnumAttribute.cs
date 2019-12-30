@@ -13,12 +13,6 @@ namespace GeneaGedcom.Meta
         /// <summary>
         /// TypeId
         /// </summary>
-        public override object TypeId
-        {
-            get
-            {
-                return "UnknownEnum";
-            }
-        }
+        public override object TypeId => "UnknownEnum";
     }
 }

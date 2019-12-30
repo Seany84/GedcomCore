@@ -40,38 +40,20 @@ namespace GeneaGedcom
 
         public int Day
         {
-            get
-            {
-                return day;
-            }
-            set
-            {
-                day = value;
-            }
+            get => day;
+            set => day = value;
         }
 
         public Month Month
         {
-            get
-            {
-                return month;
-            }
-            set
-            {
-                month = value;
-            }
+            get => month;
+            set => month = value;
         }
 
         public YearGregorian Year
         {
-            get
-            {
-                return year;
-            }
-            set
-            {
-                year = value;
-            }
+            get => year;
+            set => year = value;
         }
 
         [Tag("")]

@@ -57,26 +57,14 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public string DateLdsOrdianceString
         {
-            get
-            {
-                return dateLdsOrdiance == null ? "" : dateLdsOrdiance.DateString;
-            }
-            set
-            {
-                dateLdsOrdiance = DateValue.CreateDateValue(value, Reporting);
-            }
+            get => dateLdsOrdiance == null ? "" : dateLdsOrdiance.DateString;
+            set => dateLdsOrdiance = DateValue.CreateDateValue(value, Reporting);
         }
 
         public DateValue DateLdsOrdiance
         {
-            get
-            {
-                return dateLdsOrdiance;
-            }
-            set
-            {
-                dateLdsOrdiance = value;
-            }
+            get => dateLdsOrdiance;
+            set => dateLdsOrdiance = value;
         }
 
         [Tag("TEMP")]
@@ -84,14 +72,8 @@ namespace GeneaGedcom
         [Length(4,5)]
         public string TempleCode
         {
-            get
-            {
-                return templeCode;
-            }
-            set
-            {
-                templeCode = value;
-            }
+            get => templeCode;
+            set => templeCode = value;
         }
 
         [Tag("PLAC")]
@@ -99,42 +81,24 @@ namespace GeneaGedcom
         [Length(1,120)]
         public string PlaceLivingOrdiance
         {
-            get
-            {
-                return placeLivingOrdiance;
-            }
-            set
-            {
-                placeLivingOrdiance = value;
-            }
+            get => placeLivingOrdiance;
+            set => placeLivingOrdiance = value;
         }
 
         [Tag("SOUR", typeof(SourceCitation))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<SourceCitation> SourceCitations
         {
-            get
-            {
-                return sourceCitations;
-            }
-            set
-            {
-                sourceCitations = value;
-            }
+            get => sourceCitations;
+            set => sourceCitations = value;
         }
 
         [Tag("NOTE", typeof(NoteStructure))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<NoteStructure> Notes
         {
-            get
-            {
-                return notes;
-            }
-            set
-            {
-                notes = value;
-            }
+            get => notes;
+            set => notes = value;
         }
 
         public override bool Equals(object obj)

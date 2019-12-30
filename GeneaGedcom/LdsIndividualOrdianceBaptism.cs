@@ -41,14 +41,8 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public LdsBaptismDateStatus LdsBaptismDateStatus
         {
-            get
-            {
-                return baptismDateStatus;
-            }
-            set
-            {
-                baptismDateStatus = value;
-            }
+            get => baptismDateStatus;
+            set => baptismDateStatus = value;
         }
 
         public override bool Equals(object obj)

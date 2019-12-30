@@ -65,14 +65,8 @@ namespace GeneaGedcom.Parser
         /// </summary>
         public int Level
         {
-            get
-            {
-                return level;
-            }
-            set
-            {
-                level = value;
-            }
+            get => level;
+            set => level = value;
         }
 
         /// <summary>
@@ -81,14 +75,8 @@ namespace GeneaGedcom.Parser
         /// </summary>
         public string XRefId
         {
-            get
-            {
-                return xrefId;
-            }
-            set
-            {
-                xrefId = value.Trim();
-            }
+            get => xrefId;
+            set => xrefId = value.Trim();
         }
 
         /// <summary>
@@ -96,14 +84,8 @@ namespace GeneaGedcom.Parser
         /// </summary>
         public string TagName
         {
-            get
-            {
-                return tagName;
-            }
-            set
-            {
-                tagName = value.Trim();
-            }
+            get => tagName;
+            set => tagName = value.Trim();
         }
 
         /// <summary>
@@ -111,14 +93,8 @@ namespace GeneaGedcom.Parser
         /// </summary>
         public string LineValue
         {
-            get
-            {
-                return lineValue;
-            }
-            set
-            {
-                lineValue = value.Trim();
-            }
+            get => lineValue;
+            set => lineValue = value.Trim();
         }
     }
 }

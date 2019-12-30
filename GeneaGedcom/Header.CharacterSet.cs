@@ -29,41 +29,23 @@ namespace GeneaGedcom
             //TODO: length
             public string LineValue
             {
-                get
-                {
-                    return EnumTagUtil.GetFirstTagName(Set);
-                }
-                set
-                {
-                    Set = (Set_)EnumTagUtil.SelectMember(typeof(Set_), value, null);
-                }
+                get => EnumTagUtil.GetFirstTagName(Set);
+                set => Set = (Set_)EnumTagUtil.SelectMember(typeof(Set_), value, null);
             }
 
             [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
             public Set_ Set
             {
-                get
-                {
-                    return set;
-                }
-                set
-                {
-                    set = value;
-                }
+                get => set;
+                set => set = value;
             }
 
             [Tag("VERS")]
             [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
             public string Version
             {
-                get
-                {
-                    return version;
-                }
-                set
-                {
-                    version = value;
-                }
+                get => version;
+                set => version = value;
             }
         }
     }

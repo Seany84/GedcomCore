@@ -14,12 +14,6 @@ namespace GeneaGedcom
             this.tag = Tag;
         }
 
-        public string Tag
-        {
-            get
-            {
-                return tag;
-            }
-        }
+        public string Tag => tag;
     }
 }

@@ -52,14 +52,8 @@ namespace GeneaGedcom
         [Length(1,90)]
         public string Type
         {
-            get
-            {
-                return type;
-            }
-            set
-            {
-                type = value;
-            }
+            get => type;
+            set => type = value;
         }
 
         [Tag("DATE")]
@@ -75,50 +69,29 @@ namespace GeneaGedcom
 
                 return date.DateString;
             }
-            set
-            {
-                date = DateValue.CreateDateValue(value, Reporting);
-            }
+            set => date = DateValue.CreateDateValue(value, Reporting);
         }
 
         public DateValue Date
         {
-            get
-            {
-                return date;
-            }
-            set
-            {
-                date = value;
-            }
+            get => date;
+            set => date = value;
         }
 
         [Tag("PLAC")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public Place Place
         {
-            get
-            {
-                return place;
-            }
-            set
-            {
-                place = value;
-            }
+            get => place;
+            set => place = value;
         }
 
         [Tag("ADDR")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public Address Address
         {
-            get
-            {
-                return address;
-            }
-            set
-            {
-                address = value;
-            }
+            get => address;
+            set => address = value;
         }
 
         [Tag("PHON", typeof(string))]
@@ -126,28 +99,16 @@ namespace GeneaGedcom
         [Length(1, 25)]
         public List<string> PhoneNumbers
         {
-            get
-            {
-                return phoneNumbers;
-            }
-            set
-            {
-                phoneNumbers = value;
-            }
+            get => phoneNumbers;
+            set => phoneNumbers = value;
         }
         
         [Tag("AGE")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public AgeAtEvent AgeAtEvent
         {
-            get
-            {
-                return ageAtEvent;
-            }
-            set
-            {
-                ageAtEvent = value;
-            }
+            get => ageAtEvent;
+            set => ageAtEvent = value;
         }
 
         [Tag("AGNC")]
@@ -155,14 +116,8 @@ namespace GeneaGedcom
         [Length(1,120)]
         public string ResponsibleAgency
         {
-            get
-            {
-                return responsibleAgency;
-            }
-            set
-            {
-                responsibleAgency = value;
-            }
+            get => responsibleAgency;
+            set => responsibleAgency = value;
         }
 
         [Tag("CAUS")]
@@ -170,56 +125,32 @@ namespace GeneaGedcom
         [Length(1,90)]
         public string Cause
         {
-            get
-            {
-                return cause;
-            }
-            set
-            {
-                cause = value;
-            }
+            get => cause;
+            set => cause = value;
         }
 
         [Tag("SOUR", typeof(SourceCitation))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<SourceCitation> SourceCitations
         {
-            get
-            {
-                return sourceCitations;
-            }
-            set
-            {
-                sourceCitations = value;
-            }
+            get => sourceCitations;
+            set => sourceCitations = value;
         }
 
         [Tag("OBJE", typeof(MultimediaLink))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<MultimediaLink> Multimedia
         {
-            get
-            {
-                return multimedia;
-            }
-            set
-            {
-                multimedia = value;
-            }
+            get => multimedia;
+            set => multimedia = value;
         }
 
         [Tag("NOTE", typeof(NoteStructure))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<NoteStructure> Notes
         {
-            get
-            {
-                return notes;
-            }
-            set
-            {
-                notes = value;
-            }
+            get => notes;
+            set => notes = value;
         }
 
         public override bool Equals(object obj)

@@ -37,14 +37,8 @@ namespace GeneaGedcom
         [Length(1,20)]
         public string ApprovedSystemId
         {
-            get
-            {
-                return approvedSystemId;
-            }
-            set
-            {
-                approvedSystemId = value;
-            }
+            get => approvedSystemId;
+            set => approvedSystemId = value;
         }
 
         [Tag("VERS")]
@@ -52,14 +46,8 @@ namespace GeneaGedcom
         [Length(1,15)]
         public string VersionNumber
         {
-            get
-            {
-                return versionNumber;
-            }
-            set
-            {
-                versionNumber = value;
-            }
+            get => versionNumber;
+            set => versionNumber = value;
         }
 
         [Tag("NAME")]
@@ -67,42 +55,24 @@ namespace GeneaGedcom
         [Length(1,90)]
         public string ProductName
         {
-            get
-            {
-                return productName;
-            }
-            set
-            {
-                productName = value;
-            }
+            get => productName;
+            set => productName = value;
         }
 
         [Tag("CORP")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public Corporation_ Corporation
         {
-            get
-            {
-                return corporation;
-            }
-            set
-            {
-                corporation = value;
-            }
+            get => corporation;
+            set => corporation = value;
         }
 
         [Tag("DATA")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public Data_ SourceData
         {
-            get
-            {
-                return data;
-            }
-            set
-            {
-                data = value;
-            }
+            get => data;
+            set => data = value;
         }
 
         public override bool Equals(object obj)

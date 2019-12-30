@@ -35,28 +35,16 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
         public DateExactTime Date
         {
-            get
-            {
-                return date;
-            }
-            set
-            {
-                date = value;
-            }
+            get => date;
+            set => date = value;
         }
 
         [Tag("NOTE", typeof(NoteStructure))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<NoteStructure> Notes
         {
-            get
-            {
-                return notes;
-            }
-            set
-            {
-                notes = value;
-            }
+            get => notes;
+            set => notes = value;
         }
 
         public override bool Equals(object obj)

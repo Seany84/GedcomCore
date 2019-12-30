@@ -45,28 +45,16 @@ namespace GeneaGedcom
         [Length(1,90)]
         public string Name
         {
-            get
-            {
-                return name;
-            }
-            set
-            {
-                name = value;
-            }
+            get => name;
+            set => name = value;
         }
 
         [Tag("ADDR", typeof(Address))]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public Address Address
         {
-            get
-            {
-                return address;
-            }
-            set
-            {
-                address = value;
-            }
+            get => address;
+            set => address = value;
         }
 
         [Tag("PHON", typeof(string))]
@@ -74,42 +62,24 @@ namespace GeneaGedcom
         [Length(1, 25)]
         public List<string> PhoneNumbers
         {
-            get
-            {
-                return phoneNumbers;
-            }
-            set
-            {
-                phoneNumbers = value;
-            }
+            get => phoneNumbers;
+            set => phoneNumbers = value;
         }
 
         [Tag("NOTE", typeof(NoteStructure))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<NoteStructure> Notes
         {
-            get
-            {
-                return notes;
-            }
-            set
-            {
-                notes = value;
-            }
+            get => notes;
+            set => notes = value;
         }
 
         [Tag("REFN", typeof(UserReference))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<UserReference> UserReferences
         {
-            get
-            {
-                return userReferences;
-            }
-            set
-            {
-                userReferences = value;
-            }
+            get => userReferences;
+            set => userReferences = value;
         }
 
         [Tag("RIN")]
@@ -117,28 +87,16 @@ namespace GeneaGedcom
         [Length(1,12)]
         public string AutomatedRecordId
         {
-            get
-            {
-                return automatedRecordId;
-            }
-            set
-            {
-                automatedRecordId = value;
-            }
+            get => automatedRecordId;
+            set => automatedRecordId = value;
         }
 
         [Tag("CHAN", typeof(ChangeDate))]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public ChangeDate ChangeDate
         {
-            get
-            {
-                return changeDate;
-            }
-            set
-            {
-                changeDate = value;
-            }
+            get => changeDate;
+            set => changeDate = value;
         }
 
         public override bool Equals(object obj)

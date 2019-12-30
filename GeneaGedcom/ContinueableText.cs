@@ -50,10 +50,7 @@ namespace GeneaGedcom
                 }
                 return s[0];
             }
-            set
-            {
-                text = value;
-            }
+            set => text = value;
         }
 
         public static string[] MakeParts(string Str, int MaxLength)
@@ -71,22 +68,13 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public string Continue
         {
-            set
-            {
-                text += "\n" + value;
-            }
+            set => text += "\n" + value;
         }
 
         [Tag("CONT", typeof(AdditionalLine))]
         [Tag("CONC", typeof(AdditionalLine))]
         [Length(1, 60)]
-        public List<AdditionalLine> AdditionalLines
-        {
-            get
-            {
-                return tmp;
-            }
-        }
+        public List<AdditionalLine> AdditionalLines => tmp;
 
         public IEnumerable<string> AllLines
         {
@@ -104,10 +92,7 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public string Concatenate
         {
-            set
-            {
-                text += value;
-            }
+            set => text += value;
         }
 
         public override bool Equals(object obj)

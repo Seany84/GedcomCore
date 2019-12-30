@@ -89,50 +89,26 @@ namespace GeneaGedcom
 
         public int Hours
         {
-            get
-            {
-                return hours;
-            }
-            set
-            {
-                hours = value;
-            }
+            get => hours;
+            set => hours = value;
         }
 
         public int Minutes
         {
-            get
-            {
-                return minutes;
-            }
-            set
-            {
-                minutes = value;
-            }
+            get => minutes;
+            set => minutes = value;
         }
 
         public int Seconds
         {
-            get
-            {
-                return seconds;
-            }
-            set
-            {
-                seconds = value;
-            }
+            get => seconds;
+            set => seconds = value;
         }
 
         public int SecondFractions
         {
-            get
-            {
-                return secondFractions;
-            }
-            set
-            {
-                secondFractions = value;
-            }
+            get => secondFractions;
+            set => secondFractions = value;
         }
 
         public override bool Equals(object obj)

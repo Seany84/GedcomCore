@@ -50,14 +50,8 @@ namespace GeneaGedcom
         [Length(1,12)]
         public string Age
         {
-            get
-            {
-                return age;
-            }
-            set
-            {
-                age = value;
-            }
+            get => age;
+            set => age = value;
         }
 
         public override bool Equals(object obj)

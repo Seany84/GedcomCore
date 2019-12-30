@@ -39,14 +39,8 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
         public string XRef
         {
-            get
-            {
-                return xref;
-            }
-            set
-            {
-                xref = value;
-            }
+            get => xref;
+            set => xref = value;
         }
 
         public override bool Equals(object obj)

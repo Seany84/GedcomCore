@@ -52,10 +52,7 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public string MultimediaXRef
         {
-            get
-            {
-                return multimediaXRef;
-            }
+            get => multimediaXRef;
             set
             {
                 multimediaXRef = value;
@@ -68,10 +65,7 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public MultimediaFormat MultimediaFormat
         {
-            get
-            {
-                return format;
-            }
+            get => format;
             set
             {
                 if (isEmbedded)
@@ -88,10 +82,7 @@ namespace GeneaGedcom
         [Length(1,248)]
         public string Title
         {
-            get
-            {
-                return title;
-            }
+            get => title;
             set
             {
                 if (isEmbedded)
@@ -108,10 +99,7 @@ namespace GeneaGedcom
         [Length(1,30)]
         public string FileReference
         {
-            get
-            {
-                return fileReference;
-            }
+            get => fileReference;
             set
             {
                 if (isEmbedded)
@@ -127,10 +115,7 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<NoteStructure> Notes
         {
-            get
-            {
-                return notes;
-            }
+            get => notes;
             set
             {
                 if (isEmbedded)

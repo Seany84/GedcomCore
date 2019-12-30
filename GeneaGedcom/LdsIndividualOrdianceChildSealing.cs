@@ -35,28 +35,16 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public LdsChildSealingDateStatus LdsChildSealingDateStatus
         {
-            get
-            {
-                return ldsChildSealingDateStatus;
-            }
-            set
-            {
-                ldsChildSealingDateStatus = value;
-            }
+            get => ldsChildSealingDateStatus;
+            set => ldsChildSealingDateStatus = value;
         }
 
         [Tag("FAMC")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneRequired)]
         public string FamilyXRef
         {
-            get
-            {
-                return familyXRef;
-            }
-            set
-            {
-                familyXRef = value;
-            }
+            get => familyXRef;
+            set => familyXRef = value;
         }
 
         public override bool Equals(object obj)

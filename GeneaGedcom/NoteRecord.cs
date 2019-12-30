@@ -65,22 +65,13 @@ namespace GeneaGedcom
                 }
                 return s[0];
             }
-            set
-            {
-                submitterText = value;
-            }
+            set => submitterText = value;
         }
 
         [Tag("CONT", typeof(AdditionalLine))]
         [Tag("CONC", typeof(AdditionalLine))]
         [Length(1, 60)]
-        public List<AdditionalLine> AdditionalLines
-        {
-            get
-            {
-                return tmp;
-            }
-        }
+        public List<AdditionalLine> AdditionalLines => tmp;
 
         [Tag("CONT")]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
@@ -116,28 +107,16 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<SourceCitation> SourceCitations
         {
-            get
-            {
-                return sourceCitations;
-            }
-            set
-            {
-                sourceCitations = value;
-            }
+            get => sourceCitations;
+            set => sourceCitations = value;
         }
 
         [Tag("REFN", typeof(UserReference))]
         [Quantity(QuantityAttribute.PredefinedQuantities.Unbounded)]
         public List<UserReference> UserReferences
         {
-            get
-            {
-                return userReferences;
-            }
-            set
-            {
-                userReferences = value;
-            }
+            get => userReferences;
+            set => userReferences = value;
         }
 
         [Tag("RIN")]
@@ -145,28 +124,16 @@ namespace GeneaGedcom
         [Length(1,12)]
         public string AutomatedRecordId
         {
-            get
-            {
-                return automatedRecordId;
-            }
-            set
-            {
-                automatedRecordId = value;
-            }
+            get => automatedRecordId;
+            set => automatedRecordId = value;
         }
 
         [Tag("CHAN", typeof(ChangeDate))]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public ChangeDate ChangeDate
         {
-            get
-            {
-                return changeDate;
-            }
-            set
-            {
-                changeDate = value;
-            }
+            get => changeDate;
+            set => changeDate = value;
         }
 
         public override bool Equals(object obj)

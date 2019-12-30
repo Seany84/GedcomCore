@@ -33,10 +33,7 @@ namespace GeneaGedcom
 
         public override string DateString
         {
-            get
-            {
-                return "";
-            }
+            get => "";
             set
             {
                 var approx = value.Substring(0, DateString.IndexOf(' '));
@@ -56,26 +53,14 @@ namespace GeneaGedcom
 
         public ApproximationType_ ApproximationType
         {
-            get
-            {
-                return approximation;
-            }
-            set
-            {
-                approximation = value;
-            }
+            get => approximation;
+            set => approximation = value;
         }
 
         public Date Date
         {
-            get
-            {
-                return date;
-            }
-            set
-            {
-                date = value;
-            }
+            get => date;
+            set => date = value;
         }
 
         public override bool Equals(object obj)

@@ -22,14 +22,8 @@ namespace GeneaGedcom
             [Length(1, 120)]
             public string PlaceHierarchy
             {
-                get
-                {
-                    return placeHierarchy;
-                }
-                set
-                {
-                    placeHierarchy = value;
-                }
+                get => placeHierarchy;
+                set => placeHierarchy = value;
             }
 
             public override bool Equals(object obj)

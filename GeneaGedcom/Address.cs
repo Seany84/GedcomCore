@@ -66,10 +66,7 @@ namespace GeneaGedcom
                 }
                 return s[0];
             }
-            set
-            {
-                addressLine = value;
-            }
+            set => addressLine = value;
         }
 
         [Tag("CONT")]
@@ -77,21 +74,12 @@ namespace GeneaGedcom
         [Length(1, 60)]
         public string Continue
         {
-            set
-            {
-                addressLine += "\n" + value;
-            }
+            set => addressLine += "\n" + value;
         }
 
         [Tag("CONT", typeof(string))]
         [Length(1, 60)]
-        public List<string> AdditionalLines
-        {
-            get
-            {
-                return tmp;
-            }
-        }
+        public List<string> AdditionalLines => tmp;
 
         /// <summary>
         /// The first line of the address used for indexing. This corresponds after the
@@ -102,14 +90,8 @@ namespace GeneaGedcom
         [Length(1, 60)]
         public string AddressLine1
         {
-            get
-            {
-                return addressLine1;
-            }
-            set
-            {
-                addressLine1 = value;
-            }
+            get => addressLine1;
+            set => addressLine1 = value;
         }
 
         /// <summary>
@@ -122,14 +104,8 @@ namespace GeneaGedcom
         [Length(1, 60)]
         public string AddressLine2
         {
-            get
-            {
-                return addressLine2;
-            }
-            set
-            {
-                addressLine2 = value;
-            }
+            get => addressLine2;
+            set => addressLine2 = value;
         }
 
         /// <summary>
@@ -140,14 +116,8 @@ namespace GeneaGedcom
         [Length(1, 60)]
         public string City
         {
-            get
-            {
-                return city;
-            }
-            set
-            {
-                city = value;
-            }
+            get => city;
+            set => city = value;
         }
 
         /// <summary>
@@ -158,14 +128,8 @@ namespace GeneaGedcom
         [Length(1, 60)]
         public string State
         {
-            get
-            {
-                return state;
-            }
-            set
-            {
-                state = value;
-            }
+            get => state;
+            set => state = value;
         }
 
         /// <summary>
@@ -177,14 +141,8 @@ namespace GeneaGedcom
         [Length(1, 10)]
         public string PostalCode
         {
-            get
-            {
-                return postalCode;
-            }
-            set
-            {
-                postalCode = value;
-            }
+            get => postalCode;
+            set => postalCode = value;
         }
 
         /// <summary>
@@ -197,14 +155,8 @@ namespace GeneaGedcom
         [Length(1, 60)]
         public string Country
         {
-            get
-            {
-                return country;
-            }
-            set
-            {
-                country = value;
-            }
+            get => country;
+            set => country = value;
         }
 
         public override bool Equals(object obj)
