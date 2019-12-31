@@ -6,6 +6,7 @@ namespace GeneaGedcom.Utilities
 {
     public enum ReportSeverity
     {
+        Debug,
         Warning,
 
         Error

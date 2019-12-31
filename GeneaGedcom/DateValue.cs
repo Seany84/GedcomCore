@@ -48,6 +48,8 @@ namespace GeneaGedcom
 
         public static DateValue CreateDateValue(string DateString, Reporting Reporting)
         {
+            Reporting.Debug($"CreateDateValue for {DateString}");
+
             var t = DateTypeSelector(DateString, Reporting);
 
             var ctorTypes = new[] { DateString.GetType(), Reporting.GetType() };

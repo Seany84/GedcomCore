@@ -9,7 +9,7 @@ namespace GeneaGedcom
     {
         private List<KeyValuePair<string, GedcomLine>> customTags;
 
-        public GedcomLine(Reporting Reporting)
+        protected GedcomLine(Reporting Reporting)
         {
             this.Reporting = Reporting;
             customTags = new List<KeyValuePair<string, GedcomLine>>();

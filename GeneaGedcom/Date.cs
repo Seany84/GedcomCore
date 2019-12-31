@@ -33,6 +33,11 @@ namespace GeneaGedcom
             {
                 value = value.Trim();
 
+                if (value.Contains("FROM", StringComparison.OrdinalIgnoreCase) || value.Contains("TO", StringComparison.OrdinalIgnoreCase))
+                {
+                    throw new FormatException($"{value} appears to be a date of type DatePeriod");
+                }
+
                 var date = "";
 
                 try

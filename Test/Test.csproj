@@ -6,6 +6,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="TGC55C.ged" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="TGC55C.ged">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\GeneaGedcom\GeneaGedcom.csproj" />
   </ItemGroup>
 

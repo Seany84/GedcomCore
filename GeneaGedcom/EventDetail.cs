@@ -44,15 +44,7 @@ namespace GeneaGedcom
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         public string DateString
         {
-            get
-            {
-                if (Date == null)
-                {
-                    return null;
-                }
-
-                return Date.DateString;
-            }
+            get => Date?.DateString;
             set => Date = DateValue.CreateDateValue(value, Reporting);
         }
 
