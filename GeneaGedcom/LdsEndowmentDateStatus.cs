@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using GeneaGedcom.Meta;
+using GedcomCore.Framework.Meta;
 
-namespace GeneaGedcom
+namespace GedcomCore.Framework
 {
     /* 
      * LDS_ENDOWMENT_DATE_STATUS: = {Size=5:10}

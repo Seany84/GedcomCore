@@ -1,8 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace GeneaGedcom.Meta
+namespace GedcomCore.Framework.Meta
 {
     /// <summary>
     /// attribute that indicates, that an enum-value is the default value of the enumeration

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace GeneaGedcom.Utilities
+namespace GedcomCore.Framework.Utilities
 {
     public class ReportEventArgs : EventArgs
     {

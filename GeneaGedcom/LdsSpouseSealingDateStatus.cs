@@ -1,9 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
-using GeneaGedcom.Meta;
+using GedcomCore.Framework.Meta;
 
-namespace GeneaGedcom
+namespace GedcomCore.Framework
 {
     /*
      * LDS_SPOUSE_SEALING_DATE_STATUS: = {Size=3:10}

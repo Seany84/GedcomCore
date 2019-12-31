@@ -1,13 +1,11 @@
 using System;
-using System.Collections.Generic;
 using System.Collections;
-using System.Text;
+using System.Collections.Generic;
 using System.IO;
-using GeneaGedcom.Utilities;
-using System.Reflection;
-using GeneaGedcom.Parser;
+using GedcomCore.Framework.Parser;
+using GedcomCore.Framework.Utilities;
 
-namespace GeneaGedcom.Writer
+namespace GedcomCore.Framework.Writer
 {
     /// <summary>
     /// class to write a gedcom object to a stream

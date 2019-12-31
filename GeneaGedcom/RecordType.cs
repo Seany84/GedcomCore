@@ -1,9 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
-using GeneaGedcom.Meta;
+using GedcomCore.Framework.Meta;
 
-namespace GeneaGedcom
+namespace GedcomCore.Framework
 {
     /*
      * RECORD_TYPE: = {Size=3:4}

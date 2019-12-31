@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using GeneaGedcom.Meta;
+using GedcomCore.Framework.Meta;
 
-namespace GeneaGedcom
+namespace GedcomCore.Framework
 {
     /*
      * EVENT_ATTRIBUTE_TYPE: = {Size=1:15}

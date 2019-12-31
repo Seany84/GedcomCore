@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
-using GeneaGedcom.Meta;
-using GeneaGedcom.Utilities;
+using GedcomCore.Framework.Meta;
+using GedcomCore.Framework.Utilities;
 
-namespace GeneaGedcom
+namespace GedcomCore.Framework
 {
     /*
      * ASSOCIATION_STRUCTURE: =

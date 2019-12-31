@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-using GeneaGedcom.Parser;
-using GeneaGedcom.Writer;
+using GedcomCore.Framework.Parser;
+using GedcomCore.Framework.Writer;
 
 namespace GeneaGedcom.Test
 {

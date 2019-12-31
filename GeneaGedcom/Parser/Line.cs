@@ -1,9 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.RegularExpressions;
 
-namespace GeneaGedcom.Parser
+namespace GedcomCore.Framework.Parser
 {
     /// <summary>
     /// Represents one line in a Gedcom File

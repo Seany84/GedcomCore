@@ -1,9 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
-using GeneaGedcom.Utilities;
+using GedcomCore.Framework.Utilities;
 
-namespace GeneaGedcom
+namespace GedcomCore.Framework
 {
     /*
      * DATE_PERIOD: = {Size=7:35}

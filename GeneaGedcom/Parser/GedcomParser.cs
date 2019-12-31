@@ -1,14 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using GeneaGedcom.Utilities;
+using System.Text.RegularExpressions;
+using GedcomCore.Framework.Utilities;
 
-namespace GeneaGedcom.Parser
+namespace GedcomCore.Framework.Parser
 {
     /// <summary>
     /// class for parsing Gedcom files

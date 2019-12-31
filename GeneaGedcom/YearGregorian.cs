@@ -1,9 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.RegularExpressions;
 
-namespace GeneaGedcom
+namespace GedcomCore.Framework
 {
     /*
      * YEAR_GREG: = {Size=3:7}

@@ -1,9 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
-using GeneaGedcom.Utilities;
+using GedcomCore.Framework.Utilities;
 
-namespace GeneaGedcom
+namespace GedcomCore.Framework
 {
     /* 
      * 0 TRLR {1:1} 

@@ -1,8 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace GeneaGedcom.Meta
+namespace GedcomCore.Framework.Meta
 {
     /// <summary>
     /// annotates how often a gedcom tag may or must occur

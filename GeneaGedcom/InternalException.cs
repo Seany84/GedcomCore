@@ -1,8 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace GeneaGedcom
+namespace GedcomCore.Framework
 {
     class InternalException : Exception
     {

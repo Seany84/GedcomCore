@@ -1,11 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Reflection;
-using GeneaGedcom.Meta;
-using GeneaGedcom.Utilities;
+using GedcomCore.Framework.Meta;
 
-namespace GeneaGedcom.Utilities
+namespace GedcomCore.Framework.Utilities
 {
     /// <summary>
     /// contains several useful functions for dealing with tags

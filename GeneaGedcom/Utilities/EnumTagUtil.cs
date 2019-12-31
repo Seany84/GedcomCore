@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using GeneaGedcom.Meta;
 using System.Reflection;
+using GedcomCore.Framework.Meta;
 
-namespace GeneaGedcom.Utilities
+namespace GedcomCore.Framework.Utilities
 {
     /// <summary>
     /// contains several useful functions for dealing with enums
