@@ -62,12 +62,12 @@ namespace GeneaGedcom.Utilities
             {
                 var attributes = field.GetCustomAttributes(typeof(UnknownEnumAttribute), true) as UnknownEnumAttribute[];
 
-                if (attributes != null && attributes.Length > 1)
+                if (attributes?.Length > 1)
                 {
                     throw new InvalidOperationException("attribute appield multiple times");
                 }
 
-                if (attributes != null && attributes.Length == 1)
+                if (attributes?.Length == 1)
                 {
                     return field.GetValue(Object) as ValueType;
                 }
