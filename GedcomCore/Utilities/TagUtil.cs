@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using GedcomCore.Framework.Entities;
 using GedcomCore.Framework.Meta;
 
 namespace GedcomCore.Framework.Utilities

@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
+using GedcomCore.Framework.Entities;
 using GedcomCore.Framework.Utilities;
 
 namespace GedcomCore.Framework.Parser

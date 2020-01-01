@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using GedcomCore.Framework.Entities;
 using GedcomCore.Framework.Parser;
 using GedcomCore.Framework.Utilities;
 
