@@ -6,77 +6,54 @@ namespace GedcomCore.Framework.Meta
     /// assigns tags to properties
     /// </summary>
     [AttributeUsage(AttributeTargets.Property, AllowMultiple=true)]
-    class TagAttribute : Attribute
+    internal class TagAttribute : Attribute
     {
         /// <summary>
-        /// the tagname
-        /// </summary>
-        private readonly string tagName;
-
-        /// <summary>
-        /// the type of the gedcom data.
-        /// 
-        /// this can differ from the properties type when
-        /// * the property is a container containing objects of the giventype
-        /// * a property has multiple tags, each referencing to another type which is derived from the property's type
-        /// </summary>
-        private readonly Type type;
-
-        /// <summary>
-        /// indicates the default value, that should 
-        /// * not be written by the GedcomWriter
-        /// * not be interpreted by client code, as is indicates, the the parser has no read a value for the field
-        /// 
-        /// This is especially important for ValueType fields, as they can not have a null value
-        /// </summary>
-        private readonly object defaultValue = null;
-
-        /// <summary>
         /// creates a new TagAttribute
         /// </summary>
-        /// <param name="TagName">the tag name</param>
-        public TagAttribute(string TagName)
+        /// <param name="tagName">the tag name</param>
+        public TagAttribute(string tagName)
         {
-            tagName = TagName;
+            TagName = tagName;
         }
 
         /// <summary>
         /// creates a new TagAttribute
         /// </summary>
-        /// <param name="TagName">the tag name</param>
-        /// <param name="DefaultValue">the default value for the field. refer to the <see cref="DefaultValue"/>DefaultValue property for details</param>
-        public TagAttribute(string TagName, object DefaultValue)
-            : this(TagName)
+        /// <param name="tagName">the tag name</param>
+        /// <param name="defaultValue">the default value for the field. refer to the <see cref="DefaultValue"/>DefaultValue property for details</param>
+        public TagAttribute(string tagName, object defaultValue)
+            : this(tagName)
         {
-            defaultValue = DefaultValue;
+            DefaultValue = defaultValue;
         }
 
         /// <summary>
         /// creates a new TagAttribute
         /// </summary>
-        /// <param name="TagName">the tag name</param>
-        /// <param name="Type">the type of the gedcom data.
+        /// <param name="tagName">the tag name</param>
+        /// <param name="type">the type of the gedcom data.
         /// 
         /// this can differ from the properties type when
         /// * the property is a container containing objects of the giventype
         /// * a property has multiple tags, each referencing to another type which is derived from the property's type
         /// </param>
-        public TagAttribute(string TagName, Type Type) 
-            : this(TagName)
+        public TagAttribute(string tagName, Type type) 
+            : this(tagName)
         {
-            type = Type;
+            Type = type;
         }
 
         /// <summary>
         /// creates a new TagAttribute
         /// </summary>
-        /// <param name="TagName">the tag name</param>
-        /// <param name="Type">the type of the gedcom data</param>
-        /// <param name="DefaultValue">the default value for the field. refer to the <see cref="DefaultValue"/>DefaultValue property for details</param>
-        public TagAttribute(string TagName, Type Type, object DefaultValue)
-            : this(TagName, Type)
+        /// <param name="tagName">the tag name</param>
+        /// <param name="type">the type of the gedcom data</param>
+        /// <param name="defaultValue">the default value for the field. refer to the <see cref="DefaultValue"/>DefaultValue property for details</param>
+        public TagAttribute(string tagName, Type type, object defaultValue)
+            : this(tagName, type)
         {
-            defaultValue = DefaultValue;
+            DefaultValue = defaultValue;
         }
 
         /// <summary>
@@ -87,7 +64,7 @@ namespace GedcomCore.Framework.Meta
         /// <summary>
         /// return the tag name
         /// </summary>
-        public string TagName => tagName;
+        public string TagName { get; }
 
         /// <summary>
         /// the type of the gedcom data.
@@ -96,7 +73,7 @@ namespace GedcomCore.Framework.Meta
         /// * the property is a container containing objects of the giventype
         /// * a property has multiple tags, each referencing to another type which is derived from the property's type
         /// </summary>
-        public Type Type => type;
+        public Type Type { get; }
 
         /// <summary>
         /// indicates the default value, that should 
@@ -105,6 +82,6 @@ namespace GedcomCore.Framework.Meta
         /// 
         /// This is especially important for ValueType fields, as they can not have a null value
         /// </summary>
-        public object DefaultValue => defaultValue;
+        public object DefaultValue { get; }
     }
 }

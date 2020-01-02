@@ -6,7 +6,7 @@ namespace GedcomCore.Framework.Meta
     /// attribute that indicates, that an enum-value is the default value of the enumeration
     /// </summary>
     [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
-    class UnknownEnumAttribute : Attribute
+    internal class UnknownEnumAttribute : Attribute
     {
         /// <summary>
         /// TypeId

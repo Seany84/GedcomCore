@@ -5,27 +5,17 @@ namespace GedcomCore.Framework.Meta
     /// <summary>
     /// specifies minimum and maximum length of the gedcom data
     /// </summary>
-    class LengthAttribute : Attribute
+    internal class LengthAttribute : Attribute
     {
-        /// <summary>
-        /// the minimum length of the gedcom data
-        /// </summary>
-        private readonly int minimum;
-
-        /// <summary>
-        /// the maximum length of the gedcom data
-        /// </summary>
-        private readonly int maximum;
-
         /// <summary>
         /// creates a new LengthAttribute
         /// </summary>
-        /// <param name="Minimum">the minimum length of the gedcom data</param>
-        /// <param name="Maximum">the maximum length of the gedcom data</param>
-        public LengthAttribute(int Minimum, int Maximum)
+        /// <param name="minimum">the minimum length of the gedcom data</param>
+        /// <param name="maximum">the maximum length of the gedcom data</param>
+        public LengthAttribute(int minimum, int maximum)
         {
-            minimum = Minimum;
-            maximum = Maximum;
+            Minimum = minimum;
+            Maximum = maximum;
         }
 
         /// <summary>
@@ -36,11 +26,11 @@ namespace GedcomCore.Framework.Meta
         /// <summary>
         /// returns the maximum length of the gedcom data
         /// </summary>
-        public int Maximum => maximum;
+        public int Maximum { get; }
 
         /// <summary>
         /// return the minimum length of the gedcom data
         /// </summary>
-        public int Minimum => minimum;
+        public int Minimum { get; }
     }
 }

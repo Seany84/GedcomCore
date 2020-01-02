@@ -6,20 +6,15 @@ namespace GedcomCore.Framework.Meta
     /// assigns tags to enum fields
     /// </summary>
     [AttributeUsage(AttributeTargets.Field, AllowMultiple = true)]
-    public class EnumTagAttribute : Attribute
+    internal class EnumTagAttribute : Attribute
     {
-        /// <summary>
-        /// the tag name
-        /// </summary>
-        private readonly string tagName;
-
         /// <summary>
         /// creates a new EnumTagAttribute
         /// </summary>
-        /// <param name="TagName">the tag name</param>
-        public EnumTagAttribute(string TagName)
+        /// <param name="tagName">the tag name</param>
+        public EnumTagAttribute(string tagName)
         {
-            tagName = TagName;
+            TagName = tagName;
         }
 
         /// <summary>
@@ -30,6 +25,6 @@ namespace GedcomCore.Framework.Meta
         /// <summary>
         /// returns the tag name
         /// </summary>
-        public string TagName => tagName;
+        public string TagName { get; }
     }
 }

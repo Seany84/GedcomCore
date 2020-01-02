@@ -5,27 +5,17 @@ namespace GedcomCore.Framework.Meta
     /// <summary>
     /// annotates how often a gedcom tag may or must occur
     /// </summary>
-    class QuantityAttribute : Attribute
+    internal class QuantityAttribute : Attribute
     {
-        /// <summary>
-        /// the minimal number of occurrences
-        /// </summary>
-        private readonly int minimum;
-
-        /// <summary>
-        /// the maximal number of occurrences
-        /// </summary>
-        private readonly int maximum;
-
         /// <summary>
         /// creates a new QuantityAttribute
         /// </summary>
-        /// <param name="Minimum">the minimal number of occurrences</param>
-        /// <param name="Maximum">the maximal number of occurrences</param>
-        public QuantityAttribute(int Minimum, int Maximum)
+        /// <param name="minimum">the minimal number of occurrences</param>
+        /// <param name="maximum">the maximal number of occurrences</param>
+        public QuantityAttribute(int minimum, int maximum)
         {
-            minimum = Minimum;
-            maximum = Maximum;
+            Minimum = minimum;
+            Maximum = maximum;
         }
 
         /// <summary>
@@ -37,23 +27,23 @@ namespace GedcomCore.Framework.Meta
             switch (Predefined)
             {
                 case PredefinedQuantities.OneOptional:
-                    minimum = 0;
-                    maximum = 1;
+                    Minimum = 0;
+                    Maximum = 1;
                     break;
 
                 case PredefinedQuantities.OneRequired:
-                    minimum = 1;
-                    maximum = 1;
+                    Minimum = 1;
+                    Maximum = 1;
                     break;
 
                 case PredefinedQuantities.OneUnbounded:
-                    minimum = 1;
-                    maximum = int.MaxValue;
+                    Minimum = 1;
+                    Maximum = int.MaxValue;
                     break;
 
                 case PredefinedQuantities.Unbounded:
-                    minimum = 0;
-                    maximum = int.MaxValue;
+                    Minimum = 0;
+                    Maximum = int.MaxValue;
                     break;
             }
         }
@@ -66,12 +56,12 @@ namespace GedcomCore.Framework.Meta
         /// <summary>
         /// returns the minimal number of occurrences
         /// </summary>
-        public int Minimum => minimum;
+        public int Minimum { get; }
 
         /// <summary>
         /// returns the maximal number of occurrences
         /// </summary>
-        public int Maximum => maximum;
+        public int Maximum { get; }
 
         /// <summary>
         /// predefined quantities
