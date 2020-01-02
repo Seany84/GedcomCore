@@ -7,7 +7,7 @@ namespace GedcomCore.Framework.Utilities
     /// <summary>
     /// contains several useful functions for dealing with quantity restrictions
     /// </summary>
-    public class QuantityUtil
+    internal static class QuantityUtil
     {
         /// <summary>
         /// the default maximum number of occurrences

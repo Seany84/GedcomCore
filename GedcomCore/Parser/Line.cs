@@ -6,7 +6,7 @@ namespace GedcomCore.Framework.Parser
     /// <summary>
     /// Represents one line in a Gedcom File
     /// </summary>
-    class Line
+    internal class Line
     {
         /// <summary>
         /// XRef-Id of the line. Linked XRef-Ids are part of the LineValue
@@ -33,18 +33,18 @@ namespace GedcomCore.Framework.Parser
         /// <summary>
         /// Parses the given string that represents a Gedcom line as string.
         /// </summary>
-        /// <param name="Line">a line from the Gedcom file</param>
-        public Line(string Line)
+        /// <param name="line">a line from the Gedcom file</param>
+        public Line(string line)
         {
-            Line = Line.Trim();
+            line = line.Trim();
 
             var regex = new Regex(@"^(\d+)\s+(@(\w+)@\s+)?(\w+)(\s+.+)?$", RegexOptions.None);
 
-            var match = regex.Match(Line);
+            var match = regex.Match(line);
 
             if (!match.Success)
             {
-                throw new FormatException("line didn't match expected format: " + Line);
+                throw new FormatException("line didn't match expected format: " + line);
             }
 
             Level = int.Parse(match.Groups[1].Value);

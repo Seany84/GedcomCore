@@ -9,7 +9,7 @@ namespace GedcomCore.Framework.Utilities
     /// <summary>
     /// contains several useful functions for dealing with tags
     /// </summary>
-    public class TagUtil
+    internal static class TagUtil
     {
         /// <summary>
         /// returns the property of the given object, that holds objects for the given tag name
@@ -18,27 +18,27 @@ namespace GedcomCore.Framework.Utilities
         /// - InternalException if more than one suitable properties are found
         /// - MemberNotFoundException if no suitable property is found
         /// </summary>
-        /// <param name="Object">object that is considered</param>
-        /// <param name="TagName">tag name of the searched property</param>
-        /// <param name="MustBeReadable">indicates if the found property must be readable in order to be considered</param>
-        /// <param name="MustBeWriteable">indicates if the found property must be writeable in order to be considered</param>
+        /// <param name="object">object that is considered</param>
+        /// <param name="tagName">tag name of the searched property</param>
+        /// <param name="mustBeReadable">indicates if the found property must be readable in order to be considered</param>
+        /// <param name="mustBeWriteable">indicates if the found property must be writeable in order to be considered</param>
         /// <returns>one of Object's proerties that matches the given criteria</returns>
-        public static PropertyInfo GetMember(object Object, string TagName, bool MustBeReadable, bool MustBeWriteable)
+        public static PropertyInfo GetMember(object @object, string tagName, bool mustBeReadable, bool mustBeWriteable)
         {
             var members = new List<PropertyInfo>();
 
-            foreach (var member in Object.GetType().GetProperties())
+            foreach (var member in @object.GetType().GetProperties())
             {
                 foreach (var attrib in ((member.GetCustomAttributes(typeof(TagAttribute), false)) as TagAttribute[]))
                 {
-                    if (attrib.TagName == TagName)
+                    if (attrib.TagName == tagName)
                     {
-                        if (MustBeReadable && !member.CanRead)
+                        if (mustBeReadable && !member.CanRead)
                         {
                             continue;
                         }
 
-                        if (MustBeWriteable && !member.CanWrite)
+                        if (mustBeWriteable && !member.CanWrite)
                         {
                             continue;
                         }
@@ -51,11 +51,11 @@ namespace GedcomCore.Framework.Utilities
 
             if (members.Count > 1)
             {
-                throw new InternalException("more than one properties are tagged with " + TagName);
+                throw new InternalException("more than one properties are tagged with " + tagName);
             }
             if (members.Count == 0)
             {
-                throw new MemberNotFoundException("no property is tagged with " + TagName, TagName);
+                throw new MemberNotFoundException("no property is tagged with " + tagName, tagName);
             }
             return members[0];
         }
@@ -63,14 +63,14 @@ namespace GedcomCore.Framework.Utilities
         /// <summary>
         /// returns the type for the given property and tag name
         /// </summary>
-        /// <param name="Property">property for which the type shall be determined</param>
-        /// <param name="TagName">one of the tag names for the given properties</param>
+        /// <param name="property">property for which the type shall be determined</param>
+        /// <param name="tagName">one of the tag names for the given properties</param>
         /// <returns>the type for the given property and tag name</returns>
-        public static Type GetLineType(PropertyInfo Property, string TagName)
+        public static Type GetLineType(PropertyInfo property, string tagName)
         {
-            foreach(var attrib in ((Property.GetCustomAttributes(typeof(TagAttribute), true)) as TagAttribute[]))
+            foreach(var attrib in ((property.GetCustomAttributes(typeof(TagAttribute), true)) as TagAttribute[]))
             {
-                if (String.Compare(attrib.TagName, TagName, StringComparison.OrdinalIgnoreCase) == 0)
+                if (String.Compare(attrib.TagName, tagName, StringComparison.OrdinalIgnoreCase) == 0)
                 {
                     if (attrib.Type != null)
                     {
@@ -79,17 +79,17 @@ namespace GedcomCore.Framework.Utilities
                 }
             }
 
-            return Property.PropertyType;
+            return property.PropertyType;
         }
 
         /// <summary>
         /// returns an enumeration with all tagged properties of the given type with their type-tag combinations
         /// </summary>
-        /// <param name="Type">a type</param>
+        /// <param name="type">a type</param>
         /// <returns>all tagged properties of the given type with their type-tag combinations</returns>
-        public static IEnumerable<KeyValuePair<PropertyInfo, IDictionary<Type, string>>> GetTags(Type Type)
+        public static IEnumerable<KeyValuePair<PropertyInfo, IDictionary<Type, string>>> GetTags(Type type)
         {
-            foreach(var prop in Type.GetProperties())
+            foreach(var prop in type.GetProperties())
             {
                 var types = new Dictionary<Type, string>();
 
@@ -113,9 +113,9 @@ namespace GedcomCore.Framework.Utilities
             }
         }
 
-        public static string GetTagName(PropertyInfo Property)
+        public static string GetTagName(PropertyInfo property)
         {
-            foreach (var attrib in (Property.GetCustomAttributes(typeof(TagAttribute), true)) as TagAttribute[])
+            foreach (var attrib in (property.GetCustomAttributes(typeof(TagAttribute), true)) as TagAttribute[])
             {
                 return attrib.TagName;
             }
@@ -123,18 +123,18 @@ namespace GedcomCore.Framework.Utilities
             return "";
         }
 
-        public static bool IsDefaultValue(PropertyInfo Property, object Object)
+        public static bool IsDefaultValue(PropertyInfo property, object @object)
         {
-            foreach (var attrib in (Property.GetCustomAttributes(typeof(TagAttribute), true)) as TagAttribute[])
+            foreach (var attrib in (property.GetCustomAttributes(typeof(TagAttribute), true)) as TagAttribute[])
             {
-                if ((attrib.Type == null) || (Object == null) || attrib.Type.Equals(Object.GetType()))
+                if ((attrib.Type == null) || (@object == null) || attrib.Type.Equals(@object.GetType()))
                 {
-                    if (Object == attrib.DefaultValue)
+                    if (@object == attrib.DefaultValue)
                     {
                         return true;
                     }
 
-                    if (Object == null)
+                    if (@object == null)
                     {
                         return false;
                     }
@@ -144,7 +144,7 @@ namespace GedcomCore.Framework.Utilities
                         return false;
                     }
 
-                    return Object.Equals(attrib.DefaultValue);
+                    return @object.Equals(attrib.DefaultValue);
                 }
             }
 

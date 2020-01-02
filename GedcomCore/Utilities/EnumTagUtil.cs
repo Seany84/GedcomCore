@@ -14,18 +14,18 @@ namespace GedcomCore.Framework.Utilities
         /// <summary>
         /// returns all tags that are defined for the given enum type with their corresponding fields
         /// </summary>
-        /// <param name="EnumType">an enum type</param>
+        /// <param name="enumType">an enum type</param>
         /// <returns>all tags defined for the given enum type with their corresponding fields</returns>
-        public static IDictionary<string, FieldInfo> GetMembers(Type EnumType)
+        public static IDictionary<string, FieldInfo> GetMembers(Type enumType)
         {
-            if (!EnumType.IsEnum)
+            if (!enumType.IsEnum)
             {
                 throw new ArgumentException("the given type must be an enum");
             }
 
             var members = new Dictionary<string,FieldInfo>();
 
-            foreach (var field in EnumType.GetFields())
+            foreach (var field in enumType.GetFields())
             {
                 var tags = (EnumTagAttribute[])(field.GetCustomAttributes(typeof(EnumTagAttribute), false));
 
@@ -47,17 +47,17 @@ namespace GedcomCore.Framework.Utilities
         /// 
         /// This member is annotated by GeneaGedcom.Meta.UnknownEnumAttribute
         /// </summary>
-        /// <param name="EnumType">an enum type</param>
-        /// <param name="Object">a object of the given type</param>
+        /// <param name="enumType">an enum type</param>
+        /// <param name="object">a object of the given type</param>
         /// <returns>the unknown member</returns>
-        public static ValueType GetUnknownMember(Type EnumType, object Object)
+        public static ValueType GetUnknownMember(Type enumType, object @object)
         {
-            if (!EnumType.IsEnum)
+            if (!enumType.IsEnum)
             {
                 throw new ArgumentException("the given type must be an enum");
             }
 
-            foreach (var field in EnumType.GetFields())
+            foreach (var field in enumType.GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(UnknownEnumAttribute), true) as UnknownEnumAttribute[];
 
@@ -68,7 +68,7 @@ namespace GedcomCore.Framework.Utilities
 
                 if (attributes?.Length == 1)
                 {
-                    return field.GetValue(Object) as ValueType;
+                    return field.GetValue(@object) as ValueType;
                 }
             }
 
@@ -78,18 +78,18 @@ namespace GedcomCore.Framework.Utilities
         /// <summary>
         /// indicates if the enum of the given type has a member with the given tag name
         /// </summary>
-        /// <param name="EnumType">an enum type</param>
-        /// <param name="Tag">a tag name</param>
-        /// <param name="Object">a object of the given type</param>
+        /// <param name="enumType">an enum type</param>
+        /// <param name="tag">a tag name</param>
+        /// <param name="object">a object of the given type</param>
         /// <returns>true, if the given enum type has a member with the given tag name, or false otherwise</returns>
-        public static bool HasMember(Type EnumType, string Tag, object Object)
+        public static bool HasMember(Type enumType, string tag, object @object)
         {
-            if (!EnumType.IsEnum)
+            if (!enumType.IsEnum)
             {
                 throw new ArgumentException("the given type must be an enum");
             }
 
-            return GetMembers(EnumType).Any(member => string.Compare(Tag, member.Key, StringComparison.OrdinalIgnoreCase) == 0);
+            return GetMembers(enumType).Any(member => string.Compare(tag, member.Key, StringComparison.OrdinalIgnoreCase) == 0);
         }
 
         /// <summary>
@@ -99,22 +99,22 @@ namespace GedcomCore.Framework.Utilities
         /// - ArgumentException if the given type is not an enum
         /// - InvalidOperationException if no suitable field is found
         /// </summary>
-        /// <param name="EnumType">an enum type</param>
-        /// <param name="Tag">a tag name</param>
-        /// <param name="Object">an object of the given type</param>
+        /// <param name="enumType">an enum type</param>
+        /// <param name="tag">a tag name</param>
+        /// <param name="object">an object of the given type</param>
         /// <returns>the field with the given tag name</returns>
-        public static ValueType SelectMember(Type EnumType, string Tag, object Object)
+        public static ValueType SelectMember(Type enumType, string tag, object @object)
         {
-            if (!EnumType.IsEnum)
+            if (!enumType.IsEnum)
             {
                 throw new ArgumentException("the given type must be an enum");
             }
 
-            foreach (var member in GetMembers(EnumType))
+            foreach (var member in GetMembers(enumType))
             {
-                if (string.Compare(Tag, member.Key, StringComparison.OrdinalIgnoreCase) == 0)
+                if (string.Compare(tag, member.Key, StringComparison.OrdinalIgnoreCase) == 0)
                 {
-                    return member.Value.GetValue(Object) as ValueType;
+                    return member.Value.GetValue(@object) as ValueType;
                 }
             }
 
@@ -129,33 +129,33 @@ namespace GedcomCore.Framework.Utilities
         /// throws
         /// - ArgumentException if the given type is not an enum
         /// </summary>
-        /// <param name="EnumType">an enum type</param>
-        /// <param name="Tag">a tag name</param>
-        /// <param name="Object">an object of the given type</param>
-        /// <param name="Default">a default value that is return if no suitable field is found</param>
+        /// <param name="enumType">an enum type</param>
+        /// <param name="tag">a tag name</param>
+        /// <param name="object">an object of the given type</param>
+        /// <param name="default">a default value that is return if no suitable field is found</param>
         /// <returns>the field with the given tag name</returns>
-        public static ValueType SelectMember(Type EnumType, string Tag, object Object, ValueType Default)
+        public static ValueType SelectMember(Type enumType, string tag, object @object, ValueType @default)
         {
             try
             {
-                return SelectMember(EnumType, Tag, Object);
+                return SelectMember(enumType, tag, @object);
             }
             catch(InvalidOperationException)
             {
-                return Default;
+                return @default;
             }
         }
 
         /// <summary>
         /// returns the first tag name of the given field
         /// </summary>
-        /// <param name="Member">a enum's member</param>
+        /// <param name="valueType">An enum's member</param>
         /// <returns>the first tag name or an empty string, if it has no tags</returns>
-        public static string GetFirstTagName(ValueType Member)
+        public static string GetFirstTagName(ValueType valueType)
         {
-            foreach(var member in GetMembers(Member.GetType()))
+            foreach(var member in GetMembers(valueType.GetType()))
             {
-                if (member.Value.GetValue(Member).Equals(Member))
+                if (member.Value.GetValue(valueType).Equals(valueType))
                 {
                     return member.Key;
                 }

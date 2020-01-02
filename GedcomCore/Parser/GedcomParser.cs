@@ -54,9 +54,9 @@ namespace GedcomCore.Framework.Parser
         /// <summary>
         /// Parses the Gedcom file that is read from the stream
         /// </summary>
-        /// <param name="Stream">stream that the Gedcom is read from</param>
+        /// <param name="stream">stream that the Gedcom is read from</param>
         /// <returns>a LineageLinkedGedcom object, that contains the read information</returns>
-        public LineageLinkedGedcom Parse(Stream Stream)
+        public LineageLinkedGedcom Parse(Stream stream)
         {
             var lineNumber = 0;
             objects = new Stack<object>();
@@ -67,7 +67,7 @@ namespace GedcomCore.Framework.Parser
             objects.Push(gedcom);
             lastLevel = -1;
 
-            using (var streamReader = new StreamReader(Stream))
+            using (var streamReader = new StreamReader(stream))
             {
                 string str;
                 while ((str = streamReader.ReadLine()) != null)
@@ -94,23 +94,23 @@ namespace GedcomCore.Framework.Parser
         /// <summary>
         /// processes a Gedcom line
         /// </summary>
-        /// <param name="Line">line to process</param>
-        /// <param name="LineNumber"></param>
-        private void ProcessLine(string Line, int LineNumber)
+        /// <param name="line">line to process</param>
+        /// <param name="lineNumber"></param>
+        private void ProcessLine(string line, int lineNumber)
         {
             object nextLine = null;
             PropertyInfo property = null;
             Type propType = null;
 
-            var line = new Line(Line);
+            var lineObj = new Line(line);
 
-            if (line.TagName.StartsWith("_"))
+            if (lineObj.TagName.StartsWith("_"))
             {
                 reporting.Warn("custom tags currently not supported");
                 return;
             }
 
-            var popCount = lastLevel - line.Level;
+            var popCount = lastLevel - lineObj.Level;
             for (var n = 0; n <= popCount; n++)
             {
                 objects.Pop();
@@ -126,11 +126,11 @@ namespace GedcomCore.Framework.Parser
 
             try
             {
-                property = GetPropertyInfo(line, currentObject);
+                property = GetPropertyInfo(lineObj, currentObject);
 
                 propType = property.PropertyType;
 
-                nextLine = CreateNextObject(line, property);
+                nextLine = CreateNextObject(lineObj, property);
 
                 if (nextLine == null)
                 {
@@ -139,16 +139,16 @@ namespace GedcomCore.Framework.Parser
             }
             catch (Exception e)
             {
-                reporting.Error($"Error while parsing line {LineNumber}: \"{Line}\": {e.Message}");
+                reporting.Error($"Error while parsing line {lineNumber}: \"{line}\": {e.Message}");
 
                 nextLine = null; //just a dummy; we pop it when processLine() is called next time
             }
             finally
             {
                 objects.Push(nextLine);
-                tags.Push(line.TagName);
+                tags.Push(lineObj.TagName);
 
-                lastLevel = line.Level;
+                lastLevel = lineObj.Level;
 
                 if ((property != null) && (propType != null))
                 {
@@ -172,15 +172,15 @@ namespace GedcomCore.Framework.Parser
         /// returns the property of the currentObject that the given line belongs to.
         /// throws a GeneaGedcom.MemberNotFoundException if no suitable property is found.
         /// </summary>
-        /// <param name="Line">line that is a subline of the current object</param>
-        /// <param name="CurrentObject">object that is currently processed</param>
+        /// <param name="line">line that is a subline of the current object</param>
+        /// <param name="currentObject">object that is currently processed</param>
         /// <returns>the property info that belongs to the given arguments</returns>
-        private PropertyInfo GetPropertyInfo(Line Line, object CurrentObject)
+        private PropertyInfo GetPropertyInfo(Line line, object currentObject)
         {
             try
             //try to get the property the regular way
             {
-                return TagUtil.GetMember(CurrentObject, Line.TagName, false, true);
+                return TagUtil.GetMember(currentObject, line.TagName, false, true);
             }
             catch (MemberNotFoundException memberException)
             //try to find a custom tag or throw a exception if none is found
@@ -198,55 +198,55 @@ namespace GedcomCore.Framework.Parser
         /// <summary>
         /// creates the object for the given line
         /// </summary>
-        /// <param name="Line">line to create a object for</param>
-        /// <param name="Property">property which the line belongs to, eg the context of the line</param>
+        /// <param name="line">line to create a object for</param>
+        /// <param name="property">property which the line belongs to, eg the context of the line</param>
         /// <returns>a GedcomLine-object that represents the line in the given context</returns>
-        private object CreateNextObject(Line Line, PropertyInfo Property)
+        private object CreateNextObject(Line line, PropertyInfo property)
         {
-            CheckLength(Line, Property);
+            CheckLength(line, property);
 
-            var type = TagUtil.GetLineType(Property, Line.TagName);
+            var type = TagUtil.GetLineType(property, line.TagName);
 
             object nextObject;
 
             if (type == typeof(string))
             {
-                nextObject = Line.LineValue;
+                nextObject = line.LineValue;
             }
             else if (type == typeof(int))
             {
-                nextObject = int.Parse(Line.LineValue);
+                nextObject = int.Parse(line.LineValue);
             }
             else if (type == typeof(long))
             {
-                nextObject = long.Parse(Line.LineValue);
+                nextObject = long.Parse(line.LineValue);
             }
             else if (type.IsEnum)
             {
-                nextObject = EnumTagUtil.SelectMember(type, Line.LineValue, null);
+                nextObject = EnumTagUtil.SelectMember(type, line.LineValue, null);
             }
             else
             {
-                nextObject = CreateNextGedcomLine(Line, Property, type, reporting);
+                nextObject = CreateNextGedcomLine(line, property, type, reporting);
             }
 
             return nextObject;
         }
 
-        private GedcomLine CreateNextGedcomLine(Line Line, PropertyInfo Property, Type Type, Reporting Reporting)
+        private GedcomLine CreateNextGedcomLine(Line line, PropertyInfo property, Type type, Reporting report)
         {
-            var ctor = Type.GetConstructor(GetCtorArgTypes(Line, Reporting));
+            var ctor = type.GetConstructor(GetCtorArgTypes(line, report));
             GedcomLine nextObject;
 
             if (ctor == null)
             {
-                var t = GetCtorArgTypes(Line, reporting);
-                throw new InternalException($"no appropriate ctor found for type {Type}. {t.Length} parameters");
+                var t = GetCtorArgTypes(line, this.reporting);
+                throw new InternalException($"no appropriate ctor found for type {type}. {t.Length} parameters");
             }
 
             try
             {
-                nextObject = ctor.Invoke(GetCtorArgs(Line, Reporting)) as GedcomLine;
+                nextObject = ctor.Invoke(GetCtorArgs(line, report)) as GedcomLine;
             }
             catch (Exception e)
             {
@@ -255,26 +255,26 @@ namespace GedcomCore.Framework.Parser
 
             if (nextObject != null)
             {
-                nextObject.Tag = Line.TagName;
+                nextObject.Tag = line.TagName;
             }
 
-            if (!string.IsNullOrEmpty(Line.LineValue))
+            if (!string.IsNullOrEmpty(line.LineValue))
             {
                 try
                 {
                     var prop = TagUtil.GetMember(nextObject, "", false, true);
-                    prop.SetValue(nextObject, Line.LineValue, null);
+                    prop.SetValue(nextObject, line.LineValue, null);
                 }
                 catch (MemberNotFoundException)
                 {
-                    reporting.Error(string.Format("line had a line-value, but the corresponding doesn't have a corresponding tag"));
+                    this.reporting.Error(string.Format("line had a line-value, but the corresponding doesn't have a corresponding tag"));
                 }
             }
 
             if (nextObject == null)
             {
                 throw new InternalException(
-                    $"error while creating next next object: class {Type} doesn't inherit from GeneaGedcom.GedcomLine");
+                    $"error while creating next next object: class {type} doesn't inherit from GeneaGedcom.GedcomLine");
             }
 
             return nextObject;
@@ -283,18 +283,18 @@ namespace GedcomCore.Framework.Parser
         /// <summary>
         /// Returns the ctor-arguments to create the next object
         /// </summary>
-        /// <param name="Line">the Gedcom line</param>
+        /// <param name="line">the Gedcom line</param>
         /// <returns>an array with the ctor-args</returns>
-        private object[] GetCtorArgs(Line Line, Reporting Reporting)
+        private object[] GetCtorArgs(Line line, Reporting report)
         {
             var args = new List<object>();
 
-            if (Line != null && Line.XRefId != "")
+            if (line != null && line.XRefId != "")
             {
-                args.Add(Line.XRefId);
+                args.Add(line.XRefId);
             }
 
-            args.Add(Reporting);
+            args.Add(report);
 
             return args.ToArray();
         }
@@ -302,18 +302,19 @@ namespace GedcomCore.Framework.Parser
         /// <summary>
         /// Returns the types of the ctor-args used to create the next object
         /// </summary>
-        /// <param name="Line">the Gedcom line</param>
+        /// <param name="line">the Gedcom line</param>
+        /// <param name="report"></param>
         /// <returns>an array with the types of the ctor-args</returns>
-        private Type[] GetCtorArgTypes(Line Line, Reporting Reporting)
+        private static Type[] GetCtorArgTypes(Line line, Reporting report)
         {
             var types = new List<Type>();
 
-            if (Line != null && Line.XRefId != "")
+            if (line != null && line.XRefId != "")
             {
-                types.Add(Line.XRefId.GetType());
+                types.Add(line.XRefId.GetType());
             }
 
-            types.Add(Reporting.GetType());
+            types.Add(report.GetType());
 
             return types.ToArray();
         }
@@ -321,63 +322,56 @@ namespace GedcomCore.Framework.Parser
         /// <summary>
         /// checks if the given Type implements IList
         /// </summary>
-        /// <param name="Type">type that shall be checked</param>
+        /// <param name="type">type that shall be checked</param>
         /// <returns>true, if the Type implements IList, otherwise false</returns>
-        private bool ImplementsIList(Type Type)
+        private static bool ImplementsIList(Type type)
         {
-            foreach (var face in Type.GetInterfaces())
-            {
-                if (face == typeof(IList))
-                {
-                    return true;
-                }
-            }
-            return false;
+            return type.GetInterfaces().Any(face => face == typeof(IList));
         }
 
         /// <summary>
         /// checks if the length of the line value matches the length assigned 
         /// with the GeneaGedcom.Meta.LengthAttribute
         /// </summary>
-        /// <param name="Line">actual line value found in the file</param>
-        /// <param name="Property">property which the value will be assigned to</param>
-        private void CheckLength(Line Line, PropertyInfo Property)
+        /// <param name="line">actual line value found in the file</param>
+        /// <param name="property">property which the value will be assigned to</param>
+        private void CheckLength(Line line, PropertyInfo property)
         {
-            var length = Line.LineValue.Length;
-            var minLength = LengthUtil.GetMinimumLength(Property);
-            var maxLength = LengthUtil.GetMaximumLength(Property);
+            var length = line.LineValue.Length;
+            var minLength = LengthUtil.GetMinimumLength(property);
+            var maxLength = LengthUtil.GetMaximumLength(property);
 
             if (length < minLength)
             {
-                reporting.Warn($"line \"{Line.LineValue}\" too short. should be min {minLength} characters");
+                reporting.Warn($"line \"{line.LineValue}\" too short. should be min {minLength} characters");
             }
 
             if (length > maxLength)
             {
-                reporting.Warn($"line \"{Line.LineValue}\" too long. should be max {maxLength} characters");
+                reporting.Warn($"line \"{line.LineValue}\" too long. should be max {maxLength} characters");
             }
         }
 
         /// <summary>
         /// Registers a new custom tag
         /// </summary>
-        /// <param name="PathToTag">Path to the tag in the Format /INDI/_MYTAG </param>
-        /// <param name="CustomTagType">the property which the instantiated object will be assigned to</param>
-        public void RegisterCustomTag(string PathToTag, PropertyInfo CustomTagProperty)
+        /// <param name="pathToTag">Path to the tag in the Format /INDI/_MYTAG </param>
+        /// <param name="customTagProperty">the property which the instantiated object will be assigned to</param>
+        public void RegisterCustomTag(string pathToTag, PropertyInfo customTagProperty)
         {
-            if (CustomTagProperty.ReflectedType != null && !CustomTagProperty.ReflectedType.IsSubclassOf(typeof(GedcomLine)))
+            if (customTagProperty.ReflectedType != null && !customTagProperty.ReflectedType.IsSubclassOf(typeof(GedcomLine)))
             {
                 throw new ArgumentException("CustomTagType must inherit from GeneaGedcom.GedcomLine");
             }
 
             var regex = new Regex(@"/\w+(/\w+/)");
-            var match = regex.Match(PathToTag);
+            var match = regex.Match(pathToTag);
             if (!match.Success)
             {
-                throw new FormatException("PathToTag " + PathToTag + " didn't match expected format");
+                throw new FormatException("PathToTag " + pathToTag + " didn't match expected format");
             }
 
-            customTagProperties.Add(PathToTag, CustomTagProperty);
+            customTagProperties.Add(pathToTag, customTagProperty);
         }
 
         /// <summary>
@@ -386,7 +380,7 @@ namespace GedcomCore.Framework.Parser
         /// <returns>returns the path for the currently processed object</returns>
         private string GetCurrentPath()
         {
-            return tags.Aggregate("", (Current, Tag) => Current + ("/" + Tag));
+            return tags.Aggregate("", (current, tag) => current + ("/" + tag));
         }
     }
 }
