@@ -62,8 +62,7 @@ namespace GedcomCore.Framework.Entities
                 throw new ArgumentNullException();
             }
 
-            var gedcom = obj as LineageLinkedGedcom;
-            if (gedcom == null)
+            if (!(obj is LineageLinkedGedcom gedcom))
             {
                 return false;
             }

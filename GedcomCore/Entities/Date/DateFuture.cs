@@ -17,8 +17,7 @@ namespace GedcomCore.Framework.Entities.Date
                 throw new ArgumentNullException();
             }
 
-            var date = obj as DateFuture;
-            if (date == null)
+            if (!(obj is DateFuture date))
             {
                 return false;
             }

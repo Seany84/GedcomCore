@@ -59,8 +59,7 @@ namespace GedcomCore.Framework.Entities
                 throw new ArgumentNullException();
             }
 
-            var role = obj as RoleInEvent;
-            if (role == null)
+            if (!(obj is RoleInEvent role))
             {
                 return false;
             }

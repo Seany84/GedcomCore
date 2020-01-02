@@ -100,8 +100,7 @@ namespace GedcomCore.Framework.Entities.Individual
                 throw new ArgumentNullException();
             }
 
-            var e = obj as IndividualEvent;
-            if (e == null)
+            if (!(obj is IndividualEvent e))
             {
                 return false;
             }

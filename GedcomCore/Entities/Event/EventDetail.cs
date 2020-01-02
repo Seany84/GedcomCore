@@ -98,8 +98,7 @@ namespace GedcomCore.Framework.Entities.Event
                 throw new ArgumentNullException();
             }
 
-            var d = obj as EventDetail;
-            if (d == null)
+            if (!(obj is EventDetail d))
             {
                 return false;
             }

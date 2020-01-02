@@ -218,8 +218,7 @@ namespace GedcomCore.Framework.Entities
                 throw new ArgumentNullException();
             }
 
-            var name = obj as PersonalName;
-            if (name == null)
+            if (!(obj is PersonalName name))
             {
                 return false;
             }

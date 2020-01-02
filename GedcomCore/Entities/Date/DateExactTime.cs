@@ -32,8 +32,7 @@ namespace GedcomCore.Framework.Entities.Date
                 throw new ArgumentNullException();
             }
 
-            var de = obj as DateExactTime;
-            if (de == null)
+            if (!(obj is DateExactTime de))
             {
                 return false;
             }

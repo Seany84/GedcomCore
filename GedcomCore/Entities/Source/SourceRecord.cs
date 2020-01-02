@@ -109,8 +109,7 @@ namespace GedcomCore.Framework.Entities.Source
                 throw new NullReferenceException();
             }
 
-            var sr = obj as SourceRecord;
-            if (sr == null)
+            if (!(obj is SourceRecord sr))
             {
                 return false;
             }

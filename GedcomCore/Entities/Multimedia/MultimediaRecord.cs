@@ -81,8 +81,7 @@ namespace GedcomCore.Framework.Entities.Multimedia
                 throw new ArgumentNullException();
             }
 
-            var mr = obj as MultimediaRecord;
-            if (mr == null)
+            if (!(obj is MultimediaRecord mr))
             {
                 return false;
             }

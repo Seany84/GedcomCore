@@ -133,8 +133,7 @@ namespace GedcomCore.Framework.Entities
                 throw new ArgumentNullException();
             }
 
-            var addr = obj as Address;
-            if (addr == null)
+            if (!(obj is Address addr))
             {
                 return false;
             }

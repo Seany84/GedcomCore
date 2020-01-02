@@ -70,8 +70,7 @@ namespace GedcomCore.Framework.Entities
                 throw new ArgumentNullException();
             }
 
-            var rr = obj as RepositoryRecord;
-            if (rr == null)
+            if (!(obj is RepositoryRecord rr))
             {
                 return false;
             }

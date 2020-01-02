@@ -99,8 +99,7 @@ namespace GedcomCore.Framework.Entities
                 throw new ArgumentNullException();
             }
 
-            var txt = obj as ContinueableText;
-            if (txt == null)
+            if (!(obj is ContinueableText txt))
             {
                 return false;
             }

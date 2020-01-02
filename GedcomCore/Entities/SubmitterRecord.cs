@@ -79,8 +79,7 @@ namespace GedcomCore.Framework.Entities
                 throw new ArgumentNullException();
             }
 
-            var subm = obj as SubmitterRecord;
-            if (subm == null)
+            if (!(obj is SubmitterRecord subm))
             {
                 return false;
             }

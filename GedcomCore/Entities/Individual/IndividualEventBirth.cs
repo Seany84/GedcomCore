@@ -29,8 +29,7 @@ namespace GedcomCore.Framework.Entities.Individual
                 throw new ArgumentNullException();
             }
 
-            var birth = obj as IndividualEventBirth;
-            if (birth == null)
+            if (!(obj is IndividualEventBirth birth))
             {
                 return false;
             }

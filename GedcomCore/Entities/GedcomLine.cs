@@ -6,7 +6,7 @@ namespace GedcomCore.Framework.Entities
 {
     public abstract class GedcomLine
     {
-        private List<KeyValuePair<string, GedcomLine>> customTags;
+        private readonly List<KeyValuePair<string, GedcomLine>> customTags;
 
         protected GedcomLine(Reporting Reporting)
         {
@@ -31,20 +31,24 @@ namespace GedcomCore.Framework.Entities
             return Object1.Equals(Object2);
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object Obj)
         {
-            if (obj == null)
+            if (Obj == null)
             {
                 throw new ArgumentNullException();
             }
 
-            var line = obj as GedcomLine;
-            if (line == null)
-            {
-                return false;
-            }
+            return Obj is GedcomLine line && CompareObjects(Tag, line.Tag);
+        }
 
-            return CompareObjects(Tag, line.Tag);
+        protected bool Equals(GedcomLine Other)
+        {
+            return Equals(customTags, Other.customTags) && Tag == Other.Tag && Equals(Reporting, Other.Reporting);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(customTags, Tag, Reporting);
         }
 
         protected Reporting Reporting { get; }

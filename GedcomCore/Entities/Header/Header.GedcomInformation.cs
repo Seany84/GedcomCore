@@ -57,8 +57,7 @@ namespace GedcomCore.Framework.Entities.Header
                     throw new ArgumentNullException();
                 }
 
-                var info = obj as GedcomInformation_;
-                if (info == null)
+                if (!(obj is GedcomInformation_ info))
                 {
                     return false;
                 }

@@ -115,8 +115,7 @@ namespace GedcomCore.Framework.Entities.Date
                 throw new ArgumentNullException();
             }
 
-            var dg = obj as DateGregorian;
-            if (dg == null)
+            if (!(obj is DateGregorian dg))
             {
                 return false;
             }

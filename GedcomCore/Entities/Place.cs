@@ -52,8 +52,7 @@ namespace GedcomCore.Framework.Entities
                 throw new ArgumentNullException();
             }
 
-            var place = obj as Place;
-            if (place == null)
+            if (!(obj is Place place))
             {
                 return false;
             }

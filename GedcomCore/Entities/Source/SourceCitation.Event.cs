@@ -54,8 +54,7 @@ namespace GedcomCore.Framework.Entities.Source
                     throw new ArgumentNullException();
                 }
 
-                var e = obj as Event_;
-                if (e == null)
+                if (!(obj is Event_ e))
                 {
                     return false;
                 }

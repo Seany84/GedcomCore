@@ -38,8 +38,7 @@ namespace GedcomCore.Framework.Entities
                 throw new ArgumentNullException();
             }
 
-            var link = obj as SpouseToFamilyLink;
-            if (link == null)
+            if (!(obj is SpouseToFamilyLink link))
             {
                 return false;
             }

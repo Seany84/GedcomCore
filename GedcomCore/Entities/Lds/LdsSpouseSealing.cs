@@ -72,8 +72,7 @@ namespace GedcomCore.Framework.Entities.Lds
                 throw new ArgumentNullException();
             }
 
-            var lds = obj as LdsSpouseSealing;
-            if (lds == null)
+            if (!(obj is LdsSpouseSealing lds))
             {
                 return false;
             }

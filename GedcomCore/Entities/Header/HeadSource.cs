@@ -54,8 +54,7 @@ namespace GedcomCore.Framework.Entities.Header
                 throw new ArgumentNullException();
             }
 
-            var hs = obj as HeadSource;
-            if (hs == null)
+            if (!(obj is HeadSource hs))
             {
                 return false;
             }

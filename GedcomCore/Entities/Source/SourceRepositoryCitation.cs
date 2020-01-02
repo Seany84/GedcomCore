@@ -47,8 +47,7 @@ namespace GedcomCore.Framework.Entities.Source
                 throw new ArgumentNullException();
             }
 
-            var src = obj as SourceRepositoryCitation;
-            if (src == null)
+            if (!(obj is SourceRepositoryCitation src))
             {
                 return false;
             }

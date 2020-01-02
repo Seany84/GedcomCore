@@ -43,8 +43,7 @@ namespace GedcomCore.Framework.Entities.Family
                 throw new ArgumentNullException();
             }
 
-            var e = obj as FamilyEvent;
-            if (e == null)
+            if (!(obj is FamilyEvent e))
             {
                 return false;
             }

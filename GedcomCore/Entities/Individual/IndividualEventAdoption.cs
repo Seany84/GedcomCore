@@ -31,8 +31,7 @@ namespace GedcomCore.Framework.Entities.Individual
                 throw new ArgumentNullException();
             }
 
-            var adoption = obj as IndividualEventAdoption;
-            if (adoption == null)
+            if (!(obj is IndividualEventAdoption adoption))
             {
                 return false;
             }

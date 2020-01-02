@@ -44,8 +44,7 @@ namespace GedcomCore.Framework.Entities.Lds
                 throw new ArgumentNullException();
             }
 
-            var baptism = obj as LdsIndividualOrdianceBaptism;
-            if (baptism == null)
+            if (!(obj is LdsIndividualOrdianceBaptism baptism))
             {
                 return false;
             }

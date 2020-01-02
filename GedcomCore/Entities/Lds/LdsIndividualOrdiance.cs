@@ -83,8 +83,7 @@ namespace GedcomCore.Framework.Entities.Lds
                 throw new ArgumentNullException();
             }
 
-            var lds = obj as LdsIndividualOrdiance;
-            if (lds == null)
+            if (!(obj is LdsIndividualOrdiance lds))
             {
                 return false;
             }

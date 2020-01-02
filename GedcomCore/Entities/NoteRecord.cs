@@ -122,8 +122,7 @@ namespace GedcomCore.Framework.Entities
                 throw new ArgumentNullException();
             }
 
-            var nr = obj as NoteRecord;
-            if (nr == null)
+            if (!(obj is NoteRecord nr))
             {
                 return false;
             }

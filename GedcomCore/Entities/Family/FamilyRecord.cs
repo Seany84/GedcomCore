@@ -130,8 +130,7 @@ namespace GedcomCore.Framework.Entities.Family
                 throw new ArgumentNullException();
             }
 
-            var fam = obj as FamilyRecord;
-            if (fam == null)
+            if (!(obj is FamilyRecord fam))
             {
                 return false;
             }

@@ -113,8 +113,7 @@ namespace GedcomCore.Framework.Entities.Source
                         throw new ArgumentNullException();
                     }
 
-                    var e = obj as Event;
-                    if (e == null)
+                    if (!(obj is Event e))
                     {
                         return false;
                     }

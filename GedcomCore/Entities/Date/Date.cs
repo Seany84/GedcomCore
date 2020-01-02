@@ -102,8 +102,7 @@ namespace GedcomCore.Framework.Entities.Date
                 throw new ArgumentNullException();
             }
 
-            var dc = obj as DateCalendar;
-            if (dc == null)
+            if (!(obj is DateCalendar dc))
             {
                 return false;
             }

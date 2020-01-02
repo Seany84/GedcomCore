@@ -183,8 +183,7 @@ namespace GedcomCore.Framework.Entities
                 throw new ArgumentNullException();
             }
 
-            var ns = obj as NoteStructure;
-            if (ns == null)
+            if (!(obj is NoteStructure ns))
             {
                 return false;
             }

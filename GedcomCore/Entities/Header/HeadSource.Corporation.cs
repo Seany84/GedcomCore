@@ -44,8 +44,7 @@ namespace GedcomCore.Framework.Entities.Header
                     throw new ArgumentNullException();
                 }
 
-                var corp = obj as Corporation_;
-                if (corp == null)
+                if (!(obj is Corporation_ corp))
                 {
                     return false;
                 }

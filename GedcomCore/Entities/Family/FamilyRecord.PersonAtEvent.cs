@@ -33,8 +33,7 @@ namespace GedcomCore.Framework.Entities.Family
                     throw new NullReferenceException();
                 }
 
-                var pe = obj as PersonAtEvent;
-                if (pe == null)
+                if (!(obj is PersonAtEvent pe))
                 {
                     return false;
                 }

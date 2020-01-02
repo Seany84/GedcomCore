@@ -96,8 +96,7 @@ namespace GedcomCore.Framework.Entities.Date
                 throw new ArgumentNullException();
             }
 
-            var dj = obj as DateJulian;
-            if (dj == null)
+            if (!(obj is DateJulian dj))
             {
                 return false;
             }

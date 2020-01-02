@@ -35,8 +35,7 @@ namespace GedcomCore.Framework.Entities
                 throw new ArgumentNullException();
             }
 
-            var ur = obj as UserReference;
-            if (ur == null)
+            if (!(obj is UserReference ur))
             {
                 return false;
             }

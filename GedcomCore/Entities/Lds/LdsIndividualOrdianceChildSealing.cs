@@ -41,8 +41,7 @@ namespace GedcomCore.Framework.Entities.Lds
                 throw new ArgumentNullException();
             }
 
-            var lds = obj as LdsIndividualOrdianceChildSealing;
-            if (lds == null)
+            if (!(obj is LdsIndividualOrdianceChildSealing lds))
             {
                 return false;
             }

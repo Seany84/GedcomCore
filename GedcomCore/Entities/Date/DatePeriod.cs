@@ -93,8 +93,7 @@ namespace GedcomCore.Framework.Entities.Date
                 throw new ArgumentNullException();
             }
 
-            var dp = obj as DatePeriod;
-            if (dp == null)
+            if (!(obj is DatePeriod dp))
             {
                 return false;
             }

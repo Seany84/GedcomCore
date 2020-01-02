@@ -364,8 +364,7 @@ namespace GedcomCore.Framework.Entities.Multimedia
                     throw new ArgumentNullException();
                 }
 
-                var blob = obj as Blob_;
-                if (blob == null)
+                if (!(obj is Blob_ blob))
                 {
                     return false;
                 }

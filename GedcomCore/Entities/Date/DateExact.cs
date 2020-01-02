@@ -102,8 +102,7 @@ namespace GedcomCore.Framework.Entities.Date
                 throw new ArgumentNullException();
             }
 
-            var de = obj as DateExact;
-            if (de == null)
+            if (!(obj is DateExact de))
             {
                 return false;
             }

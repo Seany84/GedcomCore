@@ -201,8 +201,7 @@ namespace GedcomCore.Framework.Entities.Source
                 throw new ArgumentNullException();
             }
 
-            var sc = obj as SourceCitation;
-            if (sc == null)
+            if (!(obj is SourceCitation sc))
             {
                 return false;
             }

@@ -44,8 +44,7 @@ namespace GedcomCore.Framework.Entities
                 throw new ArgumentNullException();
             }
 
-            var link = obj as ChildToFamilyLink;
-            if (link == null)
+            if (!(obj is ChildToFamilyLink link))
             {
                 return false;
             }

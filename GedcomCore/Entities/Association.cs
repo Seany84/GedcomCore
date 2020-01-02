@@ -53,8 +53,7 @@ namespace GedcomCore.Framework.Entities
                 throw new ArgumentNullException();
             }
 
-            var assoc = obj as Association;
-            if (assoc == null)
+            if (!(obj is Association assoc))
             {
                 return false;
             }

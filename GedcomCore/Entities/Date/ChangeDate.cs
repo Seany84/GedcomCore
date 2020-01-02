@@ -42,8 +42,7 @@ namespace GedcomCore.Framework.Entities.Date
                 throw new ArgumentNullException();
             }
 
-            var cd = obj as ChangeDate;
-            if (cd == null)
+            if (!(obj is ChangeDate cd))
             {
                 return false;
             }

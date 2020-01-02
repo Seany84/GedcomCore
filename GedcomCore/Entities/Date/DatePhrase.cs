@@ -32,8 +32,7 @@ namespace GedcomCore.Framework.Entities.Date
                 throw new ArgumentNullException();
             }
 
-            var dp = obj as DatePhrase;
-            if (dp == null)
+            if (!(obj is DatePhrase dp))
             {
                 return false;
             }

@@ -221,8 +221,7 @@ namespace GedcomCore.Framework.Entities.Individual
                 throw new NullReferenceException();
             }
 
-            var indi = obj as IndividualRecord;
-            if (indi == null)
+            if (!(obj is IndividualRecord indi))
             {
                 return false;
             }

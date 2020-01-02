@@ -73,8 +73,7 @@ namespace GedcomCore.Framework.Entities.Individual
                 throw new NullReferenceException();
             }
 
-            var attrib = obj as IndividualAttribute;
-            if (attrib == null)
+            if (!(obj is IndividualAttribute attrib))
             {
                 return false;
             }

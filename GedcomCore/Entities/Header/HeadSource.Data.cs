@@ -43,8 +43,7 @@ namespace GedcomCore.Framework.Entities.Header
                     throw new ArgumentNullException();
                 }
 
-                var data = obj as Data_;
-                if (data == null)
+                if (!(obj is Data_ data))
                 {
                     return false;
                 }

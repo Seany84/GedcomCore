@@ -129,8 +129,7 @@ namespace GedcomCore.Framework.Entities.Header
                 throw new ArgumentNullException();
             }
 
-            var header = obj as Header;
-            if (header == null)
+            if (!(obj is Header header))
             {
                 return false;
             }

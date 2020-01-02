@@ -44,7 +44,7 @@ namespace GedcomCore.Framework.Entities
         [Tag("")]
         [Quantity(QuantityAttribute.PredefinedQuantities.OneOptional)]
         [Length(1,12)]
-        public string Age { get; set; }
+        public string Age { get; }
 
         public override bool Equals(object obj)
         {
@@ -53,8 +53,7 @@ namespace GedcomCore.Framework.Entities
                 throw new ArgumentNullException();
             }
 
-            var age = obj as AgeAtEvent;
-            if (age == null)
+            if (!(obj is AgeAtEvent age))
             {
                 return false;
             }
@@ -70,6 +69,16 @@ namespace GedcomCore.Framework.Entities
             }
 
             return true;
+        }
+
+        protected bool Equals(AgeAtEvent other)
+        {
+            return base.Equals(other) && Age == other.Age;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(base.GetHashCode(), Age);
         }
     }
 }

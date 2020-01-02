@@ -97,8 +97,7 @@ namespace GedcomCore.Framework.Entities.Date
                 throw new ArgumentNullException();
             }
 
-            var dh = obj as DateHebrew;
-            if (dh == null)
+            if (!(obj is DateHebrew dh))
             {
                 return false;
             }

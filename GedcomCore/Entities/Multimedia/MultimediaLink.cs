@@ -133,8 +133,7 @@ namespace GedcomCore.Framework.Entities.Multimedia
                 throw new ArgumentNullException();
             }
 
-            var ml = obj as MultimediaLink;
-            if (ml == null)
+            if (!(obj is MultimediaLink ml))
             {
                 return false;
             }

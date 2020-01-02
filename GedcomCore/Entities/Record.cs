@@ -42,8 +42,7 @@ namespace GedcomCore.Framework.Entities
                 throw new ArgumentNullException();
             }
 
-            var rec = obj as Record;
-            if (rec == null)
+            if (!(obj is Record rec))
             {
                 return false;
             }

@@ -97,8 +97,7 @@ namespace GedcomCore.Framework.Entities.Date
                 throw new ArgumentNullException();
             }
 
-            var df = obj as DateFrench;
-            if (df == null)
+            if (!(obj is DateFrench df))
             {
                 return false;
             }

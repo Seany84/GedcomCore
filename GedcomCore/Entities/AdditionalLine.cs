@@ -28,8 +28,7 @@ namespace GedcomCore.Framework.Entities
                 throw new ArgumentNullException();
             }
 
-            var s = obj as AdditionalLine;
-            if (s == null)
+            if (!(obj is AdditionalLine s))
             {
                 return false;
             }

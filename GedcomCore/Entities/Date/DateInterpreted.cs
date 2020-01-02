@@ -55,8 +55,7 @@ namespace GedcomCore.Framework.Entities.Date
                 throw new ArgumentNullException();
             }
 
-            var di = obj as DateInterpreted;
-            if (di == null)
+            if (!(obj is DateInterpreted di))
             {
                 return false;
             }

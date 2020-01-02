@@ -29,8 +29,7 @@ namespace GedcomCore.Framework.Entities.Individual
                     throw new ArgumentNullException();
                 }
 
-                var fam = obj as AdoptionFamily_;
-                if (fam == null)
+                if (!(obj is AdoptionFamily_ fam))
                 {
                     return false;
                 }

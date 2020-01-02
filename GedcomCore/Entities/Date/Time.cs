@@ -95,8 +95,7 @@ namespace GedcomCore.Framework.Entities.Date
                 throw new ArgumentNullException();
             }
 
-            var time = obj as Time;
-            if (time == null)
+            if (!(obj is Time time))
             {
                 return false;
             }

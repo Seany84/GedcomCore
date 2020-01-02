@@ -23,8 +23,7 @@ namespace GedcomCore.Framework.Entities
                 throw new ArgumentNullException();
             }
 
-            var sc = obj as SealingChild;
-            if (sc == null)
+            if (!(obj is SealingChild sc))
             {
                 return false;
             }

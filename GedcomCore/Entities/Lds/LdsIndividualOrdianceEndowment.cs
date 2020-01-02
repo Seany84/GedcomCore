@@ -36,8 +36,7 @@ namespace GedcomCore.Framework.Entities.Lds
                 throw new ArgumentNullException();
             }
 
-            var lds = obj as LdsIndividualOrdianceEndowment;
-            if (lds == null)
+            if (!(obj is LdsIndividualOrdianceEndowment lds))
             {
                 return false;
             }

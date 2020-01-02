@@ -36,8 +36,7 @@ namespace GedcomCore.Framework.Entities.Source
                     throw new ArgumentNullException();
                 }
 
-                var scn = obj as SourceCallNumber_;
-                if (scn == null)
+                if (!(obj is SourceCallNumber_ scn))
                 {
                     return false;
                 }

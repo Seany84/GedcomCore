@@ -25,8 +25,7 @@ namespace GedcomCore.Framework.Entities.Header
                     throw new ArgumentNullException();
                 }
 
-                var place = obj as Place_;
-                if (place == null)
+                if (!(obj is Place_ place))
                 {
                     return false;
                 }

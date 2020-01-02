@@ -57,8 +57,7 @@ namespace GedcomCore.Framework.Entities.Date
                 throw new ArgumentNullException();
             }
 
-            var da = obj as DateApproximated;
-            if (da == null)
+            if (!(obj is DateApproximated da))
             {
                 return false;
             }

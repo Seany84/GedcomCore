@@ -23,8 +23,7 @@ namespace GedcomCore.Framework.Entities
                 throw new ArgumentNullException();
             }
 
-            var trailer = obj as Trailer;
-            if (trailer == null)
+            if (!(obj is Trailer trailer))
             {
                 return false;
             }
