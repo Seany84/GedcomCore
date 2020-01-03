@@ -16,10 +16,10 @@ namespace GedcomCore.Framework.Entities
      * 
      */ 
 
-    public class Place : GedcomLine
+    public sealed class Place : GedcomLine
     {
-        public Place(Reporting Reporting)
-            : base(Reporting)
+        public Place(Reporting reporting)
+            : base(reporting)
         {
             SourceCitations = new List<SourceCitation>();
             Notes = new List<NoteStructure>();
@@ -77,7 +77,7 @@ namespace GedcomCore.Framework.Entities
                 return false;
             }
 
-            if (!Notes.Count.Equals(place.Notes))
+            if (!Notes.Count.Equals(place.Notes.Count))
             {
                 return false;
             }

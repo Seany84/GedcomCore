@@ -2,15 +2,15 @@ using System;
 
 namespace GedcomCore.Framework.Entities
 {
-    class InternalException : Exception
+    internal class InternalException : Exception
     {
-        public InternalException(string Message) 
-            : base(Message)
+        public InternalException(string message)
+            : base(message)
         {
         }
 
-        public InternalException(string Message, Exception InnerException)
-            : base(Message, InnerException)
+        public InternalException(string message, Exception innerException)
+            : base(message, innerException)
         {
         }
     }

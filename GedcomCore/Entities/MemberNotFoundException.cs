@@ -1,11 +1,11 @@
 namespace GedcomCore.Framework.Entities
 {
-    class MemberNotFoundException : InternalException
+    internal class MemberNotFoundException : InternalException
     {
-        public MemberNotFoundException(string Message, string Tag)
-            : base(Message)
+        public MemberNotFoundException(string message, string tag)
+            : base(message)
         {
-            this.Tag = Tag;
+            Tag = tag;
         }
 
         public string Tag { get; }
