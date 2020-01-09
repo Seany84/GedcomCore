@@ -21,7 +21,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GedcomCore\GedcomCore.Framework.csproj" />
-    <ProjectReference Include="..\GeneaGedcom\GedcomCore.Framework.csproj" />
   </ItemGroup>
 
 
